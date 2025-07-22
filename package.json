@@ -1,0 +1,55 @@
+{
+  "name": "mata-kuliah-slides",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "description": "Kumpulan presentasi slides untuk mata kuliah Sistem Informasi menggunakan Slidev",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev:dmjk-01": "slidev DMJK/pertemuan-01/slides.md --open",
+    "dev:cc-01": "slidev CC/pertemuan-01/slides.md --open",
+    "dev:proweb-01": "slidev PROWEB/pertemuan-01/slides.md --open",
+    "build:dmjk-01": "slidev build DMJK/pertemuan-01/slides.md --base /mata-kuliah-slides/DMJK/pertemuan-01/ --out dist/DMJK/pertemuan-01",
+    "build:cc-01": "slidev build CC/pertemuan-01/slides.md --base /mata-kuliah-slides/CC/pertemuan-01/ --out dist/CC/pertemuan-01",
+    "build:proweb-01": "slidev build PROWEB/pertemuan-01/slides.md --base /mata-kuliah-slides/PROWEB/pertemuan-01/ --out dist/PROWEB/pertemuan-01",
+    "build:all": "npm run build:dmjk-01 && npm run build:cc-01 && npm run build:proweb-01",
+    "export:dmjk-01": "slidev export DMJK/pertemuan-01/slides.md --format pdf --output exports/DMJK-Pertemuan-01.pdf",
+    "export:cc-01": "slidev export CC/pertemuan-01/slides.md --format pdf --output exports/CC-Pertemuan-01.pdf",
+    "export:proweb-01": "slidev export PROWEB/pertemuan-01/slides.md --format pdf --output exports/PROWEB-Pertemuan-01.pdf",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aidilsaputrakirsan/mata-kuliah-slides.git"
+  },
+  "keywords": [
+    "slidev",
+    "presentation",
+    "slides",
+    "education",
+    "sistem-informasi",
+    "cloud-computing",
+    "networking",
+    "web-programming"
+  ],
+  "author": "Aidil Saputra Kirsan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aidilsaputrakirsan/mata-kuliah-slides/issues"
+  },
+  "homepage": "https://aidilsaputrakirsan.github.io/mata-kuliah-slides",
+  "dependencies": {
+    "@slidev/cli": "^52.0.0",
+    "@slidev/theme-default": "^0.25.0",
+    "@slidev/theme-seriph": "^0.25.0",
+    "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.15",
+    "playwright-chromium": "^1.54.1",
+    "vite": "^7.0.5"
+  }
+}
