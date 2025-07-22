@@ -29,13 +29,39 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
-    - name: Build slides
-      run: npm run build:cc-01
+    - name: Build slides with detailed logging
+      run: |
+        echo "=== Building CC Week 1 ==="
+        echo "Current directory: $(pwd)"
+        echo "Checking slides.md exists:"
+        ls -la CC/pertemuan-01/slides.md
+        
+        echo "=== Running build command ==="
+        npm run build:cc-01
+        
+        echo "=== Checking build output ==="
+        if [ -f "dist/CC/pertemuan-01/index.html" ]; then
+          echo "✅ SUCCESS: index.html created"
+          ls -la dist/CC/pertemuan-01/index.html
+          echo "Total files in dist/CC/pertemuan-01/:"
+          ls -la dist/CC/pertemuan-01/ | wc -l
+        else
+          echo "❌ FAILED: index.html not found"
+          echo "Contents of dist/:"
+          find dist/ -type f | head -10
+          exit 1
+        fi
         
     - name: Copy landing page
       run: |
         mkdir -p dist
         cp docs/index.html dist/
+        echo "✅ Landing page copied"
+        
+    - name: List all files before upload
+      run: |
+        echo "=== Final dist structure ==="
+        find dist/ -type f | sort
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
