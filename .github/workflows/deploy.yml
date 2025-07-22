@@ -29,34 +29,68 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
-    - name: Build slides and fix output location
+    - name: Auto-detect and build all slides
       run: |
-        echo "=== Building CC Week 1 ==="
-        npm run build:cc-01
+        echo "=== Auto-detecting slides ==="
         
-        echo "=== Finding actual build output ==="
-        find . -name "index.html" -path "*CC*pertemuan-01*" -not -path "*node_modules*"
+        # Find all slides.md files
+        slides_files=$(find . -path "*/pertemuan-*/slides.md" -not -path "*node_modules*" | sort)
         
-        echo "=== Moving files to correct location ==="
-        # Create target directory in project root
-        mkdir -p dist/CC/pertemuan-01
-        
-        # Copy files from the wrong location to correct location
-        if [ -d "CC/pertemuan-01/dist/CC/pertemuan-01" ]; then
-          echo "Moving files from CC/pertemuan-01/dist/CC/pertemuan-01/ to dist/CC/pertemuan-01/"
-          cp -r CC/pertemuan-01/dist/CC/pertemuan-01/* dist/CC/pertemuan-01/
-          echo "✅ Files moved successfully"
-        else
-          echo "❌ Source directory not found"
+        if [ -z "$slides_files" ]; then
+          echo "❌ No slides.md files found"
           exit 1
         fi
         
-        echo "=== Verifying final location ==="
-        ls -la dist/CC/pertemuan-01/index.html
+        echo "Found slides:"
+        echo "$slides_files"
+        
+        # Create main dist directory
+        mkdir -p dist
+        
+        # Build each slides.md file
+        for slide_path in $slides_files; do
+          echo "=== Processing: $slide_path ==="
+          
+          # Extract MK and pertemuan from path
+          # Example: ./CC/pertemuan-01/slides.md -> CC, pertemuan-01
+          mk=$(echo "$slide_path" | cut -d'/' -f2)
+          pertemuan=$(echo "$slide_path" | cut -d'/' -f3)
+          
+          echo "MK: $mk, Pertemuan: $pertemuan"
+          
+          # Build command
+          echo "Building $mk/$pertemuan..."
+          cd "$mk/$pertemuan"
+          
+          slidev build slides.md \
+            --base "/mata-kuliah-slides/$mk/$pertemuan/" \
+            --out "../../dist/$mk/$pertemuan"
+          
+          # Go back to project root
+          cd ../../
+          
+          # Move files if they're in wrong location (backup fix)
+          if [ -d "$mk/$pertemuan/dist/$mk/$pertemuan" ]; then
+            echo "Moving files from wrong location..."
+            mkdir -p "dist/$mk/$pertemuan"
+            cp -r "$mk/$pertemuan/dist/$mk/$pertemuan"/* "dist/$mk/$pertemuan/"
+            rm -rf "$mk/$pertemuan/dist"
+          fi
+          
+          # Verify build success
+          if [ -f "dist/$mk/$pertemuan/index.html" ]; then
+            echo "✅ SUCCESS: $mk/$pertemuan built successfully"
+          else
+            echo "❌ FAILED: $mk/$pertemuan build failed"
+            exit 1
+          fi
+        done
+        
+        echo "=== Build Summary ==="
+        find dist/ -name "index.html" | sort
         
     - name: Copy landing page
       run: |
-        mkdir -p dist
         cp docs/index.html dist/
         echo "✅ Landing page copied"
         
