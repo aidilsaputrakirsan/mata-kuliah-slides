@@ -29,42 +29,30 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
-    - name: Build slides with detailed logging
+    - name: Build slides and fix output location
       run: |
         echo "=== Building CC Week 1 ==="
-        echo "Current directory: $(pwd)"
-        echo "Checking slides.md exists:"
-        ls -la CC/pertemuan-01/slides.md
-        
-        echo "=== Running build command ==="
         npm run build:cc-01
         
-        # Wait a moment for file system to sync
-        sleep 2
+        echo "=== Finding actual build output ==="
+        find . -name "index.html" -path "*CC*pertemuan-01*" -not -path "*node_modules*"
         
-        echo "=== Checking build output (detailed) ==="
-        echo "Checking if dist directory exists:"
-        ls -la dist/ || echo "No dist directory"
+        echo "=== Moving files to correct location ==="
+        # Create target directory in project root
+        mkdir -p dist/CC/pertemuan-01
         
-        echo "Checking CC subdirectory:"
-        ls -la dist/CC/ || echo "No CC directory"
-        
-        echo "Checking pertemuan-01 subdirectory:"
-        ls -la dist/CC/pertemuan-01/ || echo "No pertemuan-01 directory"
-        
-        echo "Finding all HTML files:"
-        find . -name "*.html" -type f | grep -v node_modules || echo "No HTML files found"
-        
-        if [ -f "dist/CC/pertemuan-01/index.html" ]; then
-          echo "✅ SUCCESS: index.html found"
+        # Copy files from the wrong location to correct location
+        if [ -d "CC/pertemuan-01/dist/CC/pertemuan-01" ]; then
+          echo "Moving files from CC/pertemuan-01/dist/CC/pertemuan-01/ to dist/CC/pertemuan-01/"
+          cp -r CC/pertemuan-01/dist/CC/pertemuan-01/* dist/CC/pertemuan-01/
+          echo "✅ Files moved successfully"
         else
-          echo "❌ FAILED: index.html not found"
-          echo "=== Full dist tree ==="
-          find dist/ -type f 2>/dev/null || echo "No files in dist"
-          echo "=== Full current directory ==="
-          find . -name "index.html" -type f | head -5
+          echo "❌ Source directory not found"
           exit 1
         fi
+        
+        echo "=== Verifying final location ==="
+        ls -la dist/CC/pertemuan-01/index.html
         
     - name: Copy landing page
       run: |
