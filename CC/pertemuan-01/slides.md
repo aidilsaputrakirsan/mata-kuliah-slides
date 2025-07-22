@@ -8,8 +8,8 @@ info: |
   Sistem Informasi - Universitas [Nama Universitas]
   Semester Ganjil 2025/2026
   
-  Dosen: [Nama Dosen]
-author: [Nama Dosen]
+  Dosen: Aidil Saputra Kirsan
+author: Aidil Saputra Kirsan
 keywords: cloud,computing,github,environment,setup
 fonts:
   sans: 'Inter'
@@ -25,7 +25,7 @@ mdc: true
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Sistem Informasi | [Nama Universitas] <carbon:arrow-right class="inline"/>
+    Sistem Informasi | Universitas <carbon:arrow-right class="inline"/>
   </span>
 </div>
 
@@ -33,15 +33,14 @@ mdc: true
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon:edit />
   </button>
-  <a href="https://github.com/[username]/mata-kuliah-slides" target="_blank" alt="GitHub" title="Open in GitHub"
+  <a href="https://github.com/aidilsaputrakirsan/mata-kuliah-slides" target="_blank" alt="GitHub" title="Open in GitHub"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
 </div>
 
 ---
-layout: presenter
-presenterImage: './assets/lecturer-photo.jpg'
+layout: default
 ---
 
 # 👨‍🏫 Course Information
@@ -54,18 +53,18 @@ presenterImage: './assets/lecturer-photo.jpg'
 - **Course**: Cloud Computing 
 - **Credits**: 3 SKS
 - **Semester**: Ganjil 2025/2026
-- **Class**: SI-[Kelas]
-- **Time**: [Hari, Jam]
+- **Class**: SI-A
+- **Time**: Selasa, 08:00-10:30
 
 </div>
 
 <div>
 
 ## 👨‍💼 Lecturer Info
-- **Name**: [Nama Dosen]
-- **Email**: [email@university.ac.id]
-- **Office**: [Ruang]
-- **Office Hours**: [Jadwal]
+- **Name**: Aidil Saputra Kirsan
+- **Email**: aidil@university.ac.id
+- **Office**: Ruang Dosen
+- **Office Hours**: Senin-Jumat 10:00-12:00
 
 </div>
 
@@ -89,19 +88,10 @@ Setelah mengikuti pertemuan ini, mahasiswa mampu:
 
 </v-clicks>
 
-<div class="learning-objectives mt-8" v-click="6">
-  <h3>🎓 Expected Outcomes</h3>
-  <p>Mahasiswa siap mengikuti praktikum Cloud Computing dengan environment yang proper dan memahami workflow development yang profesional.</p>
+<div class="mt-8 p-4 bg-blue-50 rounded-lg" v-click="6">
+  <h3 class="text-blue-800">🎓 Expected Outcomes</h3>
+  <p class="text-blue-700">Mahasiswa siap mengikuti praktikum Cloud Computing dengan environment yang proper dan memahami workflow development yang profesional.</p>
 </div>
-
-<style>
-.learning-objectives {
-  background: #f8fafc;
-  border-left: 4px solid #3b82f6;
-  padding: 1rem;
-  border-radius: 0 8px 8px 0;
-}
-</style>
 
 ---
 layout: two-cols
@@ -250,22 +240,17 @@ layout: default
 
 # 💻 Git Installation & Configuration
 
-````md magic-move
-```bash
-# Windows - Download Git Bash
-# Visit: https://git-scm.com/download/win
-# Follow installation wizard
-```
+## Windows - Download Git Bash
+Visit: https://git-scm.com/download/win and follow installation wizard
 
+## macOS - Using Homebrew
 ```bash
-# macOS - Using Homebrew
 brew install git
-
 # Or download from: https://git-scm.com/download/mac
 ```
 
+## Linux (Ubuntu/Debian)
 ```bash
-# Linux (Ubuntu/Debian)
 sudo apt update
 sudo apt install git
 
@@ -273,25 +258,18 @@ sudo apt install git
 sudo yum install git
 ```
 
+## Verify Installation
 ```bash
-# Verify Installation
 git --version
 # Should show: git version 2.x.x
 ```
 
+## Global Configuration
 ```bash
-# Global Configuration
 git config --global user.name "Nama Lengkap"
 git config --global user.email "email@university.ac.id"
 git config --global init.defaultBranch main
 ```
-
-```bash
-# Verify Configuration
-git config --list
-# Check if name and email are correct
-```
-````
 
 ---
 layout: two-cols
@@ -411,45 +389,41 @@ git status
 
 # 📝 Basic Git Workflow
 
-````md magic-move
+## Check current status
 ```bash
-# Check current status
 git status
 ```
 
+## Create new file
 ```bash
-# Create new file
 echo "# Cloud Computing Environment Setup" > SETUP.md
 echo "This is my development environment for CC course" >> SETUP.md
 ```
 
+## Add file to staging
 ```bash
-# Add file to staging
 git add SETUP.md
-
-# Check status
 git status
 ```
 
+## Commit changes
 ```bash
-# Commit changes
 git commit -m "Add initial setup documentation"
 ```
 
+## Push to GitHub
 ```bash
-# Push to GitHub
 git push origin main
 ```
 
+## Complete workflow example
 ```bash
-# Complete workflow example
 git add .
 git commit -m "Update project documentation"
 git push origin main
 ```
-````
 
-<div class="mt-8 p-4 bg-blue-50 rounded-lg">
+<div class="mt-4 p-4 bg-blue-50 rounded-lg">
   <h4 class="text-blue-800">🔄 Git Workflow</h4>
   <p class="text-blue-700"><strong>add</strong> → <strong>commit</strong> → <strong>push</strong></p>
 </div>
@@ -486,7 +460,6 @@ layout: two-cols
 ## Configuration
 
 ```json
-// settings.json
 {
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
@@ -513,7 +486,6 @@ layout: two-cols
 ```
 cc-course-projects/
 ├── README.md
-├── .gitignore
 ├── week-01-setup/
 │   ├── environment-config/
 │   ├── github-setup/
@@ -570,7 +542,7 @@ cc-course-projects/
 
 ## Task 2: First Repository
 
-1. Create repository: `cc-[nama]-2025`
+1. Create repository: `cc-aidil-2025`
 2. Clone to local machine
 3. Create folder structure
 4. Add README.md with:
@@ -628,7 +600,7 @@ layout: two-cols
 
 ## .gitignore Example
 
-```gitignore
+```bash
 # Environment variables
 .env
 .env.local
@@ -714,7 +686,7 @@ __pycache__/
     
     <div class="p-6 bg-green-50 rounded-lg">
       <h3 class="text-green-800 text-lg font-semibold">📧 After Class</h3>
-      <p class="text-green-700">Email: [email@university.ac.id]</p>
+      <p class="text-green-700">Email: aidil@university.ac.id</p>
     </div>
   </div>
 </div>
@@ -731,17 +703,17 @@ layout: end
   <div class="flex justify-center space-x-8 text-sm">
     <div>
       <h3 class="font-semibold">📱 Contact</h3>
-      <p>[email@university.ac.id]</p>
+      <p>aidil@university.ac.id</p>
     </div>
     
     <div>
       <h3 class="font-semibold">🔗 Resources</h3>
-      <p>github.com/[username]/mata-kuliah-slides</p>
+      <p>github.com/aidilsaputrakirsan/mata-kuliah-slides</p>
     </div>
     
     <div>
       <h3 class="font-semibold">💬 Office Hours</h3>
-      <p>[Jadwal Office Hours]</p>
+      <p>Senin-Jumat 10:00-12:00</p>
     </div>
   </div>
 </div>
