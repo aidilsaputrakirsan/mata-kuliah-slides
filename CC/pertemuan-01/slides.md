@@ -28,7 +28,7 @@ mdc: true
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon:edit />
   </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
+  <a href="https://github.com/aidilsaputrakirsan" target="_blank" alt="GitHub" title="Open in GitHub"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
@@ -120,6 +120,364 @@ graph LR
     style D fill:#fff3e0
     style E fill:#ffebee
 ```
+
+</v-click>
+
+---
+layout: two-cols
+layoutClass: gap-16
+---
+
+# What is Cloud Computing?
+*Apa itu Cloud Computing?*
+
+<v-click>
+
+Cloud Computing adalah **delivery of computing services** melalui Internet dengan model **pay-as-you-go**.
+
+</v-click>
+
+<v-clicks>
+
+## ✨ **Key Benefits**
+- **💰 Cost-effective** - No upfront investment
+- **⚡ Fast deployment** - Resources in minutes
+- **📈 Scalable** - Grow with your needs
+- **🌍 Global access** - Available anywhere
+- **🔧 Managed** - Provider handles maintenance
+
+</v-clicks>
+
+::right::
+
+<v-click>
+
+```mermaid
+graph TB
+    A[Your Business] --> B[Internet]
+    B --> C[Cloud Provider]
+    C --> D[Computing Power]
+    C --> E[Storage]
+    C --> F[Applications]
+    C --> G[Databases]
+    
+    style A fill:#e3f2fd
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style E fill:#fff3e0
+    style F fill:#fff3e0
+    style G fill:#fff3e0
+```
+
+</v-click>
+
+---
+layout: default
+---
+
+# Cloud Service Models
+*Model Layanan Cloud*
+
+<div class="grid grid-cols-3 gap-6 mt-8">
+
+<v-click>
+<div class="text-center p-4 border rounded-lg bg-blue-50">
+  <div class="text-4xl mb-2">🏗️</div>
+  <h3 class="font-bold text-blue-600">IaaS</h3>
+  <p class="text-sm font-semibold">Infrastructure as a Service</p>
+  <ul class="text-xs mt-2">
+    <li>Virtual machines</li>
+    <li>Storage & networking</li>
+    <li>**You manage**: OS, apps</li>
+  </ul>
+  <div class="mt-2 text-xs font-bold">AWS EC2, Google Compute</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="text-center p-4 border rounded-lg bg-green-50">
+  <div class="text-4xl mb-2">🔧</div>
+  <h3 class="font-bold text-green-600">PaaS</h3>
+  <p class="text-sm font-semibold">Platform as a Service</p>
+  <ul class="text-xs mt-2">
+    <li>Development platform</li>
+    <li>Database management</li>
+    <li>**You manage**: Applications</li>
+  </ul>
+  <div class="mt-2 text-xs font-bold">Heroku, Google App Engine</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="text-center p-4 border rounded-lg bg-purple-50">
+  <div class="text-4xl mb-2">📱</div>
+  <h3 class="font-bold text-purple-600">SaaS</h3>
+  <p class="text-sm font-semibold">Software as a Service</p>
+  <ul class="text-xs mt-2">
+    <li>Ready-to-use software</li>
+    <li>Web-based access</li>
+    <li>**You manage**: Data only</li>
+  </ul>
+  <div class="mt-2 text-xs font-bold">Gmail, Office 365</div>
+</div>
+</v-click>
+
+</div>
+
+<v-click at="4">
+
+## 🎯 **Which One to Choose?**
+
+<div class="grid grid-cols-3 gap-4 mt-6">
+<div class="p-3 bg-blue-100 rounded text-center">
+<strong class="text-blue-800">Maximum Control</strong><br>
+<span class="text-xs">Choose IaaS</span>
+</div>
+<div class="p-3 bg-green-100 rounded text-center">
+<strong class="text-green-800">Focus on Code</strong><br>
+<span class="text-xs">Choose PaaS</span>
+</div>
+<div class="p-3 bg-purple-100 rounded text-center">
+<strong class="text-purple-800">Just Use It</strong><br>
+<span class="text-xs">Choose SaaS</span>
+</div>
+</div>
+
+</v-click>
+
+---
+layout: default
+---
+
+# Cloud Deployment Models
+*Model Deployment Cloud*
+
+<div class="grid grid-cols-2 gap-8 mt-6">
+
+<div v-click="1">
+
+## 🌐 **Public Cloud**
+- **Shared** infrastructure
+- **Cost-effective** for most workloads
+- **High availability** & scalability
+- **Examples**: AWS, Google Cloud, Azure
+
+</div>
+
+<div v-click="2">
+
+## 🏢 **Private Cloud**
+- **Dedicated** infrastructure
+- **Enhanced security** & control
+- **Higher cost** but more customization
+- **Examples**: On-premises, hosted private
+
+</div>
+
+<div v-click="3">
+
+## 🔄 **Hybrid Cloud**
+- **Best of both worlds**
+- **Flexible** workload placement
+- **Gradual** migration strategy
+- **Examples**: AWS Outposts, Azure Stack
+
+</div>
+
+<div v-click="4">
+
+## 🌍 **Multi-Cloud**
+- **Multiple** cloud providers
+- **Avoid** vendor lock-in
+- **Best-of-breed** services
+- **Complex** management
+
+</div>
+
+</div>
+
+---
+layout: default
+---
+
+# Major Cloud Providers
+*Provider Cloud Utama*
+
+<div class="grid grid-cols-3 gap-6 mt-8">
+
+<v-click>
+<div class="text-center p-4 border rounded-lg">
+  <div class="text-4xl mb-2">🟠</div>
+  <h3 class="font-bold text-orange-600">Amazon AWS</h3>
+  <div class="text-sm mt-2">
+    <div class="font-semibold">Market Leader • 32%</div>
+    <ul class="text-xs mt-2">
+      <li>• **Largest** service catalog</li>
+      <li>• **Mature** ecosystem</li>
+      <li>• **Great for**: Startups, enterprises</li>
+    </ul>
+  </div>
+</div>
+</v-click>
+
+<v-click>
+<div class="text-center p-4 border rounded-lg">
+  <div class="text-4xl mb-2">🔵</div>
+  <h3 class="font-bold text-blue-600">Microsoft Azure</h3>
+  <div class="text-sm mt-2">
+    <div class="font-semibold">Enterprise Focus • 21%</div>
+    <ul class="text-xs mt-2">
+      <li>• **Strong** in enterprise</li>
+      <li>• **Excellent** Microsoft integration</li>
+      <li>• **Great for**: .NET, Office 365 users</li>
+    </ul>
+  </div>
+</div>
+</v-click>
+
+<v-click>
+<div class="text-center p-4 border rounded-lg">
+  <div class="text-4xl mb-2">🟡</div>
+  <h3 class="font-bold text-yellow-600">Google Cloud</h3>
+  <div class="text-sm mt-2">
+    <div class="font-semibold">Innovation Leader • 10%</div>
+    <ul class="text-xs mt-2">
+      <li>• **Advanced** AI/ML capabilities</li>
+      <li>• **Strong** in data analytics</li>
+      <li>• **Great for**: Data science, AI</li>
+    </ul>
+  </div>
+</div>
+</v-click>
+
+</div>
+
+<v-click at="4">
+
+## 🎯 **For This Course**
+
+<div class="text-center p-4 bg-yellow-50 rounded-lg mt-6">
+<h3 class="font-bold text-yellow-800">We'll Use Google Cloud Platform</h3>
+<p class="text-sm">Free tier, excellent tools, and great for learning</p>
+</div>
+
+</v-click>
+
+---
+layout: default
+---
+
+# Cloud Computing Benefits
+*Manfaat Cloud Computing*
+
+<div class="grid grid-cols-5 gap-6">
+
+<div class="col-span-2">
+
+<v-click>
+
+## ✅ **Top 4 Benefits**
+
+</v-click>
+
+<v-clicks>
+
+- **💰 Cost Savings** - Pay only what you use
+- **⚡ Speed & Agility** - Deploy in minutes
+- **📈 Auto-Scaling** - Handle traffic spikes
+- **🌍 Global Reach** - Worldwide deployment
+
+</v-clicks>
+
+</div>
+
+<div class="col-span-3">
+
+<v-click>
+
+```mermaid
+graph TD
+    A[Traditional IT] --> A1[High CAPEX]
+    A --> A2[Slow Deployment]
+    A --> A3[Fixed Capacity]
+    
+
+    style A fill:#ffebee
+    style A1 fill:#ffebee
+    style A2 fill:#ffebee
+    style A3 fill:#ffebee
+
+```
+
+```mermaid
+graph TD
+     
+    B[Cloud Computing] --> B1[Pay-as-you-go]
+    B --> B2[Instant Resources]
+    B --> B3[Elastic Scaling]
+    
+  
+    style B fill:#e8f5e8
+    style B1 fill:#e8f5e8
+    style B2 fill:#e8f5e8
+    style B3 fill:#e8f5e8
+```
+
+</v-click>
+
+</div>
+
+</div>
+
+---
+layout: default
+---
+
+# Cloud Computing Challenges
+*Tantangan & Solusi*
+
+<div class="grid grid-cols-2 gap-8">
+
+<div v-click="1">
+
+## ⚠️ **Key Challenges**
+
+<v-clicks>
+
+- **🔒 Security Concerns**
+- **🔗 Vendor Lock-in** 
+- **📶 Internet Dependency**
+- **💸 Cost Management**
+
+</v-clicks>
+
+</div>
+
+<div v-click="6">
+
+## 🎯 **Best Practices**
+
+<v-clicks>
+
+- **📋 Plan Strategy** first
+- **🛡️ Security First** approach
+- **📊 Monitor Costs** regularly
+- **🎓 Train Teams** continuously
+
+</v-clicks>
+
+</div>
+
+</div>
+
+<v-click at="11">
+
+## 💡 **Success Formula**
+
+<div class="text-center p-4 bg-blue-50 rounded-lg mt-6">
+<h3 class="font-bold text-blue-800">Start Small → Learn Fast → Scale Smart</h3>
+<p class="text-sm mt-2">Begin with pilot projects, gather experience, then expand strategically</p>
+</div>
 
 </v-click>
 
@@ -365,6 +723,15 @@ graph LR
 
 </div>
 
+---
+layout: default
+---
+
+# Git Fundamentals Review II
+*Review Dasar-dasar Git*
+
+Git adalah **distributed version control system** yang melacak perubahan dalam source code selama development.
+
 <v-click at="4">
 
 ## 🎯 **Essential Commands**
@@ -410,8 +777,8 @@ git config --global user.email "your.email@example.com"
 
 ```bash
 # Example dengan data mahasiswa
-git config --global user.name "Ahmad Pratama"
-git config --global user.email "ahmad.pratama@student.university.ac.id"
+git config --global user.name "Aidil Saputra Kirsan"
+git config --global user.email "aidil@lecturer.itk.ac.id"
 
 # Verify configuration
 git config --list
@@ -472,16 +839,6 @@ GitHub adalah **cloud-based Git repository hosting service** yang menyediakan pl
 
 </v-clicks>
 
-<v-click>
-
-## 🎓 **Student Benefits**
-- **GitHub Pro** gratis dengan Student Pack
-- **Private repositories** unlimited
-- **GitHub Copilot** access
-- **Codespaces** hours
-
-</v-click>
-
 ::right::
 
 <v-click>
@@ -509,9 +866,9 @@ GitHub adalah **cloud-based Git repository hosting service** yang menyediakan pl
 - **Consistent** across platforms  
 - **Avoid** numbers if possible
 - **Examples**: 
-  - `ahmad-pratama`
-  - `pratamadev`
-  - `ahmad_coding`
+  - `aidilsaputrakirsan`
+  - `aidildev`
+  - `aidil_coding`
 
 </v-click>
 
@@ -557,12 +914,17 @@ Add .gitignore (optional)
 
 ## 💻 **Command Line Alternative**
 
-````md magic-move
+<v-click at="3">
+
 ```bash
 # Create local directory
 mkdir cloud-computing-week1
 cd cloud-computing-week1
 ```
+
+</v-click>
+
+<v-click at="4">
 
 ```bash
 # Initialize Git repository
@@ -572,19 +934,26 @@ git add README.md
 git commit -m "Initial commit"
 ```
 
+</v-click>
+
+<v-click at="5">
+
 ```bash
 # Connect to GitHub (create repo first)
 git remote add origin https://github.com/username/cloud-computing-week1.git
 git branch -M main
 git push -u origin main
 ```
-````
+
+</v-click>
 
 </div>
 
 </div>
 
-<v-click at="5">
+---
+transition: slide-up
+---
 
 ## 📁 **Repository Structure Recommendation**
 
@@ -597,11 +966,9 @@ cloud-computing-week1/
 └── resources/
 ```
 
-</v-click>
-
 ---
-layout: center
-class: text-center
+layout: two-cols
+layoutClass: gap-16
 ---
 
 # SSH Key Authentication
@@ -612,6 +979,18 @@ class: text-center
 SSH keys provide **secure authentication** without passwords untuk akses repository.
 
 </v-click>
+
+<v-click>
+
+## 🔐 **Benefits of SSH Keys**
+- **No passwords** untuk Git operations
+- **Enhanced security** dengan public-key cryptography  
+- **Automation-friendly** untuk scripts & CI/CD
+- **Multiple keys** untuk different services
+
+</v-click>
+
+::right::
 
 <v-click>
 
@@ -628,16 +1007,6 @@ sequenceDiagram
     
     Note over C,G: Secure, passwordless authentication
 ```
-
-</v-click>
-
-<v-click>
-
-## 🔐 **Benefits of SSH Keys**
-- **No passwords** untuk Git operations
-- **Enhanced security** dengan public-key cryptography  
-- **Automation-friendly** untuk scripts & CI/CD
-- **Multiple keys** untuk different services
 
 </v-click>
 
@@ -658,8 +1027,7 @@ ssh-keygen -t ed25519 -C "your.email@example.com"
 
 ```bash
 # Full generation process
-ssh-keygen -t ed25519 -C "ahmad.pratama@student.university.ac.id"
-
+ssh-keygen -t ed25519 -C "aidil@lecturer.itk.ac.id"
 # When prompted:
 # - File location: Press Enter (default: ~/.ssh/id_ed25519)
 # - Passphrase: Enter secure passphrase (recommended)
@@ -700,11 +1068,10 @@ layoutClass: gap-16
 ---
 
 # Adding SSH Key to GitHub
-*Menambahkan SSH Key ke GitHub*
 
 <v-clicks>
 
-## 📋 **Steps in GitHub**
+### 📋 **Steps in GitHub**
 
 1. **Navigate** to Settings → SSH and GPG keys
 2. **Click** "New SSH key" 
@@ -718,12 +1085,11 @@ layoutClass: gap-16
 
 <v-click>
 
-## 🧪 **Testing Connection**
+### 🧪 **Testing Connection**
 
 ```bash
 # Test SSH connection
 ssh -T git@github.com
-
 # Expected output:
 # Hi username! You've successfully authenticated,
 # but GitHub does not provide shell access.
@@ -745,7 +1111,8 @@ git remote -v
 
 ```bash
 # Change from HTTPS to SSH
-git remote set-url origin git@github.com:username/repo.git
+git remote set-url origin 
+git@github.com:username/repo.git
 
 # Verify change
 git remote -v
@@ -859,23 +1226,25 @@ graph LR
 </v-click>
 
 ---
-layout: default
+layout: two-cols
+layoutClass: gap-16
 ---
 
 # Advanced Git Operations
 *Operasi Git Lanjutan*
 
-<div class="grid grid-cols-2 gap-8">
-
-<div v-click="1">
-
 ## 🌿 **Branching Strategy**
 
-````md magic-move
+<v-click at="1">
+
 ```bash
 # Create and switch to new branch
 git checkout -b feature/assignment2
 ```
+
+</v-click>
+
+<v-click at="2">
 
 ```bash
 # Work on the branch
@@ -884,17 +1253,22 @@ git add assignment2.md
 git commit -m "Add assignment 2"
 ```
 
+</v-click>
+
+<v-click at="3">
+
 ```bash
 # Switch back to main and merge
 git checkout main
 git merge feature/assignment2
 git push origin main
 ```
-````
 
-</div>
+</v-click>
 
-<div v-click="4">
+::right::
+
+<v-click at="4">
 
 ## 🔍 **Inspection Commands**
 
@@ -912,11 +1286,18 @@ git diff main..feature/assignment2
 git log --follow assignment1.md
 ```
 
-</div>
+</v-click>
 
-</div>
+---
+transition: fade
+---
 
-<v-click at="5">
+# Git Productivity Tools
+*Tools Produktivitas Git*
+
+<div class="grid grid-cols-2 gap-8">
+
+<div v-click="1">
 
 ## 🛠️ **Useful Git Aliases**
 
@@ -928,14 +1309,14 @@ git config --global alias.ci commit
 git config --global alias.st status
 git config --global alias.lg "log --oneline --graph --all"
 
-# Usage
+# Usage examples
 git st  # Same as git status
 git lg  # Pretty log output
 ```
 
-</v-click>
+</div>
 
-<v-click at="6">
+<div v-click="2">
 
 ## 🔄 **Sync with Remote**
 
@@ -946,274 +1327,10 @@ git pull origin main
 
 # Force sync (careful!)
 git reset --hard origin/main
-```
 
-</v-click>
-
----
-transition: slide-up
----
-
-# Environment Verification
-*Verifikasi Environment*
-
-<v-click>
-
-Mari pastikan semua komponen sudah dikonfigurasi dengan benar melalui **comprehensive testing**.
-
-</v-click>
-
-## ✅ **Verification Checklist**
-
-<div class="grid grid-cols-2 gap-6 mt-4">
-
-<div v-click="2">
-
-### 🔧 **System Check**
-
-```bash
-# Cloud Shell environment
-echo "Cloud Shell: $(hostname)"
-echo "User: $(whoami)"
-echo "Home: $HOME"
-echo "Shell: $SHELL"
-
-# Available tools
-which git docker gcloud kubectl
-```
-
-</div>
-
-<div v-click="3">
-
-### 👤 **Git Configuration**
-
-```bash
-# Check Git setup
-git config --list | grep user
-git config --get user.name
-git config --get user.email
-
-# Test Git functionality
-git --version
-```
-
-</div>
-
-<div v-click="4">
-
-### 🔐 **SSH Authentication**
-
-```bash
-# Test SSH key
-ssh -T git@github.com
-
-# Check loaded keys
-ssh-add -l
-
-# Verify GitHub connection
-```
-
-</div>
-
-<div v-click="5">
-
-### 📁 **Repository Access**
-
-```bash
-# Clone test
-git clone git@github.com:username/cloud-computing-week1.git
-
-# Test push
-cd cloud-computing-week1
-echo "Verification test" > verification.txt
-git add verification.txt
-git commit -m "Environment verification"
-git push
-```
-
-</div>
-
-</div>
-
----
-layout: center
----
-
-# Troubleshooting Common Issues
-*Mengatasi Masalah Umum*
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-
-<div v-click="1">
-
-## 🚫 **Authentication Problems**
-
-<div class="space-y-4">
-<div class="p-4 bg-red-50 rounded">
-<h4 class="font-bold text-red-800">Problem: Permission denied (publickey)</h4>
-<pre class="text-xs mt-2"><code># Solution
-ssh-add ~/.ssh/id_ed25519
-ssh -T git@github.com</code></pre>
-</div>
-
-<div class="p-4 bg-yellow-50 rounded">
-<h4 class="font-bold text-yellow-800">Problem: HTTPS vs SSH URL</h4>
-<pre class="text-xs mt-2"><code># Check and fix
+# Check remote status
 git remote -v
-git remote set-url origin git@github.com:user/repo.git</code></pre>
-</div>
-</div>
-
-</div>
-
-<div v-click="2">
-
-## ⚠️ **Configuration Issues**
-
-<div class="space-y-4">
-<div class="p-4 bg-blue-50 rounded">
-<h4 class="font-bold text-blue-800">Problem: Missing user info</h4>
-<pre class="text-xs mt-2"><code># Solution
-git config --global user.name "Your Name"
-git config --global user.email "email@domain.com"</code></pre>
-</div>
-
-<div class="p-4 bg-green-50 rounded">
-<h4 class="font-bold text-green-800">Problem: Merge conflicts</h4>
-<pre class="text-xs mt-2"><code># Solution
-git status
-# Edit conflicted files
-git add .
-git commit -m "Resolve conflict"</code></pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-<v-click at="3">
-
-## 🛠️ **Quick Diagnostic Script**
-
-```bash
-#!/bin/bash
-echo "=== Environment Diagnostic ==="
-echo "Git version: $(git --version)"
-echo "User: $(git config user.name) <$(git config user.email)>"
-echo "SSH connection test:"
-ssh -T git@github.com 2>&1 | head -1
-echo "Current directory: $(pwd)"
-echo "Git status: $(git status --porcelain | wc -l) changed files"
-```
-
-</v-click>
-
----
-layout: default
----
-
-# Hands-on Exercise
-*Latihan Praktik*
-
-<v-click>
-
-Sekarang saatnya **hands-on practice** untuk mengkonsolidasikan semua yang sudah dipelajari!
-
-</v-click>
-
-## 🎯 **Exercise: Complete Workflow**
-
-<v-clicks>
-
-**Task**: Membuat project struktur untuk Cloud Computing course
-
-1. **Setup Repository**
-   - Create new GitHub repository: `cloud-computing-exercises`
-   - Clone menggunakan SSH
-   - Setup project structure
-
-2. **Create Content**
-   - Week 1 assignment folder
-   - README dengan course information
-   - .gitignore file untuk common files
-
-3. **Practice Git Workflow**
-   - Multiple commits dengan meaningful messages
-   - Create feature branch untuk weekly assignments
-   - Merge branch ke main
-
-4. **Verification**
-   - Push semua changes ke GitHub
-   - Verify melalui GitHub web interface
-   - Test clone di environment baru
-
-</v-clicks>
-
-<v-click>
-
-## 📋 **Expected Deliverables**
-- ✅ Repository dengan proper structure
-- ✅ SSH authentication working
-- ✅ Clean commit history
-- ✅ Documentation in README
-
-</v-click>
-
----
-transition: slide-left
----
-
-# Week 1 Deliverables Summary
-*Ringkasan Deliverables Week 1*
-
-<div class="grid grid-cols-2 gap-8">
-
-<div v-click="1">
-
-## 📦 **Technical Deliverables**
-
-<div class="space-y-3">
-<div class="flex items-center space-x-2">
-<span class="w-6 h-6 bg-green-500 text-white rounded-full text-center text-sm">✓</span>
-<span>Cloud Shell environment setup</span>
-</div>
-<div class="flex items-center space-x-2">
-<span class="w-6 h-6 bg-green-500 text-white rounded-full text-center text-sm">✓</span>
-<span>Git configuration completed</span>
-</div>
-<div class="flex items-center space-x-2">
-<span class="w-6 h-6 bg-green-500 text-white rounded-full text-center text-sm">✓</span>
-<span>GitHub repository created</span>
-</div>
-<div class="flex items-center space-x-2">
-<span class="w-6 h-6 bg-green-500 text-white rounded-full text-center text-sm">✓</span>
-<span>SSH key authentication</span>
-</div>
-<div class="flex items-center space-x-2">
-<span class="w-6 h-6 bg-green-500 text-white rounded-full text-center text-sm">✓</span>
-<span>Environment verification passed</span>
-</div>
-</div>
-
-</div>
-
-<div v-click="2">
-
-## 📝 **Documentation Requirements**
-
-```markdown
-# Required Documentation
-└── cloud-computing-week1/
-    ├── README.md (course info)
-    ├── SETUP.md (environment setup steps)
-    ├── assignments/
-    │   └── week1-verification.md
-    └── screenshots/
-        ├── cloud-shell-access.png
-        ├── git-config.png
-        └── ssh-test.png
+git branch -r
 ```
 
 </div>
@@ -1222,168 +1339,22 @@ transition: slide-left
 
 <v-click at="3">
 
-## 🎯 **Assessment Criteria**
-
-<div class="grid grid-cols-3 gap-4 mt-6">
-<div class="p-4 bg-blue-50 rounded text-center">
-<h4 class="font-bold text-blue-800">Environment Setup</h4>
-<p class="text-sm">Cloud Shell access & configuration</p>
-<div class="text-2xl font-bold text-blue-600">30%</div>
-</div>
-<div class="p-4 bg-green-50 rounded text-center">
-<h4 class="font-bold text-green-800">Git & GitHub</h4>
-<p class="text-sm">Repository, commits, SSH setup</p>
-<div class="text-2xl font-bold text-green-600">40%</div>
-</div>
-<div class="p-4 bg-purple-50 rounded text-center">
-<h4 class="font-bold text-purple-800">Documentation</h4>
-<p class="text-sm">Clear documentation & screenshots</p>
-<div class="text-2xl font-bold text-purple-600">30%</div>
-</div>
-</div>
-
-</v-click>
-
----
-layout: default
----
-
-# Best Practices & Tips
-*Best Practices & Tips*
-
-<div class="grid grid-cols-2 gap-8">
-
-<div v-click="1">
-
-## 🎯 **Git Best Practices**
-
-<div class="space-y-3 text-sm">
-<div class="p-3 bg-green-50 rounded">
-<h4 class="font-bold text-green-800">✅ DO</h4>
-<ul class="space-y-1">
-<li>• Write descriptive commit messages</li>
-<li>• Commit frequently with logical chunks</li>
-<li>• Use branches for features</li>
-<li>• Pull before pushing</li>
-<li>• Keep repositories organized</li>
-</ul>
-</div>
-
-<div class="p-3 bg-red-50 rounded">
-<h4 class="font-bold text-red-800">❌ DON'T</h4>
-<ul class="space-y-1">
-<li>• Commit directly to main/master</li>
-<li>• Use vague commit messages</li>
-<li>• Commit binary files unnecessarily</li>
-<li>• Ignore .gitignore</li>
-<li>• Force push to shared branches</li>
-</ul>
-</div>
-</div>
-
-</div>
-
-<div v-click="2">
-
-## 💡 **Productivity Tips**
-
-```bash
-# Useful aliases
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gl='git log --oneline'
-
-# Quick commands
-alias ll='ls -la'
-alias ..='cd ..'
-alias cls='clear'
-
-# Cloud Shell shortcuts
-alias ccd='cd ~/cloud-computing'
-alias edit='cloudshell edit'
-```
-
-</div>
-
-</div>
-
-<v-click at="3">
-
-## 🔒 **Security Reminders**
+## 💡 **Pro Tips**
 
 <div class="grid grid-cols-3 gap-4 mt-4">
-<div class="p-3 bg-yellow-50 rounded text-center">
-<h4 class="font-bold text-yellow-800">SSH Keys</h4>
-<p class="text-xs">Never share private keys</p>
-</div>
 <div class="p-3 bg-blue-50 rounded text-center">
-<h4 class="font-bold text-blue-800">Credentials</h4>
-<p class="text-xs">Don't commit passwords/tokens</p>
+<strong class="text-blue-600">Branching</strong><br>
+<code class="text-xs">git branch -d feature-name</code>
+</div>
+<div class="p-3 bg-green-50 rounded text-center">
+<strong class="text-green-600">Stashing</strong><br>
+<code class="text-xs">git stash / git stash pop</code>
 </div>
 <div class="p-3 bg-purple-50 rounded text-center">
-<h4 class="font-bold text-purple-800">Access</h4>
-<p class="text-xs">Log out from shared computers</p>
+<strong class="text-purple-600">Tagging</strong><br>
+<code class="text-xs">git tag v1.0 / git push --tags</code>
 </div>
 </div>
-
-</v-click>
-
----
-layout: center
-class: text-center
----
-
-# Next Week Preview
-*Preview Week 2*
-
-<v-click>
-
-## 🚀 **Week 2: Containerization with Docker**
-
-</v-click>
-
-<div class="grid grid-cols-3 gap-8 mt-8">
-
-<v-click>
-<div class="p-6 bg-blue-50 rounded-lg">
-<div class="text-4xl mb-4">🐳</div>
-<h3 class="font-bold text-blue-800">Docker Fundamentals</h3>
-<p class="text-sm mt-2">Images, containers, registries</p>
-</div>
-</v-click>
-
-<v-click>
-<div class="p-6 bg-green-50 rounded-lg">
-<div class="text-4xl mb-4">📦</div>
-<h3 class="font-bold text-green-800">Application Packaging</h3>
-<p class="text-sm mt-2">Dockerfile, multi-stage builds</p>
-</div>
-</v-click>
-
-<v-click>
-<div class="p-6 bg-purple-50 rounded-lg">
-<div class="text-4xl mb-4">🔧</div>
-<h3 class="font-bold text-purple-800">Container Orchestration</h3>
-<p class="text-sm mt-2">Docker Compose, networking</p>
-</div>
-</v-click>
-
-</div>
-
-<v-click>
-
-## 📚 **Preparation Tasks**
-- Install Docker Desktop (optional for local development)
-- Review Dockerfile syntax
-- Explore Docker Hub registry
-
-</v-click>
-
-<v-click>
-
-*See you next week! 👋*
 
 </v-click>
 
@@ -1412,8 +1383,7 @@ class: text-center
 
 ## 📧 **Get Help**
 - **Office Hours**: Monday 14:00-16:00
-- **Email**: instructor@university.ac.id
-- **Forum**: course-forum.university.ac.id
+- **Email**: aidil@lecturer.itk.ac.id
 - **GitHub Issues**: For technical problems
 - **Study Groups**: Form with classmates
 
@@ -1426,8 +1396,8 @@ class: text-center
 ## 🎯 **Action Items**
 1. Complete environment setup by **Friday**
 2. Submit verification screenshots to **LMS**
-3. Join course **GitHub organization**
-4. Prepare for next week's **Docker session**
+3. Join course **studyverse.myst-tech.com**
+4. Prepare for next week's
 
 </v-click>
 
