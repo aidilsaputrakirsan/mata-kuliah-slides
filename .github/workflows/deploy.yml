@@ -58,16 +58,11 @@ jobs:
           
           echo "MK: $mk, Pertemuan: $pertemuan"
           
-          # Build command
+          # Build command (stay in project root, use npx)
           echo "Building $mk/$pertemuan..."
-          cd "$mk/$pertemuan"
-          
-          slidev build slides.md \
+          npx slidev build "$mk/$pertemuan/slides.md" \
             --base "/mata-kuliah-slides/$mk/$pertemuan/" \
-            --out "../../dist/$mk/$pertemuan"
-          
-          # Go back to project root
-          cd ../../
+            --out "dist/$mk/$pertemuan"
           
           # Move files if they're in wrong location (backup fix)
           if [ -d "$mk/$pertemuan/dist/$mk/$pertemuan" ]; then
