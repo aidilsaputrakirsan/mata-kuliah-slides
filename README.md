@@ -1,6 +1,6 @@
 # 📊 Mata Kuliah Slides
 
-Kumpulan presentasi slides untuk mata kuliah Sistem Informasi menggunakan [Slidev](https://sli.dev).
+Kumpulan presentasi slides untuk mata kuliah Sistem Informasi
 
 ## 📚 Mata Kuliah
 
