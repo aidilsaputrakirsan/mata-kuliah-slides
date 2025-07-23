@@ -4,7 +4,7 @@ title: 'Cloud Computing - Week 1'
 class: text-center
 highlighter: shiki
 lineNumbers: true
-background: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'
+background: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'
 info: |
   ## Cloud Computing Week 1
   Environment Setup & GitHub Integration
