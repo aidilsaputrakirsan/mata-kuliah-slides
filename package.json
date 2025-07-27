@@ -190,6 +190,7 @@
   },
   "homepage": "https://aidilsaputrakirsan.github.io/mata-kuliah-slides",
   "dependencies": {
+    "@iconify/json": "^2.2.363",
     "@slidev/cli": "^52.0.0",
     "@slidev/theme-default": "^0.25.0",
     "@slidev/theme-seriph": "^0.25.0",
@@ -197,7 +198,6 @@
   },
   "devDependencies": {
     "@types/node": "^24.0.15",
-    "playwright-chromium": "^1.54.1",
     "vite": "^7.0.5"
   }
 }
