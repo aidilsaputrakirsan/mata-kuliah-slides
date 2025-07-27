@@ -3,143 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1e40af">
+    <meta name="description" content="Kumpulan slides mata kuliah Sistem Informasi - Cloud Computing, Desain & Manajemen Jaringan Komputer, dan Pemrograman Web">
     <title>Slides Mata Kuliah - [Nama Dosen]</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 2rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #1e40af, #f59e0b);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-        
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .content {
-            padding: 3rem 2rem;
-        }
-        
-        .mk-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .mk-card {
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            background: #fafafa;
-        }
-        
-        .mk-card:hover {
-            border-color: #3b82f6;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
-        }
-        
-        .mk-card h2 {
-            color: #1e40af;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .mk-card p {
-            color: #6b7280;
-            margin-bottom: 1.5rem;
-        }
-        
-        .pertemuan-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 0.75rem;
-        }
-        
-        .pertemuan-link {
-            display: block;
-            padding: 0.75rem;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            font-size: 0.9rem;
-        }
-        
-        .pertemuan-link:hover {
-            background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
-            transform: scale(1.05);
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .stat-card {
-            background: #f8fafc;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #1e40af;
-        }
-        
-        .stat-label {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-        
-        .footer {
-            background: #f8fafc;
-            padding: 2rem;
-            text-align: center;
-            color: #64748b;
-            border-top: 1px solid #e2e8f0;
-        }
-    </style>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
     <div class="container">
@@ -170,20 +42,20 @@
                     <h2>🌐 CC - Cloud Computing</h2>
                     <p>Pemahaman konsep dan implementasi teknologi cloud computing, deployment, dan manajemen infrastruktur cloud.</p>
                     <div class="pertemuan-grid">
-                        <a href="./CC/pertemuan-01/" class="pertemuan-link">Week 1</a>
-                        <a href="./CC/pertemuan-02/" class="pertemuan-link">Week 2</a>
-                        <a href="./CC/pertemuan-03/" class="pertemuan-link">Week 3</a>
-                        <a href="./CC/pertemuan-04/" class="pertemuan-link">Week 4</a>
-                        <a href="./CC/pertemuan-05/" class="pertemuan-link">Week 5</a>
-                        <a href="./CC/pertemuan-06/" class="pertemuan-link">Week 6</a>
-                        <a href="./CC/pertemuan-07/" class="pertemuan-link">Week 7</a>
-                        <a href="./CC/pertemuan-08/" class="pertemuan-link">Week 8</a>
-                        <a href="./CC/pertemuan-09/" class="pertemuan-link">Week 9</a>
-                        <a href="./CC/pertemuan-10/" class="pertemuan-link">Week 10</a>
-                        <a href="./CC/pertemuan-11/" class="pertemuan-link">Week 11</a>
-                        <a href="./CC/pertemuan-12/" class="pertemuan-link">Week 12</a>
-                        <a href="./CC/pertemuan-13/" class="pertemuan-link">Week 13</a>
-                        <a href="./CC/pertemuan-14/" class="pertemuan-link">Week 14</a>
+                        <a href="./CC/pertemuan-01/" class="pertemuan-link" aria-label="Cloud Computing Week 1"><span>Week 1</span></a>
+                        <a href="./CC/pertemuan-02/" class="pertemuan-link" aria-label="Cloud Computing Week 2"><span>Week 2</span></a>
+                        <a href="./CC/pertemuan-03/" class="pertemuan-link" aria-label="Cloud Computing Week 3"><span>Week 3</span></a>
+                        <a href="./CC/pertemuan-04/" class="pertemuan-link" aria-label="Cloud Computing Week 4"><span>Week 4</span></a>
+                        <a href="./CC/pertemuan-05/" class="pertemuan-link" aria-label="Cloud Computing Week 5"><span>Week 5</span></a>
+                        <a href="./CC/pertemuan-06/" class="pertemuan-link" aria-label="Cloud Computing Week 6"><span>Week 6</span></a>
+                        <a href="./CC/pertemuan-07/" class="pertemuan-link" aria-label="Cloud Computing Week 7"><span>Week 7</span></a>
+                        <a href="./CC/pertemuan-08/" class="pertemuan-link" aria-label="Cloud Computing Week 8"><span>Week 8</span></a>
+                        <a href="./CC/pertemuan-09/" class="pertemuan-link" aria-label="Cloud Computing Week 9"><span>Week 9</span></a>
+                        <a href="./CC/pertemuan-10/" class="pertemuan-link" aria-label="Cloud Computing Week 10"><span>Week 10</span></a>
+                        <a href="./CC/pertemuan-11/" class="pertemuan-link" aria-label="Cloud Computing Week 11"><span>Week 11</span></a>
+                        <a href="./CC/pertemuan-12/" class="pertemuan-link" aria-label="Cloud Computing Week 12"><span>Week 12</span></a>
+                        <a href="./CC/pertemuan-13/" class="pertemuan-link" aria-label="Cloud Computing Week 13"><span>Week 13</span></a>
+                        <a href="./CC/pertemuan-14/" class="pertemuan-link" aria-label="Cloud Computing Week 14"><span>Week 14</span></a>
                     </div>
                 </div>
                 
@@ -191,20 +63,20 @@
                     <h2>🔗 DMJK - Desain & Manajemen Jaringan Komputer</h2>
                     <p>Konsep perancangan, implementasi, dan manajemen infrastruktur jaringan komputer enterprise.</p>
                     <div class="pertemuan-grid">
-                        <a href="./DMJK/pertemuan-01/" class="pertemuan-link">Week 1</a>
-                        <a href="./DMJK/pertemuan-02/" class="pertemuan-link">Week 2</a>
-                        <a href="./DMJK/pertemuan-03/" class="pertemuan-link">Week 3</a>
-                        <a href="./DMJK/pertemuan-04/" class="pertemuan-link">Week 4</a>
-                        <a href="./DMJK/pertemuan-05/" class="pertemuan-link">Week 5</a>
-                        <a href="./DMJK/pertemuan-06/" class="pertemuan-link">Week 6</a>
-                        <a href="./DMJK/pertemuan-07/" class="pertemuan-link">Week 7</a>
-                        <a href="./DMJK/pertemuan-08/" class="pertemuan-link">Week 8</a>
-                        <a href="./DMJK/pertemuan-09/" class="pertemuan-link">Week 9</a>
-                        <a href="./DMJK/pertemuan-10/" class="pertemuan-link">Week 10</a>
-                        <a href="./DMJK/pertemuan-11/" class="pertemuan-link">Week 11</a>
-                        <a href="./DMJK/pertemuan-12/" class="pertemuan-link">Week 12</a>
-                        <a href="./DMJK/pertemuan-13/" class="pertemuan-link">Week 13</a>
-                        <a href="./DMJK/pertemuan-14/" class="pertemuan-link">Week 14</a>
+                        <a href="./DMJK/pertemuan-01/" class="pertemuan-link" aria-label="DMJK Week 1"><span>Week 1</span></a>
+                        <a href="./DMJK/pertemuan-02/" class="pertemuan-link" aria-label="DMJK Week 2"><span>Week 2</span></a>
+                        <a href="./DMJK/pertemuan-03/" class="pertemuan-link" aria-label="DMJK Week 3"><span>Week 3</span></a>
+                        <a href="./DMJK/pertemuan-04/" class="pertemuan-link" aria-label="DMJK Week 4"><span>Week 4</span></a>
+                        <a href="./DMJK/pertemuan-05/" class="pertemuan-link" aria-label="DMJK Week 5"><span>Week 5</span></a>
+                        <a href="./DMJK/pertemuan-06/" class="pertemuan-link" aria-label="DMJK Week 6"><span>Week 6</span></a>
+                        <a href="./DMJK/pertemuan-07/" class="pertemuan-link" aria-label="DMJK Week 7"><span>Week 7</span></a>
+                        <a href="./DMJK/pertemuan-08/" class="pertemuan-link" aria-label="DMJK Week 8"><span>Week 8</span></a>
+                        <a href="./DMJK/pertemuan-09/" class="pertemuan-link" aria-label="DMJK Week 9"><span>Week 9</span></a>
+                        <a href="./DMJK/pertemuan-10/" class="pertemuan-link" aria-label="DMJK Week 10"><span>Week 10</span></a>
+                        <a href="./DMJK/pertemuan-11/" class="pertemuan-link" aria-label="DMJK Week 11"><span>Week 11</span></a>
+                        <a href="./DMJK/pertemuan-12/" class="pertemuan-link" aria-label="DMJK Week 12"><span>Week 12</span></a>
+                        <a href="./DMJK/pertemuan-13/" class="pertemuan-link" aria-label="DMJK Week 13"><span>Week 13</span></a>
+                        <a href="./DMJK/pertemuan-14/" class="pertemuan-link" aria-label="DMJK Week 14"><span>Week 14</span></a>
                     </div>
                 </div>
                 
@@ -212,20 +84,20 @@
                     <h2>💻 PROWEB - Pemrograman Web</h2>
                     <p>Fundamental web development dari HTML/CSS hingga framework modern dan backend development.</p>
                     <div class="pertemuan-grid">
-                        <a href="./PROWEB/pertemuan-01/" class="pertemuan-link">Week 1</a>
-                        <a href="./PROWEB/pertemuan-02/" class="pertemuan-link">Week 2</a>
-                        <a href="./PROWEB/pertemuan-03/" class="pertemuan-link">Week 3</a>
-                        <a href="./PROWEB/pertemuan-04/" class="pertemuan-link">Week 4</a>
-                        <a href="./PROWEB/pertemuan-05/" class="pertemuan-link">Week 5</a>
-                        <a href="./PROWEB/pertemuan-06/" class="pertemuan-link">Week 6</a>
-                        <a href="./PROWEB/pertemuan-07/" class="pertemuan-link">Week 7</a>
-                        <a href="./PROWEB/pertemuan-08/" class="pertemuan-link">Week 8</a>
-                        <a href="./PROWEB/pertemuan-09/" class="pertemuan-link">Week 9</a>
-                        <a href="./PROWEB/pertemuan-10/" class="pertemuan-link">Week 10</a>
-                        <a href="./PROWEB/pertemuan-11/" class="pertemuan-link">Week 11</a>
-                        <a href="./PROWEB/pertemuan-12/" class="pertemuan-link">Week 12</a>
-                        <a href="./PROWEB/pertemuan-13/" class="pertemuan-link">Week 13</a>
-                        <a href="./PROWEB/pertemuan-14/" class="pertemuan-link">Week 14</a>
+                        <a href="./PROWEB/pertemuan-01/" class="pertemuan-link" aria-label="PROWEB Week 1"><span>Week 1</span></a>
+                        <a href="./PROWEB/pertemuan-02/" class="pertemuan-link" aria-label="PROWEB Week 2"><span>Week 2</span></a>
+                        <a href="./PROWEB/pertemuan-03/" class="pertemuan-link" aria-label="PROWEB Week 3"><span>Week 3</span></a>
+                        <a href="./PROWEB/pertemuan-04/" class="pertemuan-link" aria-label="PROWEB Week 4"><span>Week 4</span></a>
+                        <a href="./PROWEB/pertemuan-05/" class="pertemuan-link" aria-label="PROWEB Week 5"><span>Week 5</span></a>
+                        <a href="./PROWEB/pertemuan-06/" class="pertemuan-link" aria-label="PROWEB Week 6"><span>Week 6</span></a>
+                        <a href="./PROWEB/pertemuan-07/" class="pertemuan-link" aria-label="PROWEB Week 7"><span>Week 7</span></a>
+                        <a href="./PROWEB/pertemuan-08/" class="pertemuan-link" aria-label="PROWEB Week 8"><span>Week 8</span></a>
+                        <a href="./PROWEB/pertemuan-09/" class="pertemuan-link" aria-label="PROWEB Week 9"><span>Week 9</span></a>
+                        <a href="./PROWEB/pertemuan-10/" class="pertemuan-link" aria-label="PROWEB Week 10"><span>Week 10</span></a>
+                        <a href="./PROWEB/pertemuan-11/" class="pertemuan-link" aria-label="PROWEB Week 11"><span>Week 11</span></a>
+                        <a href="./PROWEB/pertemuan-12/" class="pertemuan-link" aria-label="PROWEB Week 12"><span>Week 12</span></a>
+                        <a href="./PROWEB/pertemuan-13/" class="pertemuan-link" aria-label="PROWEB Week 13"><span>Week 13</span></a>
+                        <a href="./PROWEB/pertemuan-14/" class="pertemuan-link" aria-label="PROWEB Week 14"><span>Week 14</span></a>
                     </div>
                 </div>
             </div>
