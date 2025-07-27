@@ -60,17 +60,17 @@ css: unocss
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Cloud Computing Week 5 <carbon:arrow-right class="inline"/>
+    Cloud Computing Week 5 <carbon:arrow-right class="inline"></carbon:arrow-right>
   </span>
 </div>
 
 <div class="abs-br m-6 flex gap-2">
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
+    <carbon:edit></carbon:edit>
   </button>
   <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
+    <carbon-logo-github></carbon-logo-github>
   </a>
 </div>
 
@@ -150,7 +150,7 @@ Robust error handling dengan user-friendly feedback dan recovery
     :duration="800"
     :delay="800">
     <div class="flex items-center gap-2 bg-orange-50 px-4 py-2 rounded-lg shadow-lg">
-      <carbon:task class="text-orange-600" />
+      <carbon:task class="text-orange-600"></carbon:task>
       <span class="text-sm text-orange-800 font-semibold">Complete CRUD</span>
     </div>
   </v-motion>
@@ -522,11 +522,11 @@ class PostController extends Controller
 
 <div class="absolute bottom-4 left-4 flex gap-2">
   <div class="bg-orange-100 text-orange-800 px-3 py-2 rounded text-sm font-semibold shadow-md">
-    <carbon:warning class="inline mr-1" /> 
+    <carbon:warning class="inline mr-1"></carbon:warning> 
     Always authorize first!
   </div>
   <div class="bg-blue-100 text-blue-800 px-3 py-2 rounded text-sm font-semibold shadow-md">
-    <carbon:data-base class="inline mr-1" /> 
+    <carbon:data-base class="inline mr-1"></carbon:data-base> 
     Use transactions!
   </div>
 </div>
@@ -1308,11 +1308,11 @@ class PostController extends Controller
 
 <div class="absolute bottom-4 right-4 flex gap-2">
   <div class="bg-red-100 text-red-800 px-3 py-2 rounded text-sm font-semibold shadow-md">
-    <carbon:trash-can class="inline mr-1" /> 
+    <carbon:trash-can class="inline mr-1"></carbon:trash-can> 
     Soft deletes recommended!
   </div>
   <div class="bg-orange-100 text-orange-800 px-3 py-2 rounded text-sm font-semibold shadow-md">
-    <carbon:undo class="inline mr-1" /> 
+    <carbon:undo class="inline mr-1"></carbon:undo> 
     Recovery options!
   </div>
 </div>
@@ -2145,7 +2145,7 @@ class PostController extends Controller
 
 <div class="absolute bottom-4 right-4">
   <div class="bg-purple-100 text-purple-800 px-3 py-2 rounded text-sm font-semibold shadow-md">
-    <carbon:checkmark-outline class="inline mr-1" /> 
+    <carbon:checkmark-outline class="inline mr-1"></carbon:checkmark-outline> 
     Bulk operations boost productivity!
   </div>
 </div>
@@ -2647,3 +2647,13 @@ class: text-center
   </div>
   
   <v-click>
+  
+  <div class="mt-8 text-center">
+    <div class="inline-block bg-gradient-to-r from-blue-500 via-purple-500 to-pink-600 text-white px-8 py-4 rounded-full shadow-lg">
+      <span class="font-semibold text-lg">Let's discuss and learn together! 💬</span>
+    </div>
+  </div>
+  
+  </v-click>
+
+</div>
