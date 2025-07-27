@@ -110,7 +110,85 @@
     </div>
     
     <script>
+        // Update last modified date
         document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString('id-ID');
+        
+        // Add smooth loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loaded class for animations
+            document.body.classList.add('loaded');
+            
+            // Add scroll-based animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe cards for scroll animations
+            document.querySelectorAll('.mk-card, .stat-card').forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Add ripple effect to buttons
+            document.querySelectorAll('.pertemuan-link').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(255, 255, 255, 0.4);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple 0.6s ease-out;
+                        pointer-events: none;
+                        z-index: 10;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+        });
     </script>
+    
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+        
+        /* Initial state for scroll animations */
+        .mk-card, .stat-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        /* Loaded state */
+        body.loaded .mk-card,
+        body.loaded .stat-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </body>
 </html>

@@ -294,7 +294,7 @@ body {
   z-index: 1;
 }
 
-/* Modern Week Buttons */
+/* Enhanced Week Buttons */
 .pertemuan-link {
   display: block;
   padding: var(--space-lg) var(--space-xl);
@@ -309,6 +309,8 @@ body {
   position: relative;
   overflow: hidden;
   border: 2px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
 }
 
 .pertemuan-link::before {
@@ -339,10 +341,15 @@ body {
 .pertemuan-link:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .pertemuan-link:hover::before {
   opacity: 1;
+}
+
+.pertemuan-link:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .pertemuan-link:active::after {
@@ -353,6 +360,7 @@ body {
 .pertemuan-link span {
   position: relative;
   z-index: 1;
+  display: block;
 }
 
 /* Enhanced Footer */
@@ -470,6 +478,24 @@ body {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
   }
 }
 
