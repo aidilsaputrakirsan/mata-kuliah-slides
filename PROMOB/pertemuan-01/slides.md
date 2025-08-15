@@ -1,653 +1,827 @@
 ---
-theme: seriph
-background: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1920
+theme: default
+background: '#ffffff'
+title: Introduction to React Native
 class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## Pemrograman Mobile - Week 1
-  Introduction to Mobile Development dengan React Native
+  ## Introduction to React Native - Week 1
+  Pemrograman Mobile - Aidil Saputra Kirsan, M.Tr.Kom
 drawings:
   persist: false
 transition: slide-left
-title: Introduction to Mobile Development
 mdc: true
-layout: cover
 ---
 
-# Introduction to Mobile Development 📱
+# Introduction to React Native
+## Pemrograman Mobile - Week 1
+
+<div class="pt-8">
+  <div class="text-gray-600">Mata Kuliah: Pemrograman Mobile</div>
+  <div class="text-gray-600">Durasi: 3 jam praktikum</div>
+  <div class="text-gray-600">Target: Membangun aplikasi mobile pertama</div>
+</div>
 
 <div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Pemrograman Mobile - Week 1 <carbon:arrow-right class="inline"/>
+  <span @click="$slidev.nav.next" class="px-4 py-2 rounded cursor-pointer border border-gray-300 hover:border-gray-500">
+    Mulai Perjalanan Mobile Development →
   </span>
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
+---
+
+# Capaian Pembelajaran
+
+Setelah praktikum ini, mahasiswa mampu:
+
+<v-clicks>
+
+- **Memahami** perbedaan fundamental web vs mobile development
+- **Menginstall** environment React Native dengan Expo
+- **Membuat** aplikasi mobile pertama dengan Expo Router  
+- **Menjalankan** aplikasi di smartphone dan browser
+- **Memahami** struktur project React Native modern
+
+</v-clicks>
+
+<div class="absolute bottom-4 left-4 text-xs text-gray-500">
+Prerequisites: JavaScript, HTML, CSS dari mata kuliah web programming
 </div>
 
 ---
-transition: fade-out
-layout: center
+
+# Mobile Revolution: The Numbers
+
+<div class="grid grid-cols-3 gap-8 pt-8">
+
+<v-click>
+<div class="text-center">
+<div class="text-3xl font-bold">$753B</div>
+<div class="text-sm text-gray-600">Global Market 2025</div>
+<div class="text-xs text-gray-500">CAGR 12.1%</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="text-center">
+<div class="text-3xl font-bold">4-5 jam</div>
+<div class="text-sm text-gray-600">Daily Usage</div>
+<div class="text-xs text-gray-500">94.2% internet users</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="text-center">
+<div class="text-3xl font-bold">7.49B</div>
+<div class="text-sm text-gray-600">Mobile Users 2025</div>
+<div class="text-xs text-gray-500">257B apps downloaded 2023</div>
+</div>
+</v-click>
+
+</div>
+
+<div class="pt-12">
+
+<v-click>
+<div class="grid grid-cols-2 gap-8">
+<div class="text-center">
+<div class="text-xl font-bold">97%</div>
+<div class="text-sm text-gray-600">Apps are free to download</div>
+</div>
+<div class="text-center">
+<div class="text-xl font-bold">32%</div>
+<div class="text-sm text-gray-600">Apps dibuat dengan React Native</div>
+</div>
+</div>
+</v-click>
+
+</div>
+
+<div class="text-xs mt-8 text-gray-400 text-center">
+Sources: Straits Research, Grand View Research, Statista 2024
+</div>
+
 ---
-
-# Selamat Datang! 👋
-
-<div v-motion
-  :initial="{ x: -80, opacity: 0}"
-  :enter="{ x: 0, opacity: 1, transition: { delay: 500, duration: 1000 } }">
-  
-## Mari Berkenalan
-
-<br>
 
 <div class="grid grid-cols-2 gap-8 pt-4">
-  <div v-click class="border-2 border-blue-400 rounded-lg p-6 hover:bg-blue-900/20 transition-all">
-    <mdi-account-circle class="text-5xl text-blue-400 mb-2"/>
-    <h3>Tentang Saya</h3>
-    <p class="text-sm opacity-75">Dosen Pemrograman Mobile</p>
-  </div>
-  
-  <div v-click class="border-2 border-green-400 rounded-lg p-6 hover:bg-green-900/20 transition-all">
-    <mdi-school class="text-5xl text-green-400 mb-2"/>
-    <h3>Tentang Kalian</h3>
-    <p class="text-sm opacity-75">Mahasiswa Semester 5-6</p>
-  </div>
+
+<!-- Kolom Kiri: Gaji -->
+<div>
+  <h3>Rata-rata Gaji Mobile Developer (2024):</h3>
+
+  <v-clicks>
+    <ul class="list-disc pl-5 mt-2">
+      <li><strong>Fresh Graduate (0-2 tahun):</strong> Rp 78-108 juta/tahun</li>
+      <li><strong>Mid Level (5-10 tahun):</strong> Rp 153-187 juta/tahun</li>
+      <li><strong>Senior Level (10+ tahun):</strong> Rp 200+ juta/tahun</li>
+    </ul>
+  </v-clicks>
 </div>
 
-</div>
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
----
-layout: center
-class: text-center
----
-
-# Quick Poll 🤔
-
-<div class="text-6xl mb-8" v-motion
-  :initial="{ scale: 0 }"
-  :enter="{ scale: 1, transition: { duration: 500 } }">
-  📱
-</div>
-
-<div v-click="1" class="mb-6">
-  <h2>Siapa yang pakai Android?</h2>
-</div>
-
-<div v-click="2" class="mb-6">
-  <h2>Siapa yang pakai iPhone?</h2>
-</div>
-
-<div v-click="3">
-  <h2 class="text-yellow-400">Aplikasi favorit kalian apa?</h2>
-</div>
-
-<div v-click="4" class="mt-8 text-2xl text-green-400">
-  ✨ Semester ini kita akan belajar membuat aplikasi seperti itu! ✨
-</div>
-
----
-transition: slide-up
----
-
-# Why Mobile Development? 🚀
-
-<div class="grid grid-cols-2 gap-8">
+<!-- Kolom Kanan: Growth & Industry Facts -->
+<div class="space-y-6">
   <div>
-    <h2 v-motion
-      :initial="{ x: -100, opacity: 0 }"
-      :enter="{ x: 0, opacity: 1 }">
-      📊 Fakta Menarik Indonesia
-    </h2>
-    
-    <div v-click="1" v-motion
-      :initial="{ x: -100, opacity: 0 }"
-      :enter="{ x: 0, opacity: 1, transition: { delay: 200 } }">
-      <div class="text-4xl text-blue-400">170+ Juta</div>
-      <p class="text-sm">Pengguna Smartphone</p>
-    </div>
-
-    <div v-click="2" v-motion
-      :initial="{ x: -100, opacity: 0 }"
-      :enter="{ x: 0, opacity: 1, transition: { delay: 400 } }">
-      <div class="text-4xl text-green-400 mt-4">96x/hari</div>
-      <p class="text-sm">Rata-rata cek HP</p>
-    </div>
-
-    <div v-click="3" v-motion
-      :initial="{ x: -100, opacity: 0 }"
-      :enter="{ x: 0, opacity: 1, transition: { delay: 600 } }">
-      <div class="text-4xl text-yellow-400 mt-4">$935 Billion</div>
-      <p class="text-sm">Mobile Apps Industry (2023)</p>
-    </div>
+    <v-click at="1">
+      <h3>Growth Opportunities:</h3>
+      <ul class="list-disc pl-5 mt-2">
+        <li>Demand tinggi di e-commerce, fintech, gaming</li>
+        <li>Remote work opportunities global</li>
+        <li>Digital economy Indonesia target $124B by 2025</li>
+        <li>Gaji mobile developer 2x lipat dibanding web developer</li>
+      </ul>
+    </v-click>
   </div>
 
-  <div v-click="4">
-    <h2 v-motion
-      :initial="{ x: 100, opacity: 0 }"
-      :enter="{ x: 0, opacity: 1 }">
-      💼 Peluang Karir
-    </h2>
-    
-    <div class="space-y-4 mt-6">
-      <div v-for="i in 3" :key="i" v-motion
-        :initial="{ x: 100, opacity: 0 }"
-        :enter="{ x: 0, opacity: 1, transition: { delay: 400 + i * 200 } }"
-        class="flex items-center space-x-3 bg-gradient-to-r from-blue-500/20 to-transparent p-3 rounded-lg">
-        <span class="text-2xl">{{ ['🎯', '💰', '🌟'][i-1] }}</span>
-        <span>{{ ['Selalu dibutuhkan', 'Gaji kompetitif', 'Portfolio bernilai'][i-1] }}</span>
-      </div>
-    </div>
+  <div>
+    <v-click at="2">
+      <h3>Industry Facts:</h3>
+      <ul class="list-disc pl-5 mt-2">
+        <li>14.85% dari top 500 US apps menggunakan React Native</li>
+        <li>Startup ecosystem berkembang pesat</li>
+        <li>Strong community support dan learning resources</li>
+      </ul>
+    </v-click>
   </div>
 </div>
 
----
-layout: two-cols
-transition: fade
----
-
-# Web vs Mobile App 🌐📱
-
-<v-clicks>
-
-<div class="pr-8">
-  <h3 class="text-blue-400 mb-4">🌐 Web Application</h3>
-  
-  <div class="space-y-3">
-    <div class="flex items-start">
-      <mdi-numeric-1-circle class="text-xl mr-2 text-gray-400"/>
-      <span>Buka browser</span>
-    </div>
-    <div class="flex items-start">
-      <mdi-numeric-2-circle class="text-xl mr-2 text-gray-400"/>
-      <span>Ketik alamat website</span>
-    </div>
-    <div class="flex items-start">
-      <mdi-numeric-3-circle class="text-xl mr-2 text-gray-400"/>
-      <span>Gunakan aplikasi</span>
-    </div>
-  </div>
-</div>
-
-</v-clicks>
-
-::right::
-
-<v-clicks>
-
-<div class="pl-8">
-  <h3 class="text-green-400 mb-4">📱 Mobile Application</h3>
-  
-  <div class="space-y-3">
-    <div class="flex items-start">
-      <mdi-numeric-1-circle class="text-xl mr-2 text-gray-400"/>
-      <span>Download dari Store</span>
-    </div>
-    <div class="flex items-start">
-      <mdi-numeric-2-circle class="text-xl mr-2 text-gray-400"/>
-      <span>Install di HP</span>
-    </div>
-    <div class="flex items-start">
-      <mdi-numeric-3-circle class="text-xl mr-2 text-gray-400"/>
-      <span>Tap icon, langsung jalan!</span>
-    </div>
-  </div>
-</div>
-
-</v-clicks>
-
----
-layout: center
----
-
-# Keunggulan Mobile App ⚡
-
-<div class="grid grid-cols-2 gap-6 mt-8">
-  <div v-for="(feature, i) in features" :key="i"
-    v-motion
-    :initial="{ scale: 0, rotate: -180 }"
-    :enter="{ scale: 1, rotate: 0, transition: { delay: i * 100 } }"
-    class="bg-gradient-to-br from-blue-500/20 to-purple-500/20 p-6 rounded-xl border border-blue-500/50 hover:scale-105 transition-transform cursor-pointer">
-    <div class="text-4xl mb-2">{{ feature.icon }}</div>
-    <h3 class="text-lg font-bold mb-1">{{ feature.title }}</h3>
-    <p class="text-sm opacity-75">{{ feature.desc }}</p>
-  </div>
-</div>
-
-<script setup>
-const features = [
-  { icon: '📴', title: 'Akses Offline', desc: 'Bekerja tanpa internet' },
-  { icon: '🔔', title: 'Push Notification', desc: 'Kirim pesan langsung' },
-  { icon: '📸', title: 'Hardware Access', desc: 'Kamera, GPS, Sensor' },
-  { icon: '⚡', title: 'Performa Cepat', desc: 'Native performance' }
-]
-</script>
-
----
-transition: slide-left
----
-
-# Native vs Cross-Platform 🎯
-
-<div class="mt-8">
-  <div v-click class="mb-8 p-6 bg-blue-500/10 rounded-lg border-2 border-blue-500/50">
-    <h3 class="text-2xl mb-4 text-blue-400">🏠 Native Development</h3>
-    <p class="mb-4">Seperti berbicara bahasa lokal - setiap platform punya bahasanya sendiri</p>
-    <div class="flex justify-around items-center">
-      <div class="text-center">
-        <mdi-android class="text-6xl text-green-500"/>
-        <p>Java/Kotlin</p>
-      </div>
-      <mdi-arrow-right class="text-3xl"/>
-      <div class="text-center">
-        <mdi-android class="text-6xl text-green-500"/>
-        <p>App Android</p>
-      </div>
-    </div>
-  </div>
-
-  <div v-click class="p-6 bg-purple-500/10 rounded-lg border-2 border-purple-500/50">
-    <h3 class="text-2xl mb-4 text-purple-400">🌍 Cross-Platform</h3>
-    <p class="mb-4">Seperti bahasa Inggris - satu bahasa untuk semua</p>
-    <div class="flex justify-around items-center">
-      <div class="text-center">
-        <mdi-language-javascript class="text-6xl text-yellow-500"/>
-        <p>JavaScript</p>
-      </div>
-      <mdi-arrow-right class="text-3xl"/>
-      <div class="text-center space-x-4">
-        <span>
-          <mdi-android class="text-6xl text-green-500 inline"/>
-          <mdi-apple class="text-6xl text-gray-400 inline"/>
-        </span>
-        <p>Android + iOS</p>
-      </div>
-    </div>
-  </div>
 </div>
 
 ---
-layout: image-right
-image: https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1920
----
 
-# Kenapa React Native? 🚀
+# Evolution of Mobile Development
 
-<v-clicks depth="2">
+<div class="space-y-8 pt-4">
 
-- ### 📚 Sudah Kenal JavaScript
-  Tidak perlu belajar bahasa baru!
+<v-click>
+<div class="flex justify-between items-center border-b pb-4">
+<div class="w-1/4 text-right pr-4">
+<div class="font-bold">2008-2012</div>
+<div class="text-sm text-gray-600">Native Era</div>
+</div>
+<div class="w-3/4 pl-4">
+iOS SDK, Android SDK - Dua codebase terpisah
+</div>
+</div>
+</v-click>
 
-- ### 🏢 Perusahaan Besar Pakai
-  - Facebook & Instagram
-  - Airbnb & UberEats
-  - Discord & Pinterest
+<v-click>
+<div class="flex justify-between items-center border-b pb-4">
+<div class="w-1/4 text-right pr-4">
+<div class="font-bold">2012-2015</div>
+<div class="text-sm text-gray-600">Hybrid Era</div>
+</div>
+<div class="w-3/4 pl-4">
+PhoneGap, Cordova, Ionic - Web dalam wrapper native
+</div>
+</div>
+</v-click>
 
-- ### 🇮🇩 Komunitas Indonesia Aktif
-  Mudah cari bantuan & tutorial
+<v-click>
+<div class="flex justify-between items-center border-b pb-4">
+<div class="w-1/4 text-right pr-4">
+<div class="font-bold">2015-Now</div>
+<div class="text-sm text-gray-600">Cross-Platform</div>
+</div>
+<div class="w-3/4 pl-4">
+React Native, Flutter - Native performance + code reuse
+</div>
+</div>
+</v-click>
 
-- ### ⚡ Satu Code, Dua Platform
-  Hemat waktu development 50%!
+<v-click>
+<div class="flex justify-between items-center">
+<div class="w-1/4 text-right pr-4">
+<div class="font-bold">2025</div>
+<div class="text-sm text-gray-600">AI-Powered</div>
+</div>
+<div class="w-3/4 pl-4">
+5G, AR/VR, AI Integration - Next-gen mobile experiences
+</div>
+</div>
+</v-click>
 
-</v-clicks>
-
-<div v-click class="mt-8 p-4 bg-green-500/20 rounded-lg border border-green-500">
-  <p class="text-center font-bold">Perfect untuk yang sudah belajar Web! 🎯</p>
 </div>
 
 ---
-transition: fade
----
 
-# Apa yang Akan Kita Buat? 🛠️
+# Native vs Cross-Platform
 
-<div class="grid grid-cols-2 gap-6">
-  <div v-for="(project, i) in projects" :key="i"
-    v-click
-    v-motion
-    :initial="{ y: 100, opacity: 0 }"
-    :enter="{ y: 0, opacity: 1, transition: { delay: i * 200 } }"
-    class="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 p-6 border border-blue-500/50 hover:scale-105 transition-all">
-    <div class="text-5xl mb-3">{{ project.icon }}</div>
-    <h3 class="text-xl font-bold mb-2">{{ project.title }}</h3>
-    <p class="text-sm opacity-75">{{ project.desc }}</p>
-    <span class="absolute top-2 right-2 text-xs bg-blue-500/50 px-2 py-1 rounded">{{ project.week }}</span>
-  </div>
+<div class="grid grid-cols-2 gap-12 pt-4">
+
+<div>
+<h3 class="font-bold text-lg mb-4">Native Development</h3>
+
+<div class="mb-4">
+<div class="font-medium mb-2">Advantages:</div>
+<ul class="text-sm space-y-1">
+<li>• Performance maksimal</li>
+<li>• Access penuh platform APIs</li>
+<li>• UI/UX platform-specific</li>
+</ul>
 </div>
 
-<script setup>
-const projects = [
-  { 
-    icon: '✅', 
-    title: 'Todo List App', 
-    desc: 'CRUD operations, state management',
-    week: 'Week 2-3'
-  },
-  { 
-    icon: '🌤️', 
-    title: 'Weather App', 
-    desc: 'API integration, real-time data',
-    week: 'Week 4-5'
-  },
-  { 
-    icon: '📸', 
-    title: 'Mini Instagram', 
-    desc: 'Image handling, social features',
-    week: 'Week 6-7'
-  },
-  { 
-    icon: '🚀', 
-    title: 'Final Project', 
-    desc: 'Tim project, aplikasi lengkap!',
-    week: 'Week 9-15'
+<div>
+<div class="font-medium mb-2">Disadvantages:</div>
+<ul class="text-sm space-y-1">
+<li>• Dua tim development</li>
+<li>• Cost 2x lipat</li>
+<li>• Time to market lama</li>
+</ul>
+</div>
+
+</div>
+
+<div>
+<h3 class="font-bold text-lg mb-4">Cross-Platform</h3>
+
+<div class="mb-4">
+<div class="font-medium mb-2">Advantages:</div>
+<ul class="text-sm space-y-1">
+<li>• Satu codebase, dua platform</li>
+<li>• Cost 40-60% lebih murah</li>
+<li>• Faster time to market</li>
+</ul>
+</div>
+
+<div>
+<div class="font-medium mb-2">Trade-offs:</div>
+<ul class="text-sm space-y-1">
+<li>• Slight performance trade-off</li>
+<li>• Platform limitations</li>
+<li>• Learning curve baru</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+---
+
+# Cross-Platform Market Share 2024
+
+<div class="pt-8">
+
+<div class="space-y-4 mb-8">
+
+<v-click>
+<div class="flex items-center">
+<div class="w-16 text-sm">Flutter:</div>
+<div class="flex-1 bg-gray-200 h-6 rounded">
+<div class="bg-black h-6 rounded" style="width: 42%"></div>
+</div>
+<div class="w-12 text-sm text-right">42%</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="flex items-center">
+<div class="w-16 text-sm">React Native:</div>
+<div class="flex-1 bg-gray-200 h-6 rounded">
+<div class="bg-gray-600 h-6 rounded" style="width: 38%"></div>
+</div>
+<div class="w-12 text-sm text-right">38%</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="flex items-center">
+<div class="w-16 text-sm">Others:</div>
+<div class="flex-1 bg-gray-200 h-6 rounded">
+<div class="bg-gray-400 h-6 rounded" style="width: 20%"></div>
+</div>
+<div class="w-12 text-sm text-right">20%</div>
+</div>
+</v-click>
+
+</div>
+
+<v-click>
+<div class="border-l-4 border-gray-400 pl-4">
+<div class="font-medium">Industry Adoption:</div>
+<div class="text-sm text-gray-600 mt-1">
+<strong>React Native:</strong> Facebook, Instagram, Walmart, Bloomberg, Tesla<br/>
+<strong>Flutter:</strong> Google Pay, BMW, Toyota, Alibaba
+</div>
+</div>
+</v-click>
+
+</div>
+
+<div class="text-xs mt-6 text-gray-400 text-center">
+Source: Statista Cross-Platform Development Survey 2024
+</div>
+
+---
+
+# Why React Native?
+
+<div class="grid grid-cols-2 gap-8 pt-6">
+
+<v-click>
+<div>
+<h4 class="font-bold mb-2">Learn Once, Write Anywhere</h4>
+<p class="text-sm text-gray-600">JavaScript & React familiar. 96% code reuse iOS & Android.</p>
+</div>
+</v-click>
+
+<v-click>
+<div>
+<h4 class="font-bold mb-2">Hot Reload</h4>
+<p class="text-sm text-gray-600">Instant feedback. Development 50% lebih cepat.</p>
+</div>
+</v-click>
+
+<v-click>
+<div>
+<h4 class="font-bold mb-2">Enterprise Ready</h4>
+<p class="text-sm text-gray-600">Trusted by Fortune 500: Meta, Microsoft, Shopify.</p>
+</div>
+</v-click>
+
+<v-click>
+<div>
+<h4 class="font-bold mb-2">Rich Ecosystem</h4>
+<p class="text-sm text-gray-600">1.8M+ NPM packages. Strong community support.</p>
+</div>
+</v-click>
+
+</div>
+
+<div class="pt-12 text-center">
+
+<v-click>
+<div class="border border-gray-300 inline-block px-6 py-3 rounded">
+<span class="font-medium">32% of all cross-platform apps globally</span>
+</div>
+</v-click>
+
+</div>
+
+---
+
+# Web vs Mobile: Key Differences
+
+<div class="pt-4">
+
+<div class="grid grid-cols-3 gap-4 text-sm font-bold border-b-2 pb-2 mb-4">
+<div>Aspect</div>
+<div>Web Development</div>
+<div>Mobile Development</div>
+</div>
+
+<div class="space-y-3 text-sm">
+
+<v-click>
+<div class="grid grid-cols-3 gap-4">
+<div class="font-medium">Platform</div>
+<div>Browser (Chrome, Firefox)</div>
+<div>OS Specific (Android, iOS)</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="grid grid-cols-3 gap-4">
+<div class="font-medium">UI Components</div>
+<div>&lt;div&gt;, &lt;p&gt;, &lt;button&gt;</div>
+<div>&lt;View&gt;, &lt;Text&gt;, &lt;TouchableOpacity&gt;</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="grid grid-cols-3 gap-4">
+<div class="font-medium">Styling</div>
+<div>CSS Files</div>
+<div>StyleSheet Objects</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="grid grid-cols-3 gap-4">
+<div class="font-medium">Navigation</div>
+<div>URL-based routing</div>
+<div>Stack/Tab navigation</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="grid grid-cols-3 gap-4">
+<div class="font-medium">Storage</div>
+<div>localStorage, cookies</div>
+<div>AsyncStorage, SQLite</div>
+</div>
+</v-click>
+
+</div>
+
+</div>
+
+<div class="pt-6">
+
+<v-click>
+<div class="border-l-4 border-gray-400 pl-4">
+<strong>Good News:</strong> React Native menggunakan konsep yang sama dengan React web, 
+jadi learning curve tidak terlalu steep!
+</div>
+</v-click>
+
+</div>
+
+---
+
+# React Native Core Concepts
+
+<div class="grid grid-cols-2 gap-8 pt-4">
+
+<v-click>
+<div>
+<h4 class="font-bold mb-3">Components</h4>
+<div class="bg-gray-100 p-3 rounded text-xs font-mono">
+```jsx
+// Web React
+<div className="container">
+  <p>Hello World</p>
+  <button onClick={handlePress}>
+    Click me
+  </button>
+</div>
+
+// React Native  
+<View style={styles.container}>
+  <Text>Hello World</Text>
+  <TouchableOpacity onPress={handlePress}>
+    <Text>Click me</Text>
+  </TouchableOpacity>
+</View>
+```
+</div>
+</div>
+</v-click>
+
+<v-click>
+<div>
+<h4 class="font-bold mb-3">Styling</h4>
+<div class="bg-gray-100 p-3 rounded text-xs font-mono">
+```jsx
+// CSS
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+
+// React Native StyleSheet
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#f0f0f0',
   }
-]
-</script>
+});
+```
+</div>
+</div>
+</v-click>
 
----
-layout: center
----
-
-# Tools yang Dibutuhkan 🧰
-
-<div class="text-center mb-8">
-  <p class="text-2xl text-yellow-400">Ibaratkan seperti memasak! 👨‍🍳</p>
 </div>
 
-<div class="grid grid-cols-2 gap-8 max-w-4xl mx-auto">
-  <div v-for="(tool, i) in tools" :key="i"
-    v-click
-    v-motion
-    :initial="{ scale: 0 }"
-    :enter="{ scale: 1, transition: { type: 'spring', delay: i * 200 } }"
-    class="flex items-center space-x-4 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 p-6 rounded-xl hover:from-indigo-500/30 hover:to-purple-500/30 transition-all">
-    <div class="text-5xl">{{ tool.icon }}</div>
-    <div>
-      <h3 class="text-xl font-bold">{{ tool.name }}</h3>
-      <p class="text-sm opacity-75">{{ tool.analogy }}</p>
-    </div>
-  </div>
+<div class="pt-6">
+
+<v-click>
+<div class="border-l-4 border-gray-400 pl-4">
+<strong>Key Insight:</strong> React Native menggunakan Flexbox layout sama dengan web, 
+tapi default <code>flexDirection: 'column'</code> bukan <code>'row'</code>.
 </div>
+</v-click>
 
-<div v-click class="mt-12 text-center">
-  <p class="text-xl text-green-400 animate-pulse">
-    🎉 Jangan khawatir, kita install bareng-bareng! 🎉
-  </p>
-</div>
-
-<script setup>
-const tools = [
-  { icon: '🔥', name: 'Node.js', analogy: 'Kompor (runtime)' },
-  { icon: '📝', name: 'VS Code', analogy: 'Pisau & talenan (editor)' },
-  { icon: '📦', name: 'Expo', analogy: 'Rice cooker (tools)' },
-  { icon: '📱', name: 'Smartphone', analogy: 'Piring untuk testing' }
-]
-</script>
-
----
-transition: slide-up
-layout: center
----
-
-# Live Demo Time! 🎪
-
-<div class="text-center">
-  <div v-motion
-    :initial="{ scale: 0 }"
-    :enter="{ scale: 1 }"
-    class="text-8xl mb-8">
-    🎭
-  </div>
-
-  <div class="space-y-6">
-    <div v-click v-motion
-      :initial="{ x: -100, opacity: 0 }"
-      :enter="{ x: 0, opacity: 1 }">
-      <h2 class="text-3xl text-blue-400">Step 1: Buka aplikasi yang sudah jadi</h2>
-    </div>
-
-    <div v-click v-motion
-      :initial="{ x: 100, opacity: 0 }"
-      :enter="{ x: 0, opacity: 1 }">
-      <h2 class="text-3xl text-green-400">Step 2: Ubah "Hello" → "Halo Mahasiswa"</h2>
-    </div>
-
-    <div v-click v-motion
-      :initial="{ scale: 0, rotate: 360 }"
-      :enter="{ scale: 1, rotate: 0 }">
-      <h2 class="text-3xl text-yellow-400">Step 3: Save & Refresh</h2>
-    </div>
-
-    <div v-click class="pt-8">
-      <div v-motion
-        :initial="{ scale: 0 }"
-        :enter="{ scale: 1, transition: { type: 'spring' } }"
-        class="inline-block p-6 bg-gradient-to-r from-pink-500 to-violet-500 rounded-xl text-white">
-        <p class="text-2xl font-bold">✨ Langsung berubah! ✨</p>
-        <p class="text-lg mt-2">Hot Reload = Developer Happy 😊</p>
-      </div>
-    </div>
-  </div>
 </div>
 
 ---
-layout: default
----
 
-# Ekspektasi Mata Kuliah 📋
+# Expo Ecosystem
 
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <div v-click v-for="(item, i) in expectations" :key="i"
-    v-motion
-    :initial="{ x: i % 2 === 0 ? -100 : 100, opacity: 0 }"
-    :enter="{ x: 0, opacity: 1, transition: { delay: i * 100 } }"
-    class="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 p-6 rounded-xl border border-cyan-500/50 hover:from-cyan-500/30 hover:to-blue-500/30 transition-all">
-    <div class="text-4xl mb-3">{{ item.icon }}</div>
-    <h3 class="text-xl font-bold mb-2 text-cyan-400">{{ item.title }}</h3>
-    <p class="text-sm">{{ item.desc }}</p>
-  </div>
+<div class="space-y-6 pt-4">
+
+<v-click>
+<div class="border-l-4 border-gray-400 pl-4">
+<h4 class="font-bold">Expo CLI</h4>
+<p class="text-sm text-gray-600">Zero-config development environment. No Xcode/Android Studio required!</p>
+</div>
+</v-click>
+
+<v-click>
+<div class="border-l-4 border-gray-400 pl-4">
+<h4 class="font-bold">Expo Go</h4>
+<p class="text-sm text-gray-600">Test apps instantly di smartphone. Scan QR code dan langsung jalan!</p>
+</div>
+</v-click>
+
+<v-click>
+<div class="border-l-4 border-gray-400 pl-4">
+<h4 class="font-bold">Expo Router</h4>
+<p class="text-sm text-gray-600">File-based routing seperti Next.js. Modern navigation + TypeScript.</p>
+</div>
+</v-click>
+
+<v-click>
+<div class="border-l-4 border-gray-400 pl-4">
+<h4 class="font-bold">EAS Services</h4>
+<p class="text-sm text-gray-600">Cloud build & deployment. Push ke App Store/Play Store.</p>
+</div>
+</v-click>
+
 </div>
 
-<script setup>
-const expectations = [
-  { 
-    icon: '🧮', 
-    title: 'Tidak perlu jago matematika', 
-    desc: 'Logic thinking > Mathematical formulas' 
-  },
-  { 
-    icon: '🏃', 
-    title: 'Learning by Doing', 
-    desc: '70% praktek, 30% teori' 
-  },
-  { 
-    icon: '💪', 
-    title: 'Mistakes are OK', 
-    desc: 'Salah itu wajar, yang penting coba!' 
-  },
-  { 
-    icon: '👥', 
-    title: 'Team Work', 
-    desc: 'Final project berkelompok 3-4 orang' 
-  }
-]
-</script>
+<div class="pt-8 text-center">
 
----
-transition: fade
----
+<v-click>
+<div class="border border-gray-300 inline-block px-6 py-3 rounded">
+<span class="font-medium">Expo = React Native development 10x lebih mudah!</span>
+</div>
+</v-click>
 
-# Assessment Overview 📊
-
-<div class="mt-8">
-  <div v-for="(item, i) in assessments" :key="i"
-    v-click
-    class="mb-4">
-    <div class="flex items-center mb-2">
-      <span class="text-2xl mr-3">{{ item.icon }}</span>
-      <span class="text-xl font-bold">{{ item.name }}</span>
-      <span class="ml-auto text-2xl font-bold text-yellow-400">{{ item.percentage }}%</span>
-    </div>
-    <div class="w-full bg-gray-700 rounded-full h-6 overflow-hidden">
-      <div 
-        class="h-full rounded-full transition-all duration-1000 bg-gradient-to-r"
-        :class="item.color"
-        v-motion
-        :initial="{ width: '0%' }"
-        :enter="{ width: item.percentage + '%', transition: { delay: 500 + i * 200 } }">
-      </div>
-    </div>
-  </div>
 </div>
 
-<div v-click class="mt-8 p-6 bg-green-500/20 rounded-xl border border-green-500">
-  <p class="text-center text-xl">
-    <mdi-lightbulb class="text-2xl text-yellow-400"/> 
-    Tips: Konsisten mengerjakan tugas mingguan = 20% nilai sudah aman! 
-  </p>
-</div>
-
-<script setup>
-const assessments = [
-  { icon: '📝', name: 'Tugas Mingguan', percentage: 20, color: 'from-blue-500 to-cyan-500' },
-  { icon: '📊', name: 'UTS', percentage: 25, color: 'from-green-500 to-emerald-500' },
-  { icon: '👥', name: 'Progress Project', percentage: 15, color: 'from-purple-500 to-pink-500' },
-  { icon: '📱', name: 'Final Project', percentage: 30, color: 'from-orange-500 to-red-500' },
-  { icon: '🎤', name: 'Presentasi', percentage: 10, color: 'from-indigo-500 to-purple-500' }
-]
-</script>
-
----
-layout: center
-class: text-center
 ---
 
-# Let's Start Coding! 🚀
+# Modern Project Structure
 
-<div v-motion
-  :initial="{ scale: 0 }"
-  :enter="{ scale: 1, transition: { type: 'spring' } }"
-  class="text-8xl mb-8 animate-bounce">
-  💻
+<div class="grid grid-cols-2 gap-8 pt-4">
+
+<v-click>
+<div class="bg-gray-100 p-4 rounded text-xs font-mono">
+```
+HelloWorld/
+├── app/                    # Main directory
+│   ├── (tabs)/            # Tab navigation
+│   │   ├── index.tsx      # Home screen  
+│   │   ├── explore.tsx    # Second tab
+│   │   └── _layout.tsx    # Tab config
+│   ├── +html.tsx          # Web template
+│   ├── +not-found.tsx     # 404 page
+│   └── _layout.tsx        # Root layout
+├── components/            # Reusable UI
+├── constants/             # App constants  
+├── assets/                # Images, fonts
+└── package.json          # Dependencies
+```
 </div>
+</v-click>
 
+<v-click>
 <div class="space-y-4">
-  <h2 class="text-3xl">Praktikum Hari Ini:</h2>
-  
-  <div v-click v-for="(step, i) in steps" :key="i"
-    v-motion
-    :initial="{ x: -50, opacity: 0 }"
-    :enter="{ x: 0, opacity: 1, transition: { delay: i * 200 } }"
-    class="text-xl">
-    <span class="text-green-400 font-bold">{{ i + 1 }}.</span> {{ step }}
-  </div>
+<div>
+<h4 class="font-bold">File-based Routing</h4>
+<p class="text-sm text-gray-600">Seperti Next.js! File struktur = routing struktur.</p>
 </div>
 
-<div v-click class="mt-12 p-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl">
-  <h3 class="text-2xl mb-2 text-yellow-400">📚 Homework:</h3>
-  <p>Download 3 aplikasi React Native dari Play Store</p>
-  <p class="text-sm opacity-75">(Instagram, Discord, Pinterest, dll)</p>
+<div>
+<h4 class="font-bold">TypeScript Ready</h4>
+<p class="text-sm text-gray-600">Full TypeScript support out of the box.</p>
 </div>
 
-<script setup>
-const steps = [
-  'Install Node.js (bareng-bareng)',
-  'Install VS Code',
-  'Install Expo Go di HP',
-  'Buat "Hello World" pertama',
-  'Jalankan di HP masing-masing!'
-]
-</script>
+<div>
+<h4 class="font-bold">Universal Apps</h4>
+<p class="text-sm text-gray-600">Mobile, web, desktop dari satu kode!</p>
+</div>
+</div>
+</v-click>
+
+</div>
+
+---
+
+# Development Workflow
+
+<div class="space-y-6 pt-6">
+
+<v-click>
+<div class="flex items-start space-x-4">
+<div class="w-8 h-8 border-2 border-black rounded-full flex items-center justify-center font-bold text-sm">1</div>
+<div>
+<h4 class="font-bold">Development</h4>
+<p class="text-sm text-gray-600">Code dengan VS Code + Expo CLI. Hot reload untuk instant feedback.</p>
+</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="flex items-start space-x-4">
+<div class="w-8 h-8 border-2 border-black rounded-full flex items-center justify-center font-bold text-sm">2</div>
+<div>
+<h4 class="font-bold">Testing</h4>
+<p class="text-sm text-gray-600">Test di Expo Go (smartphone) atau web browser. Real device testing.</p>
+</div>
+</div>
+</v-click>
+
+<v-click>
+<div class="flex items-start space-x-4">
+<div class="w-8 h-8 border-2 border-black rounded-full flex items-center justify-center font-bold text-sm">3</div>
+<div>
+<h4 class="font-bold">Build & Deploy</h4>
+<p class="text-sm text-gray-600">EAS Build untuk production. Submit ke App Store & Play Store.</p>
+</div>
+</div>
+</v-click>
+
+</div>
+
+<div class="pt-8 text-center">
+
+<v-click>
+<div class="border border-gray-300 inline-block px-6 py-3 rounded">
+<span class="font-medium">Total development time: Hours, not weeks!</span>
+</div>
+</v-click>
+
+</div>
+
+---
+
+# Industry Trends 2025
+
+<div class="grid grid-cols-2 gap-8 pt-6">
+
+<v-click>
+<div>
+<h4 class="font-bold">5G Integration</h4>
+<p class="text-sm text-gray-600">3.6B connections by 2025. Enhanced AR/VR experiences.</p>
+</div>
+</v-click>
+
+<v-click>
+<div>
+<h4 class="font-bold">AI-Powered Apps</h4>
+<p class="text-sm text-gray-600">$1.1B revenue in 2024. Growth 200% year-over-year.</p>
+</div>
+</v-click>
+
+<v-click>
+<div>
+<h4 class="font-bold">IoT Integration</h4>
+<p class="text-sm text-gray-600">IoT market $1.387T by 2025. Smart home, wearables.</p>
+</div>
+</v-click>
+
+<v-click>
+<div>
+<h4 class="font-bold">Gaming Dominance</h4>
+<p class="text-sm text-gray-600">63% consumer spending. $132B revenue by 2029.</p>
+</div>
+</v-click>
+
+</div>
+
+<div class="pt-8">
+
+<v-click>
+<div class="text-center">
+<strong>Future is Mobile:</strong> Super apps, voice interfaces, edge computing
+</div>
+</v-click>
+
+</div>
+
+---
+
+# Real-World Challenges & Solutions
+
+<div class="grid grid-cols-3 gap-8 pt-6">
+
+<v-click>
+<div class="text-center">
+<h4 class="font-bold mb-3">Challenges</h4>
+<ul class="text-sm space-y-1">
+<li>• Platform differences</li>
+<li>• Performance concerns</li>
+<li>• Native module access</li>
+</ul>
+</div>
+</v-click>
+
+<v-click>
+<div class="text-center">
+<h4 class="font-bold mb-3">Solutions</h4>
+<ul class="text-sm space-y-1">
+<li>• Platform-specific code</li>
+<li>• Optimization techniques</li>
+<li>• Expo managed workflow</li>
+</ul>
+</div>
+</v-click>
+
+<v-click>
+<div class="text-center">
+<h4 class="font-bold mb-3">Results</h4>
+<ul class="text-sm space-y-1">
+<li>• 96% code reuse</li>
+<li>• Native performance</li>
+<li>• Faster development</li>
+</ul>
+</div>
+</v-click>
+
+</div>
+
+<div class="pt-8">
+
+<v-click>
+<div class="border-l-4 border-gray-400 pl-4">
+<h4 class="font-bold">Best Practices 2025</h4>
+<div class="grid grid-cols-2 gap-4 text-sm mt-2">
+<ul class="space-y-1">
+<li>• Use TypeScript dari awal</li>
+<li>• Implement proper state management</li>
+<li>• Optimize images dan assets</li>
+</ul>
+<ul class="space-y-1">
+<li>• Test di real devices</li>
+<li>• Follow platform guidelines</li>
+<li>• Monitor performance metrics</li>
+</ul>
+</div>
+</div>
+</v-click>
+
+</div>
+
+---
+
+# Siap Memulai Praktikum?
+
+<div class="text-center pt-4">
+
+<v-click>
+<div class="text-2xl font-bold mb-8">
+Let's Build Your First Mobile App!
+</div>
+</v-click>
+
+<div class="grid grid-cols-3 gap-8 mb-8">
+
+<v-click>
+<div class="text-center">
+<h4 class="font-bold">Setup Environment</h4>
+<p class="text-sm text-gray-600 mt-2">Node.js, Expo CLI, VS Code</p>
+</div>
+</v-click>
+
+<v-click>
+<div class="text-center">
+<h4 class="font-bold">Create First App</h4>
+<p class="text-sm text-gray-600 mt-2">Hello World dengan Expo Router</p>
+</div>
+</v-click>
+
+<v-click>
+<div class="text-center">
+<h4 class="font-bold">Run & Test</h4>
+<p class="text-sm text-gray-600 mt-2">Smartphone & web browser</p>
+</div>
+</v-click>
+
+</div>
+
+<v-click>
+<div class="border-2 border-black p-6 max-w-2xl mx-auto">
+<h4 class="font-bold mb-2">Target Hari Ini</h4>
+<p class="text-sm">
+Membuat aplikasi Hello World personal dengan info mahasiswa, styling menarik, 
+dan berhasil running di 2 platform!
+</p>
+</div>
+</v-click>
+
+</div>
+
+<div class="text-xs text-gray-500 mt-6 text-center">
+Duration: 3 jam | Jangan lupa screenshot hasil akhir!
+</div>
 
 ---
 layout: end
 class: text-center
 ---
 
-# Ready to Build Amazing Apps? 🎯
+# Thank You!
 
-<div class="text-6xl mb-8" v-motion
-  :initial="{ scale: 0, rotate: -360 }"
-  :enter="{ scale: 1, rotate: 0, transition: { duration: 1000 } }">
-  🏆
+<v-click>
+<div class="text-xl mb-6">
+Mari mulai praktikum dan bangun masa depan mobile development!
 </div>
+</v-click>
 
-<div class="text-2xl mb-8" v-motion
-  :initial="{ y: 50, opacity: 0 }"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 500 } }">
-  <p class="mb-4">Semester ini kita akan berubah</p>
-  <p class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
-    dari USER menjadi CREATOR!
-  </p>
+<v-click>
+<div class="border-2 border-black px-8 py-4 inline-block mb-6">
+<span class="font-bold">Ready untuk menjadi Mobile Developer?</span>
 </div>
+</v-click>
 
-<div v-click class="mt-12">
-  <p class="text-xl text-green-400 animate-pulse">
-    See you next week! 👋
-  </p>
+<v-click>
+<div class="text-sm text-gray-500">
+Slides created with Aidil Saputra Kirsan<br/>
+Let's code something amazing together!
 </div>
-
-<style>
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-</style>
-
----
-layout: none
-class: flex items-center justify-center h-full
----
-
-<div class="text-center">
-  <h1 class="text-6xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 animate-pulse">
-    Q&A Time! 🤔
-  </h1>
-  
-  <div class="text-2xl space-y-4" v-motion
-    :initial="{ scale: 0 }"
-    :enter="{ scale: 1, transition: { delay: 500 } }">
-    <p>Ada pertanyaan?</p>
-    <p class="text-yellow-400">Jangan malu bertanya!</p>
-  </div>
-  
-  <div class="mt-12 text-8xl animate-bounce">
-    💬
-  </div>
-</div>
-
-<style>
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 3s ease infinite;
-}
-</style>
+</v-click>
