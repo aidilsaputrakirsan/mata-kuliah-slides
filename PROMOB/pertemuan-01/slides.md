@@ -821,7 +821,7 @@ Mari mulai praktikum dan bangun masa depan mobile development!
 
 <v-click>
 <div class="text-sm text-gray-500">
-Slides created with Aidil Saputra Kirsan<br/>
+Slides created with Aidil Saputra sKirsan<br/>
 Let's code something amazing together!
 </div>
 </v-click>
