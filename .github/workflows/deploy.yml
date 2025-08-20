@@ -29,58 +29,88 @@ jobs:
       run: |
         echo "=== Auto-detecting slides ==="
        
-        # Find all slides.md files
+        # Find all slides.md files (existing pattern)
         slides_files=$(find . -path "*/pertemuan-*/slides.md" -not -path "*node_modules*" -not -path "*dist*" | sort)
+        
+        # Find SIMTA presentation.md (new pattern)
+        simta_files=$(find . -path "*/SIMTA/presentation.md" -not -path "*node_modules*" -not -path "*dist*" | sort)
+        
+        # Combine both patterns
+        all_files="$slides_files $simta_files"
        
-        if [ -z "$slides_files" ]; then
-          echo "❌ No slides.md files found"
-          echo "Expected structure: MK/pertemuan-XX/slides.md"
+        if [ -z "$all_files" ]; then
+          echo "❌ No slides files found"
+          echo "Expected structure: MK/pertemuan-XX/slides.md or SIMTA/presentation.md"
           find . -name "*.md" -not -path "*node_modules*" | head -10
           exit 1
         fi
        
         echo "Found slides:"
-        echo "$slides_files"
+        echo "$all_files"
        
         # Create main dist directory
         mkdir -p dist
        
-        # Build each slides.md file
+        # Build each slides file
         success_count=0
         total_count=0
         
-        for slide_path in $slides_files; do
+        for slide_path in $all_files; do
           echo "=== Processing: $slide_path ==="
           total_count=$((total_count + 1))
          
-          # Extract MK and pertemuan from path
-          # Example: ./PROMOB/pertemuan-01/slides.md -> PROMOB, pertemuan-01
-          mk=$(echo "$slide_path" | cut -d'/' -f2)
-          pertemuan=$(echo "$slide_path" | cut -d'/' -f3)
-         
-          echo "MK: $mk, Pertemuan: $pertemuan"
-          
-          # Check if slides.md file exists and is not empty
+          # Check if file exists and is not empty
           if [ ! -s "$slide_path" ]; then
             echo "⚠️  WARNING: $slide_path is empty or doesn't exist, skipping..."
             continue
           fi
          
-          # Build command (stay in project root, use npx)
-          echo "Building $mk/$pertemuan..."
-          if npx slidev build "$mk/$pertemuan/slides.md" \
-            --base "/mata-kuliah-slides/$mk/$pertemuan/" \
-            --out "dist/$mk/$pertemuan"; then
+          # Handle different patterns
+          if [[ "$slide_path" == *"/SIMTA/presentation.md" ]]; then
+            # SIMTA pattern
+            mk="SIMTA"
+            echo "MK: $mk (SIMTA Presentation)"
             
-            # Verify build success
-            if [ -f "dist/$mk/$pertemuan/index.html" ]; then
-              echo "✅ SUCCESS: $mk/$pertemuan built successfully"
-              success_count=$((success_count + 1))
+            # Build command for SIMTA
+            echo "Building $mk..."
+            if npx slidev build "SIMTA/presentation.md" \
+              --base "/mata-kuliah-slides/SIMTA/" \
+              --out "dist/SIMTA"; then
+              
+              # Verify build success
+              if [ -f "dist/SIMTA/index.html" ]; then
+                echo "✅ SUCCESS: $mk built successfully"
+                success_count=$((success_count + 1))
+              else
+                echo "❌ FAILED: $mk build failed - no index.html generated"
+              fi
             else
-              echo "❌ FAILED: $mk/$pertemuan build failed - no index.html generated"
+              echo "❌ FAILED: $mk build command failed"
             fi
+            
           else
-            echo "❌ FAILED: $mk/$pertemuan build command failed"
+            # Standard pertemuan pattern
+            mk=$(echo "$slide_path" | cut -d'/' -f2)
+            pertemuan=$(echo "$slide_path" | cut -d'/' -f3)
+           
+            echo "MK: $mk, Pertemuan: $pertemuan"
+            
+            # Build command (standard pattern)
+            echo "Building $mk/$pertemuan..."
+            if npx slidev build "$mk/$pertemuan/slides.md" \
+              --base "/mata-kuliah-slides/$mk/$pertemuan/" \
+              --out "dist/$mk/$pertemuan"; then
+              
+              # Verify build success
+              if [ -f "dist/$mk/$pertemuan/index.html" ]; then
+                echo "✅ SUCCESS: $mk/$pertemuan built successfully"
+                success_count=$((success_count + 1))
+              else
+                echo "❌ FAILED: $mk/$pertemuan build failed - no index.html generated"
+              fi
+            else
+              echo "❌ FAILED: $mk/$pertemuan build command failed"
+            fi
           fi
         done
        
@@ -117,13 +147,20 @@ jobs:
             h1 { color: #333; }
             .course { margin: 20px 0; }
             .course h2 { color: #666; }
-            a { color: #0066cc; text-decoration: none; }
+            .special { margin: 30px 0; padding: 20px; background: #f0f8ff; border-radius: 8px; }
+            .special h2 { color: #2563eb; }
+            a { color: #0066cc; text-decoration: none; margin-right: 15px; }
             a:hover { text-decoration: underline; }
           </style>
         </head>
         <body>
           <h1>📚 Mata Kuliah Slides</h1>
           <p>Kumpulan presentasi slides untuk mata kuliah Sistem Informasi</p>
+          
+          <div class="special">
+            <h2>🎓 SIMTA - Sistem Informasi Manajemen Tugas Akhir</h2>
+            <a href="SIMTA/" target="_blank">📊 Presentation Slides</a>
+          </div>
           
           <div class="course">
             <h2>🔗 DMJK - Dasar Manajemen Jaringan Komputer</h2>

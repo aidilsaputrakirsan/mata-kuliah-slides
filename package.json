@@ -72,6 +72,11 @@
     "dev:promob-14": "slidev PROMOB/pertemuan-14/slides.md --open",
     "dev:promob-15": "slidev PROMOB/pertemuan-15/slides.md --open",
     "dev:promob-16": "slidev PROMOB/pertemuan-16/slides.md --open",
+
+    "dev:simta": "slidev SIMTA/presentation.md --open",
+    "build:simta": "slidev build SIMTA/presentation.md --base /mata-kuliah-slides/SIMTA/ --out dist/SIMTA",
+    "export:simta": "slidev export SIMTA/presentation.md --format pdf --output exports/SIMTA-Presentation.pdf",
+
     "build:dmjk-01": "slidev build DMJK/pertemuan-01/slides.md --base /mata-kuliah-slides/DMJK/pertemuan-01/ --out dist/DMJK/pertemuan-01",
     "build:dmjk-02": "slidev build DMJK/pertemuan-02/slides.md --base /mata-kuliah-slides/DMJK/pertemuan-02/ --out dist/DMJK/pertemuan-02",
     "build:dmjk-03": "slidev build DMJK/pertemuan-03/slides.md --base /mata-kuliah-slides/DMJK/pertemuan-03/ --out dist/DMJK/pertemuan-03",
@@ -210,6 +215,9 @@
     "export:proweb": "npm run export:proweb-01 && npm run export:proweb-02 && npm run export:proweb-03 && npm run export:proweb-04 && npm run export:proweb-05 && npm run export:proweb-06 && npm run export:proweb-07 && npm run export:proweb-08 && npm run export:proweb-09 && npm run export:proweb-10 && npm run export:proweb-11 && npm run export:proweb-12 && npm run export:proweb-13 && npm run export:proweb-14 && npm run export:proweb-15 && npm run export:proweb-16",
     "export:promob": "npm run export:promob-01 && npm run export:promob-02 && npm run export:promob-03 && npm run export:promob-04 && npm run export:promob-05 && npm run export:promob-06 && npm run export:promob-07 && npm run export:promob-08 && npm run export:promob-09 && npm run export:promob-10 && npm run export:promob-11 && npm run export:promob-12 && npm run export:promob-13 && npm run export:promob-14 && npm run export:promob-15 && npm run export:promob-16",
     "export:all": "npm run export:dmjk && npm run export:cc && npm run export:proweb && npm run export:promob",
+    "build:all": "npm run build:dmjk && npm run build:cc && npm run build:proweb && npm run build:promob && npm run build:simta",
+    "export:all": "npm run export:dmjk && npm run export:cc && npm run export:proweb && npm run export:promob && npm run export:simta",
+
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
