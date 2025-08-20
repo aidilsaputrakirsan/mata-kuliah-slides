@@ -1,4 +1,4 @@
-name: Deploy Slides to GitHub Pages
+name: Deploy SIMTA to GitHub Pages
 on:
   push:
     branches: [ main ]
@@ -25,189 +25,106 @@ jobs:
     - name: Install dependencies
       run: npm ci
      
-    - name: Auto-detect and build all slides
+    - name: Build SIMTA only
       run: |
-        echo "=== Auto-detecting slides ==="
-       
-        # Find all slides.md files (existing pattern)
-        slides_files=$(find . -path "*/pertemuan-*/slides.md" -not -path "*node_modules*" -not -path "*dist*" | sort)
+        echo "=== Building SIMTA Presentation ==="
         
-        # Find SIMTA presentation.md (new pattern)
-        simta_files=$(find . -path "*/SIMTA/presentation.md" -not -path "*node_modules*" -not -path "*dist*" | sort)
-        
-        # Combine both patterns
-        all_files="$slides_files $simta_files"
-       
-        if [ -z "$all_files" ]; then
-          echo "❌ No slides files found"
-          echo "Expected structure: MK/pertemuan-XX/slides.md or SIMTA/presentation.md"
-          find . -name "*.md" -not -path "*node_modules*" | head -10
+        # Check if SIMTA presentation exists
+        if [ ! -f "SIMTA/presentation.md" ]; then
+          echo "❌ SIMTA/presentation.md not found!"
           exit 1
         fi
-       
-        echo "Found slides:"
-        echo "$all_files"
-       
-        # Create main dist directory
+        
+        # Create dist directory
         mkdir -p dist
-       
-        # Build each slides file
-        success_count=0
-        total_count=0
         
-        for slide_path in $all_files; do
-          echo "=== Processing: $slide_path ==="
-          total_count=$((total_count + 1))
-         
-          # Check if file exists and is not empty
-          if [ ! -s "$slide_path" ]; then
-            echo "⚠️  WARNING: $slide_path is empty or doesn't exist, skipping..."
-            continue
-          fi
-         
-          # Handle different patterns
-          if [[ "$slide_path" == *"/SIMTA/presentation.md" ]]; then
-            # SIMTA pattern
-            mk="SIMTA"
-            echo "MK: $mk (SIMTA Presentation)"
-            
-            # Build command for SIMTA
-            echo "Building $mk..."
-            if npx slidev build "SIMTA/presentation.md" \
-              --base "/mata-kuliah-slides/SIMTA/" \
-              --out "dist/SIMTA"; then
-              
-              # Verify build success
-              if [ -f "dist/SIMTA/index.html" ]; then
-                echo "✅ SUCCESS: $mk built successfully"
-                success_count=$((success_count + 1))
-              else
-                echo "❌ FAILED: $mk build failed - no index.html generated"
-              fi
-            else
-              echo "❌ FAILED: $mk build command failed"
-            fi
-            
-          else
-            # Standard pertemuan pattern
-            mk=$(echo "$slide_path" | cut -d'/' -f2)
-            pertemuan=$(echo "$slide_path" | cut -d'/' -f3)
-           
-            echo "MK: $mk, Pertemuan: $pertemuan"
-            
-            # Build command (standard pattern)
-            echo "Building $mk/$pertemuan..."
-            if npx slidev build "$mk/$pertemuan/slides.md" \
-              --base "/mata-kuliah-slides/$mk/$pertemuan/" \
-              --out "dist/$mk/$pertemuan"; then
-              
-              # Verify build success
-              if [ -f "dist/$mk/$pertemuan/index.html" ]; then
-                echo "✅ SUCCESS: $mk/$pertemuan built successfully"
-                success_count=$((success_count + 1))
-              else
-                echo "❌ FAILED: $mk/$pertemuan build failed - no index.html generated"
-              fi
-            else
-              echo "❌ FAILED: $mk/$pertemuan build command failed"
-            fi
-          fi
-        done
-       
-        echo "=== Build Summary ==="
-        echo "Total files processed: $total_count"
-        echo "Successful builds: $success_count"
-        echo "Failed builds: $((total_count - success_count))"
+        # Build SIMTA
+        echo "Building SIMTA presentation..."
+        npx slidev build "SIMTA/presentation.md" \
+          --base "/mata-kuliah-slides/SIMTA/" \
+          --out "dist/SIMTA"
         
-        # List successful builds
-        echo "Successfully built slides:"
-        find dist/ -name "index.html" | sort
-        
-        # Fail if no builds succeeded
-        if [ $success_count -eq 0 ]; then
-          echo "❌ No slides were successfully built!"
+        # Check if build was successful
+        if [ -f "dist/SIMTA/index.html" ]; then
+          echo "✅ SUCCESS: SIMTA built successfully"
+          echo "Built files:"
+          ls -la dist/SIMTA/
+        else
+          echo "❌ FAILED: SIMTA build failed"
+          echo "Dist directory contents:"
+          find dist/ -type f | head -20
           exit 1
         fi
        
-    - name: Copy landing page
+    - name: Create landing page
       run: |
-        if [ -f "docs/index.html" ]; then
-          cp docs/index.html dist/
-          echo "✅ Landing page copied"
-        else
-          echo "⚠️  No docs/index.html found, creating basic landing page..."
-          cat > dist/index.html << 'EOF'
+        cat > dist/index.html << 'EOF'
         <!DOCTYPE html>
         <html>
         <head>
-          <title>Mata Kuliah Slides</title>
+          <title>SIMTA Presentation</title>
           <meta charset="utf-8">
           <style>
-            body { font-family: Arial, sans-serif; margin: 40px; }
-            h1 { color: #333; }
-            .course { margin: 20px 0; }
-            .course h2 { color: #666; }
-            .special { margin: 30px 0; padding: 20px; background: #f0f8ff; border-radius: 8px; }
-            .special h2 { color: #2563eb; }
-            a { color: #0066cc; text-decoration: none; margin-right: 15px; }
-            a:hover { text-decoration: underline; }
+            body { 
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+              margin: 0; 
+              padding: 40px;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              min-height: 100vh;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .container {
+              background: white;
+              padding: 40px;
+              border-radius: 15px;
+              box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+              text-align: center;
+              max-width: 500px;
+            }
+            h1 { 
+              color: #333; 
+              margin-bottom: 10px;
+              font-size: 2.5em;
+            }
+            .subtitle {
+              color: #666;
+              margin-bottom: 30px;
+              font-size: 1.1em;
+            }
+            .btn {
+              display: inline-block;
+              background: linear-gradient(45deg, #667eea, #764ba2);
+              color: white;
+              text-decoration: none;
+              padding: 15px 30px;
+              border-radius: 25px;
+              font-size: 1.2em;
+              font-weight: bold;
+              transition: transform 0.3s ease;
+            }
+            .btn:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+            .emoji {
+              font-size: 3em;
+              margin-bottom: 20px;
+            }
           </style>
         </head>
         <body>
-          <h1>📚 Mata Kuliah Slides</h1>
-          <p>Kumpulan presentasi slides untuk mata kuliah Sistem Informasi</p>
-          
-          <div class="special">
-            <h2>🎓 SIMTA - Sistem Informasi Manajemen Tugas Akhir</h2>
-            <a href="SIMTA/" target="_blank">📊 Presentation Slides</a>
+          <div class="container">
+            <div class="emoji">🎓</div>
+            <h1>SIMTA</h1>
+            <p class="subtitle">Sistem Informasi Manajemen Tugas Akhir</p>
+            <a href="SIMTA/" class="btn">📊 Lihat Presentasi</a>
           </div>
-          
-          <div class="course">
-            <h2>🔗 DMJK - Dasar Manajemen Jaringan Komputer</h2>
-            <div id="dmjk-links"></div>
-          </div>
-          
-          <div class="course">
-            <h2>☁️ CC - Cloud Computing</h2>
-            <div id="cc-links"></div>
-          </div>
-          
-          <div class="course">
-            <h2>🌐 PROWEB - Pemrograman Web</h2>
-            <div id="proweb-links"></div>
-          </div>
-          
-          <div class="course">
-            <h2>📱 PROMOB - Pemrograman Mobile</h2>
-            <div id="promob-links"></div>
-          </div>
-          
-          <script>
-            // Auto-generate links based on available slides
-            const courses = ['dmjk', 'cc', 'proweb', 'promob'];
-            courses.forEach(course => {
-              const container = document.getElementById(course + '-links');
-              for(let i = 1; i <= 16; i++) {
-                const num = i.toString().padStart(2, '0');
-                const link = document.createElement('a');
-                link.href = course.toUpperCase() + '/pertemuan-' + num + '/';
-                link.textContent = 'Pertemuan ' + num;
-                link.style.marginRight = '15px';
-                link.target = '_blank';
-                container.appendChild(link);
-              }
-            });
-          </script>
         </body>
         </html>
         EOF
-          echo "✅ Basic landing page created"
-        fi
-       
-    - name: List all files before upload
-      run: |
-        echo "=== Final dist structure ==="
-        find dist/ -type f | sort
+        echo "✅ Landing page created"
        
     - name: Setup Pages
       uses: actions/configure-pages@v4
