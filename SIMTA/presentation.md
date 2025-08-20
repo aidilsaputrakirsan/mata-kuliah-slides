@@ -1,7 +1,12 @@
 ---
 theme: default
 title: SIM Tugas Akhir
+titleTemplate: '%s - Prodi SI'
 mdc: true
+themeConfig:
+  primary: '#1e40af'
+colorSchema: 'auto'
+favicon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🎓</text></svg>'
 ---
 
 # SIM Tugas Akhir / SITASI 
@@ -32,15 +37,31 @@ flowchart LR
    
    G --> H[🎓 Terhambat Kelulusan]
    
-   style A fill:#e1f5fe
-   style B fill:#fff3e0
-   style D fill:#ffebee
-   style E fill:#ffebee
-   style F fill:#ffebee
-   style I fill:#ffebee
-   style J fill:#ffebee
-   style G fill:#fce4ec
-   style H fill:#f3e5f5
+ style A fill:#e1f5fe,stroke:#1565c0,stroke-width:2px,color:#000
+   style B fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:#000
+   style C fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
+   style D fill:#ffebee,stroke:#d32f2f,stroke-width:2px,color:#000
+   style E fill:#ffebee,stroke:#d32f2f,stroke-width:2px,color:#000
+   style F fill:#ffebee,stroke:#d32f2f,stroke-width:2px,color:#000
+   style I fill:#ffebee,stroke:#d32f2f,stroke-width:2px,color:#000
+   style J fill:#ffebee,stroke:#d32f2f,stroke-width:2px,color:#000
+   style G fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#000
+   style H fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
+   
+   linkStyle default stroke:#333,stroke-width:3px
+   linkStyle 0 stroke:#1565c0,stroke-width:3px
+   linkStyle 1 stroke:#ef6c00,stroke-width:3px
+   linkStyle 2 stroke:#d32f2f,stroke-width:3px
+   linkStyle 3 stroke:#d32f2f,stroke-width:3px
+   linkStyle 4 stroke:#d32f2f,stroke-width:3px
+   linkStyle 5 stroke:#d32f2f,stroke-width:3px
+   linkStyle 6 stroke:#d32f2f,stroke-width:3px
+   linkStyle 7 stroke:#c2185b,stroke-width:3px
+   linkStyle 8 stroke:#c2185b,stroke-width:3px
+   linkStyle 9 stroke:#c2185b,stroke-width:3px
+   linkStyle 10 stroke:#c2185b,stroke-width:3px
+   linkStyle 11 stroke:#c2185b,stroke-width:3px
+   linkStyle 12 stroke:#7b1fa2,stroke-width:3px
 ```
 
 <div 
@@ -77,16 +98,31 @@ flowchart LR
     
     G --> H[📈 Bimbingan Optimal]
     
-    style A fill:#e1f5fe
-    style B fill:#e8f5e8
-    style C fill:#fff3e0
-    style D fill:#e8f5e8
-    style E fill:#e8f5e8
-    style F fill:#e8f5e8
-    style I fill:#e8f5e8
-    style J fill:#e8f5e8
-    style G fill:#f0f8ff
-    style H fill:#e6ffe6
+    style A fill:#e1f5fe,stroke:#1565c0,stroke-width:2px,color:#000
+    style B fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px,color:#000
+    style C fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:#000
+    style D fill:#e8f5e8,stroke:#388e3c,stroke-width:2px,color:#000
+    style E fill:#e8f5e8,stroke:#388e3c,stroke-width:2px,color:#000
+    style F fill:#e8f5e8,stroke:#388e3c,stroke-width:2px,color:#000
+    style I fill:#e8f5e8,stroke:#388e3c,stroke-width:2px,color:#000
+    style J fill:#e8f5e8,stroke:#388e3c,stroke-width:2px,color:#000
+    style G fill:#f0f8ff,stroke:#1976d2,stroke-width:2px,color:#000
+    style H fill:#e6ffe6,stroke:#4caf50,stroke-width:2px,color:#000
+    
+    linkStyle default stroke:#333,stroke-width:3px
+    linkStyle 0 stroke:#1565c0,stroke-width:3px
+    linkStyle 1 stroke:#2e7d32,stroke-width:3px
+    linkStyle 2 stroke:#388e3c,stroke-width:3px
+    linkStyle 3 stroke:#388e3c,stroke-width:3px
+    linkStyle 4 stroke:#388e3c,stroke-width:3px
+    linkStyle 5 stroke:#388e3c,stroke-width:3px
+    linkStyle 6 stroke:#388e3c,stroke-width:3px
+    linkStyle 7 stroke:#1976d2,stroke-width:3px
+    linkStyle 8 stroke:#1976d2,stroke-width:3px
+    linkStyle 9 stroke:#1976d2,stroke-width:3px
+    linkStyle 10 stroke:#1976d2,stroke-width:3px
+    linkStyle 11 stroke:#1976d2,stroke-width:3px
+    linkStyle 12 stroke:#4caf50,stroke-width:3px
 ```
 
 <div 
