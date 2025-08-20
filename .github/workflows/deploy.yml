@@ -25,45 +25,56 @@ jobs:
     - name: Install dependencies
       run: npm ci
      
-    - name: Build SIMTA only
+    - name: Setup SIMTA public folder
       run: |
-        echo "=== Building SIMTA Presentation ==="
+        echo "=== Setting up SIMTA structure ==="
         
-        # Check if SIMTA presentation exists
+        # Check if SIMTA structure exists
         if [ ! -f "SIMTA/presentation.md" ]; then
           echo "❌ SIMTA/presentation.md not found!"
           exit 1
         fi
         
-        # Create dist directory
-        mkdir -p dist
+        if [ ! -d "SIMTA/public" ]; then
+          echo "❌ SIMTA/public directory not found!"
+          exit 1
+        fi
         
-        # Build SIMTA
-        echo "Building SIMTA presentation..."
-        npx slidev build "SIMTA/presentation.md" \
+        echo "✅ SIMTA structure verified"
+        echo "SIMTA contents:"
+        ls -la SIMTA/
+        echo "SIMTA/public contents:"
+        ls -la SIMTA/public/
+     
+    - name: Build SIMTA
+      run: |
+        echo "=== Building SIMTA Presentation ==="
+        
+        # Change to SIMTA directory to make public folder accessible
+        cd SIMTA
+        
+        echo "Building from SIMTA directory..."
+        echo "Current directory: $(pwd)"
+        echo "Files available:"
+        ls -la
+        
+        # Build with relative paths
+        npx slidev build presentation.md \
           --base "/mata-kuliah-slides/SIMTA/" \
-          --out "dist/SIMTA"
+          --out "../dist/SIMTA"
         
-        # Wait a moment for files to be written
-        sleep 2
+        # Go back to root
+        cd ..
         
-        # Debug: Show what was actually built
-        echo "=== Checking build output ==="
-        echo "Dist directory structure:"
-        find dist/ -type f | head -20
-        
-        echo "SIMTA directory contents:"
-        ls -la dist/SIMTA/ || echo "SIMTA directory not found"
-        
-        # Check if build was successful (look for any .html file)
-        if find dist/SIMTA -name "*.html" -type f | grep -q .; then
+        echo "=== Checking build result ==="
+        if [ -f "dist/SIMTA/index.html" ]; then
           echo "✅ SUCCESS: SIMTA built successfully"
-          echo "HTML files found:"
-          find dist/SIMTA -name "*.html" -type f
+          echo "Built files:"
+          ls -la dist/SIMTA/ | head -10
         else
-          echo "❌ FAILED: No HTML files found in dist/SIMTA"
-          echo "Full dist structure:"
-          find dist/ -type f
+          echo "❌ Build verification failed"
+          echo "Dist structure:"
+          find dist/ -type f 2>/dev/null | head -10 || echo "No dist files"
           exit 1
         fi
        
