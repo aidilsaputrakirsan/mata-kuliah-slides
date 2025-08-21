@@ -64,15 +64,6 @@ flowchart LR
    linkStyle 12 stroke:#7b1fa2,stroke-width:3px
 ```
 
-<div 
-  v-click="1" 
-  v-motion
-  :initial="{ y: 50, opacity: 0 }"
-  :enter="{ y: 1, opacity: 1 }"
-  class="mt-8 text-center"
->
-</div>
-
 ---
 layout: center
 ---
@@ -125,15 +116,6 @@ flowchart LR
     linkStyle 12 stroke:#4caf50,stroke-width:3px
 ```
 
-<div 
-  v-click="1" 
-  v-motion
-  :initial="{ y: 50, opacity: 0 }"
-  :enter="{ y: 0, opacity: 1 }"
-  class="mt-8 text-center"
->
-
-</div>  
 
 ---
 layout: center
