@@ -1,14 +1,19 @@
-name: Deploy SIMTA to GitHub Pages
+name: Deploy All Course Slides to GitHub Pages
+
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,35 +30,32 @@ jobs:
     - name: Install dependencies
       run: npm ci
      
-    - name: Setup SIMTA public folder
+    - name: Verify project structure
       run: |
-        echo "=== Setting up SIMTA structure ==="
-        
-        # Check if SIMTA structure exists
-        if [ ! -f "SIMTA/presentation.md" ]; then
-          echo "❌ SIMTA/presentation.md not found!"
-          exit 1
-        fi
-        
-        if [ ! -d "SIMTA/public" ]; then
-          echo "❌ SIMTA/public directory not found!"
-          exit 1
-        fi
-        
-        echo "✅ SIMTA structure verified"
-        echo "SIMTA contents:"
-        ls -la SIMTA/
-        echo "SIMTA/public contents:"
-        ls -la SIMTA/public/
-     
+        echo "=== Project Structure Verification ==="
+        echo "Available course directories:"
+        ls -la
+        echo ""
+        echo "SIMTA structure:"
+        ls -la SIMTA/ || echo "SIMTA directory not found"
+        echo ""
+        echo "CC structure:"
+        ls -la CC/ || echo "CC directory not found"
+        echo ""
+        echo "DMJK structure:"
+        ls -la DMJK/ || echo "DMJK directory not found"
+        echo ""
+        echo "PROMOB structure:"
+        ls -la PROMOB/ || echo "PROMOB directory not found"
+
     - name: Build SIMTA
       run: |
         echo "=== Building SIMTA Presentation ==="
         
-        # Change to SIMTA directory to make public folder accessible
+        # Change to SIMTA directory
         cd SIMTA
         
-        echo "Building from SIMTA directory..."
+        echo "Building SIMTA from directory..."
         echo "Current directory: $(pwd)"
         echo "Files available:"
         ls -la
@@ -66,88 +68,145 @@ jobs:
         # Go back to root
         cd ..
         
-        echo "=== Checking build result ==="
+        echo "=== SIMTA Build Result ==="
         if [ -f "dist/SIMTA/index.html" ]; then
           echo "✅ SUCCESS: SIMTA built successfully"
-          echo "Built files:"
           ls -la dist/SIMTA/ | head -10
         else
-          echo "❌ Build verification failed"
-          echo "Dist structure:"
-          find dist/ -type f 2>/dev/null | head -10 || echo "No dist files"
+          echo "❌ SIMTA Build failed"
+          find dist/ -name "*.html" 2>/dev/null | head -5 || echo "No HTML files found"
           exit 1
         fi
-       
-    - name: Create landing page
+
+    - name: Build CC Slides
       run: |
-        cat > dist/index.html << 'EOF'
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <title>SIMTA Presentation</title>
-          <meta charset="utf-8">
-          <style>
-            body { 
-              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-              margin: 0; 
-              padding: 40px;
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              min-height: 100vh;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            }
-            .container {
-              background: white;
-              padding: 40px;
-              border-radius: 15px;
-              box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-              text-align: center;
-              max-width: 500px;
-            }
-            h1 { 
-              color: #333; 
-              margin-bottom: 10px;
-              font-size: 2.5em;
-            }
-            .subtitle {
-              color: #666;
-              margin-bottom: 30px;
-              font-size: 1.1em;
-            }
-            .btn {
-              display: inline-block;
-              background: linear-gradient(45deg, #667eea, #764ba2);
-              color: white;
-              text-decoration: none;
-              padding: 15px 30px;
-              border-radius: 25px;
-              font-size: 1.2em;
-              font-weight: bold;
-              transition: transform 0.3s ease;
-            }
-            .btn:hover {
-              transform: translateY(-2px);
-              box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            }
-            .emoji {
-              font-size: 3em;
-              margin-bottom: 20px;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="emoji">🎓</div>
-            <h1>SIMTA</h1>
-            <p class="subtitle">Sistem Informasi Manajemen Tugas Akhir</p>
-            <a href="SIMTA/" class="btn">📊 Lihat Presentasi</a>
-          </div>
-        </body>
-        </html>
-        EOF
-        echo "✅ Landing page created"
-       
+        echo "=== Building CC Course Slides ==="
+        mkdir -p dist/CC
+        
+        # Build CC slides that exist
+        for week in 01 02; do
+          if [ -f "CC/pertemuan-${week}/slides.md" ]; then
+            echo "Building CC Week ${week}..."
+            npx slidev build "CC/pertemuan-${week}/slides.md" \
+              --base "/mata-kuliah-slides/CC/pertemuan-${week}/" \
+              --out "dist/CC/pertemuan-${week}"
+            
+            if [ -f "dist/CC/pertemuan-${week}/index.html" ]; then
+              echo "✅ CC Week ${week} built successfully"
+            else
+              echo "⚠️ CC Week ${week} build failed, creating placeholder"
+              mkdir -p "dist/CC/pertemuan-${week}"
+              echo '<html><body><h1>CC Week '${week}' - Coming Soon</h1><p>Slides akan segera tersedia.</p></body></html>' > "dist/CC/pertemuan-${week}/index.html"
+            fi
+          else
+            echo "CC Week ${week} slides not found, creating placeholder"
+            mkdir -p "dist/CC/pertemuan-${week}"
+            echo '<html><body><h1>CC Week '${week}' - Coming Soon</h1><p>Slides akan segera tersedia.</p></body></html>' > "dist/CC/pertemuan-${week}/index.html"
+          fi
+        done
+        
+        # Create placeholders for remaining weeks (03-14)
+        for week in {03..14}; do
+          week_padded=$(printf "%02d" $week)
+          mkdir -p "dist/CC/pertemuan-${week_padded}"
+          echo '<html><body><h1>CC Week '${week_padded}' - Coming Soon</h1><p>Slides akan segera tersedia.</p></body></html>' > "dist/CC/pertemuan-${week_padded}/index.html"
+        done
+
+    - name: Build DMJK Slides
+      run: |
+        echo "=== Building DMJK Course Slides ==="
+        mkdir -p dist/DMJK
+        
+        # Build DMJK slides that exist
+        if [ -f "DMJK/pertemuan-02/slides.md" ]; then
+          echo "Building DMJK Week 02..."
+          npx slidev build "DMJK/pertemuan-02/slides.md" \
+            --base "/mata-kuliah-slides/DMJK/pertemuan-02/" \
+            --out "dist/DMJK/pertemuan-02"
+          
+          if [ -f "dist/DMJK/pertemuan-02/index.html" ]; then
+            echo "✅ DMJK Week 02 built successfully"
+          else
+            echo "⚠️ DMJK Week 02 build failed"
+          fi
+        fi
+        
+        # Create placeholders for all DMJK weeks
+        for week in {01..14}; do
+          week_padded=$(printf "%02d" $week)
+          if [ ! -f "dist/DMJK/pertemuan-${week_padded}/index.html" ]; then
+            mkdir -p "dist/DMJK/pertemuan-${week_padded}"
+            echo '<html><body><h1>DMJK Week '${week_padded}' - Coming Soon</h1><p>Slides akan segera tersedia.</p></body></html>' > "dist/DMJK/pertemuan-${week_padded}/index.html"
+          fi
+        done
+
+    - name: Build PROMOB Slides
+      run: |
+        echo "=== Building PROMOB Course Slides ==="
+        mkdir -p dist/PROMOB
+        
+        # Build PROMOB slides that exist
+        for week in 01 02; do
+          if [ -f "PROMOB/pertemuan-${week}/slides.md" ]; then
+            echo "Building PROMOB Week ${week}..."
+            npx slidev build "PROMOB/pertemuan-${week}/slides.md" \
+              --base "/mata-kuliah-slides/PROMOB/pertemuan-${week}/" \
+              --out "dist/PROMOB/pertemuan-${week}"
+            
+            if [ -f "dist/PROMOB/pertemuan-${week}/index.html" ]; then
+              echo "✅ PROMOB Week ${week} built successfully"
+            else
+              echo "⚠️ PROMOB Week ${week} build failed"
+            fi
+          fi
+        done
+        
+        # Create placeholders for remaining weeks
+        for week in {01..14}; do
+          week_padded=$(printf "%02d" $week)
+          if [ ! -f "dist/PROMOB/pertemuan-${week_padded}/index.html" ]; then
+            mkdir -p "dist/PROMOB/pertemuan-${week_padded}"
+            echo '<html><body><h1>PROMOB Week '${week_padded}' - Coming Soon</h1><p>Slides akan segera tersedia.</p></body></html>' > "dist/PROMOB/pertemuan-${week_padded}/index.html"
+          fi
+        done
+
+    - name: Build PROWEB Slides
+      run: |
+        echo "=== Building PROWEB Course Slides ==="
+        mkdir -p dist/PROWEB
+        
+        # Create placeholders for all PROWEB weeks
+        for week in {01..14}; do
+          week_padded=$(printf "%02d" $week)
+          mkdir -p "dist/PROWEB/pertemuan-${week_padded}"
+          echo '<html><body><h1>PROWEB Week '${week_padded}' - Coming Soon</h1><p>Slides akan segera tersedia.</p></body></html>' > "dist/PROWEB/pertemuan-${week_padded}/index.html"
+        done
+
+    - name: Copy landing page and assets
+      run: |
+        echo "=== Setting up landing page ==="
+        
+        # Copy main landing page
+        cp docs/index.html dist/index.html
+        cp docs/style.css dist/style.css
+        
+        # Verify landing page
+        if [ -f "dist/index.html" ]; then
+          echo "✅ Landing page copied successfully"
+          echo "Landing page size: $(wc -c < dist/index.html) bytes"
+        else
+          echo "❌ Failed to copy landing page"
+          exit 1
+        fi
+        
+        echo "=== Final dist structure ==="
+        find dist/ -name "index.html" | head -20
+        
+        # Create a site map for debugging
+        echo "=== Available slides ==="
+        find dist/ -name "index.html" | sort > dist/sitemap.txt
+        echo "Total slides available: $(wc -l < dist/sitemap.txt)"
+
     - name: Setup Pages
       uses: actions/configure-pages@v4
      
@@ -155,6 +214,7 @@ jobs:
       uses: actions/upload-pages-artifact@v3
       with:
         path: './dist'
+
   deploy:
     environment:
       name: github-pages
