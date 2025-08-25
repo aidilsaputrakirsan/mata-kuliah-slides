@@ -22,6 +22,8 @@
     "dev:dmjk-12": "slidev DMJK/pertemuan-12/slides.md --open",
     "dev:dmjk-13": "slidev DMJK/pertemuan-13/slides.md --open",
     "dev:dmjk-14": "slidev DMJK/pertemuan-14/slides.md --open",
+    "dev:dmjk-15": "slidev DMJK/pertemuan-15/slides.md --open",
+    "dev:dmjk-16": "slidev DMJK/pertemuan-16/slides.md --open",
 
     "dev:cc-01": "slidev CC/pertemuan-01/slides.md --open",
     "dev:cc-02": "slidev CC/pertemuan-02/slides.md --open",
@@ -37,6 +39,8 @@
     "dev:cc-12": "slidev CC/pertemuan-12/slides.md --open",
     "dev:cc-13": "slidev CC/pertemuan-13/slides.md --open",
     "dev:cc-14": "slidev CC/pertemuan-14/slides.md --open",
+    "dev:cc-15": "slidev CC/pertemuan-15/slides.md --open",
+    "dev:cc-16": "slidev CC/pertemuan-16/slides.md --open",
 
     "dev:proweb-01": "slidev PROWEB/pertemuan-01/slides.md --open",
     "dev:proweb-02": "slidev PROWEB/pertemuan-02/slides.md --open",
@@ -52,6 +56,8 @@
     "dev:proweb-12": "slidev PROWEB/pertemuan-12/slides.md --open",
     "dev:proweb-13": "slidev PROWEB/pertemuan-13/slides.md --open",
     "dev:proweb-14": "slidev PROWEB/pertemuan-14/slides.md --open",
+    "dev:proweb-15": "slidev PROWEB/pertemuan-15/slides.md --open",
+    "dev:proweb-16": "slidev PROWEB/pertemuan-16/slides.md --open",
 
     "dev:promob-01": "slidev PROMOB/pertemuan-01/slides.md --open",
     "dev:promob-02": "slidev PROMOB/pertemuan-02/slides.md --open",
@@ -67,6 +73,8 @@
     "dev:promob-12": "slidev PROMOB/pertemuan-12/slides.md --open",
     "dev:promob-13": "slidev PROMOB/pertemuan-13/slides.md --open",
     "dev:promob-14": "slidev PROMOB/pertemuan-14/slides.md --open",
+    "dev:promob-15": "slidev PROMOB/pertemuan-15/slides.md --open",
+    "dev:promob-16": "slidev PROMOB/pertemuan-16/slides.md --open",
 
     "dev:simta": "slidev SIMTA/presentation.md --open",
 

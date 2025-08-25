@@ -1,4 +1,4 @@
-name: Deploy All Course Slides to GitHub Pages
+name: Deploy All Course Slides to GitHub Pages (Fixed)
 
 on:
   push:
@@ -15,21 +15,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  # Build jobs run in PARALLEL - 3x faster!
+  build-simta:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-     
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'npm'
-       
     - name: Install dependencies
       run: npm ci
-
     - name: Build SIMTA
       run: |
         echo "🎓 Building SIMTA..."
@@ -38,97 +36,248 @@ jobs:
           --base "/mata-kuliah-slides/SIMTA/" \
           --out "../dist/SIMTA"
         cd ..
-        echo "✅ SIMTA ready"
+        
+        echo "📊 SIMTA Build verification:"
+        if [ -d "dist/SIMTA" ]; then
+          echo "✅ SIMTA directory created"
+          echo "Files: $(find dist/SIMTA -name "*.html" | wc -l) HTML files"
+          ls -la dist/SIMTA/
+        else
+          echo "❌ SIMTA directory not found"
+          exit 1
+        fi
+    - name: Upload SIMTA artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: simta-build
+        path: dist/SIMTA/
 
-    - name: Build CC Course (All Weeks)
+  build-cc:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm ci
+    - name: Build CC Course
       run: |
         echo "🌐 Building Cloud Computing course..."
+        mkdir -p dist/CC
+        
         for week in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16; do
           echo "Building CC Week ${week}..."
-          npx slidev build "CC/pertemuan-${week}/slides.md" \
+          if npx slidev build "CC/pertemuan-${week}/slides.md" \
             --base "/mata-kuliah-slides/CC/pertemuan-${week}/" \
-            --out "dist/CC/pertemuan-${week}" || {
-            echo "⚠️ CC Week ${week} build failed, continuing..."
-          }
+            --out "dist/CC/pertemuan-${week}"; then
+            echo "✅ CC Week ${week} built successfully"
+          else
+            echo "❌ CC Week ${week} build failed"
+          fi
         done
-        echo "✅ CC course completed (16 weeks)"
+        
+        echo "📊 CC Build summary:"
+        echo "Built directories: $(find dist/CC -name index.html | wc -l) weeks"
+    - name: Upload CC artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: cc-build
+        path: dist/CC/
 
-    - name: Build DMJK Course (All Weeks)
+  build-dmjk:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm ci
+    - name: Build DMJK Course
       run: |
         echo "🔗 Building DMJK course..."
+        mkdir -p dist/DMJK
+        
         for week in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16; do
           echo "Building DMJK Week ${week}..."
-          npx slidev build "DMJK/pertemuan-${week}/slides.md" \
+          if npx slidev build "DMJK/pertemuan-${week}/slides.md" \
             --base "/mata-kuliah-slides/DMJK/pertemuan-${week}/" \
-            --out "dist/DMJK/pertemuan-${week}" || {
-            echo "⚠️ DMJK Week ${week} build failed, continuing..."
-          }
+            --out "dist/DMJK/pertemuan-${week}"; then
+            echo "✅ DMJK Week ${week} built successfully"
+          else
+            echo "❌ DMJK Week ${week} build failed"
+          fi
         done
-        echo "✅ DMJK course completed (16 weeks)"
+        
+        echo "📊 DMJK Build summary:"
+        echo "Built directories: $(find dist/DMJK -name index.html | wc -l) weeks"
+    - name: Upload DMJK artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: dmjk-build
+        path: dist/DMJK/
 
-    - name: Build PROMOB Course (All Weeks)  
+  build-promob:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm ci
+    - name: Build PROMOB Course
       run: |
         echo "📱 Building Mobile Programming course..."
+        mkdir -p dist/PROMOB
+        
         for week in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16; do
           echo "Building PROMOB Week ${week}..."
-          npx slidev build "PROMOB/pertemuan-${week}/slides.md" \
+          if npx slidev build "PROMOB/pertemuan-${week}/slides.md" \
             --base "/mata-kuliah-slides/PROMOB/pertemuan-${week}/" \
-            --out "dist/PROMOB/pertemuan-${week}" || {
-            echo "⚠️ PROMOB Week ${week} build failed, continuing..."
-          }
+            --out "dist/PROMOB/pertemuan-${week}"; then
+            echo "✅ PROMOB Week ${week} built successfully"
+          else
+            echo "❌ PROMOB Week ${week} build failed"
+          fi
         done
-        echo "✅ PROMOB course completed (16 weeks)"
+        
+        echo "📊 PROMOB Build summary:"
+        echo "Built directories: $(find dist/PROMOB -name index.html | wc -l) weeks"
+    - name: Upload PROMOB artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: promob-build
+        path: dist/PROMOB/
 
-    - name: Build PROWEB Course (All Weeks)
+  build-proweb:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm ci
+    - name: Build PROWEB Course
       run: |
         echo "💻 Building Web Programming course..."
+        mkdir -p dist/PROWEB
+        
         for week in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16; do
           echo "Building PROWEB Week ${week}..."
-          npx slidev build "PROWEB/pertemuan-${week}/slides.md" \
+          if npx slidev build "PROWEB/pertemuan-${week}/slides.md" \
             --base "/mata-kuliah-slides/PROWEB/pertemuan-${week}/" \
-            --out "dist/PROWEB/pertemuan-${week}" || {
-            echo "⚠️ PROWEB Week ${week} build failed, continuing..."
-          }
+            --out "dist/PROWEB/pertemuan-${week}"; then
+            echo "✅ PROWEB Week ${week} built successfully"
+          else
+            echo "❌ PROWEB Week ${week} build failed"
+          fi
         done
-        echo "✅ PROWEB course completed (16 weeks)"
+        
+        echo "📊 PROWEB Build summary:"
+        echo "Built directories: $(find dist/PROWEB -name index.html | wc -l) weeks"
+    - name: Upload PROWEB artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: proweb-build
+        path: dist/PROWEB/
 
-    - name: Setup Landing Page
+  # Combine all builds and deploy
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build-simta, build-cc, build-dmjk, build-promob, build-proweb]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Download all artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: dist-parts
+        
+    - name: Debug downloaded artifacts
       run: |
-        echo "🏠 Setting up landing page..."
+        echo "🔍 Downloaded artifacts structure:"
+        ls -la dist-parts/
+        echo ""
+        for dir in dist-parts/*/; do
+          echo "Contents of $dir:"
+          ls -la "$dir" | head -10
+          echo ""
+        done
+        
+    - name: Combine builds
+      run: |
+        echo "🔄 Combining all builds..."
+        mkdir -p dist
+        
+        # Copy each course build with proper structure
+        if [ -d "dist-parts/simta-build" ]; then
+          cp -r dist-parts/simta-build/* dist/
+          echo "✅ SIMTA copied"
+        fi
+        
+        if [ -d "dist-parts/cc-build" ]; then
+          mkdir -p dist/CC
+          cp -r dist-parts/cc-build/* dist/CC/
+          echo "✅ CC copied"
+        fi
+        
+        if [ -d "dist-parts/dmjk-build" ]; then
+          mkdir -p dist/DMJK  
+          cp -r dist-parts/dmjk-build/* dist/DMJK/
+          echo "✅ DMJK copied"
+        fi
+        
+        if [ -d "dist-parts/promob-build" ]; then
+          mkdir -p dist/PROMOB
+          cp -r dist-parts/promob-build/* dist/PROMOB/
+          echo "✅ PROMOB copied"
+        fi
+        
+        if [ -d "dist-parts/proweb-build" ]; then
+          mkdir -p dist/PROWEB
+          cp -r dist-parts/proweb-build/* dist/PROWEB/
+          echo "✅ PROWEB copied"
+        fi
+        
+        # Copy landing page
         cp docs/index.html dist/index.html
         cp docs/style.css dist/style.css
-        echo "✅ Landing page ready"
-
-    - name: Build Summary
-      run: |
-        echo "📊 BUILD COMPLETED!"
-        echo "=================="
-        echo "Total pages built: $(find dist/ -name "index.html" 2>/dev/null | wc -l)"
+        
         echo ""
-        echo "Available courses:"
-        echo "🎓 SIMTA: $(find dist/SIMTA -name "index.html" 2>/dev/null | wc -l) presentation"
-        echo "🌐 CC: $(find dist/CC -name "index.html" 2>/dev/null | wc -l) weeks"
-        echo "🔗 DMJK: $(find dist/DMJK -name "index.html" 2>/dev/null | wc -l) weeks" 
-        echo "📱 PROMOB: $(find dist/PROMOB -name "index.html" 2>/dev/null | wc -l) weeks"
-        echo "💻 PROWEB: $(find dist/PROWEB -name "index.html" 2>/dev/null | wc -l) weeks"
-        echo ""
-        echo "🚀 Ready for deployment!"
+        echo "✅ Build combination completed"
+        echo "📊 Final verification:"
+        echo "Landing page: $([ -f "dist/index.html" ] && echo "✅" || echo "❌")"
+        echo "SIMTA: $(find dist -path "*/SIMTA/index.html" | wc -l) pages"
+        echo "CC: $(find dist -path "*/CC/*/index.html" | wc -l) pages"
+        echo "DMJK: $(find dist -path "*/DMJK/*/index.html" | wc -l) pages"
+        echo "PROMOB: $(find dist -path "*/PROMOB/*/index.html" | wc -l) pages"
+        echo "PROWEB: $(find dist -path "*/PROWEB/*/index.html" | wc -l) pages"
+        echo "Total: $(find dist -name "index.html" | wc -l) pages"
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
-     
+      
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: './dist'
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
+        
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
