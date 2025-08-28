@@ -245,40 +245,52 @@ layout: default
 
 <div class="grid grid-cols-2 gap-6">
 
-<div v-click="1">
-
-**⭐ Star Topology**
-- Semua perangkat ke pusat
-- ✅ Mudah troubleshoot
-- ❌ Single point of failure
-
+<div v-click="1" class="text-center">
+<img src="/topology-star.jpg" alt="Star" class="h-28 w-auto mx-auto mb-2" />
+<div class="text-sm">
+<strong>⭐ Star Topology</strong>
+<div class="text-xs mt-1 leading-tight">
+- Semua perangkat terhubung ke pusat<br>
+✅ Mudah diperbaiki<br>
+❌ Pusat rusak, semua mati
+</div>
+</div>
 </div>
 
-<div v-click="2">
-
-**🚌 Bus Topology**
-- Kabel utama bersama
-- ✅ Hemat kabel
-- ❌ Collision domain besar
-
+<div v-click="2" class="text-center">
+<img src="/topology-bus.jpg" alt="Bus" class="h-28 w-auto mx-auto mb-2" />
+<div class="text-sm">
+<strong>🚌 Bus Topology</strong>
+<div class="text-xs mt-1 leading-tight">
+- Satu kabel utama untuk semua<br>
+✅ Hemat kabel<br>
+❌ Sering tabrakan data
+</div>
+</div>
 </div>
 
-<div v-click="3">
-
-**🔄 Ring Topology**
-- Struktur melingkar
-- ✅ Token passing teratur
-- ❌ Satu putus, semua terganggu
-
+<div v-click="3" class="text-center">
+<img src="/topology-ring.jpg" alt="Ring" class="h-28 w-auto mx-auto mb-2" />
+<div class="text-sm">
+<strong>🔄 Ring Topology</strong>
+<div class="text-xs mt-1 leading-tight">
+- Bentuk lingkaran tertutup<br>
+✅ Data mengalir teratur<br>
+❌ Satu putus, semua terganggu
+</div>
+</div>
 </div>
 
-<div v-click="4">
-
-**🕷️ Mesh Topology**
-- Koneksi langsung semua
-- ✅ Redundansi tinggi
-- ❌ Biaya tinggi
-
+<div v-click="4" class="text-center">
+<img src="/topology-mesh.jpg" alt="Mesh" class="h-28 w-auto mx-auto mb-2" />
+<div class="text-sm">
+<strong>🕷️ Mesh Topology</strong>
+<div class="text-xs mt-1 leading-tight">
+- Semua saling terhubung langsung<br>
+✅ Sangat aman dari gangguan<br>
+❌ Mahal dan rumit
+</div>
+</div>
 </div>
 
 </div>
@@ -375,72 +387,34 @@ layout: default
 
 <div class="grid grid-cols-2 gap-8">
 
+<div>
 <div v-click="1">
-
-## **🏢 Di Dunia Kerja**
-
+<h2 class="text-xl font-bold mb-4">🏢 Di Dunia Kerja</h2>
+</div>
+<div class="text-sm space-y-2">
+<div v-click="2">⚡ Troubleshoot koneksi cepat</div>
+<div v-click="3">🏗️ Merancang infrastruktur IT</div>
+<div v-click="4">📈 Optimasi performa aplikasi</div>
+<div v-click="5">💼 Konsultan teknologi</div>
+</div>
 </div>
 
-<div v-click="2">
-
-- ⚡ Troubleshoot koneksi cepat
-
-</div>
-
-<div v-click="3">
-
-- 🏗️ Merancang infrastruktur IT
-
-</div>
-
-<div v-click="4">
-
-- 📈 Optimasi performa aplikasi
-
-</div>
-
-<div v-click="5">
-
-- 💼 Konsultan teknologi
-
-</div>
-
+<div>
 <div v-click="6">
-
-## **🏠 Kehidupan Sehari-hari**
-
+<h2 class="text-xl font-bold mb-4">🏠 Kehidupan Sehari-hari</h2>
 </div>
-
-<div v-click="7">
-
-- 🌐 Memahami cara kerja internet
-
+<div class="text-sm space-y-2">
+<div v-click="7">🌐 Memahami cara kerja internet</div>
+<div v-click="8">🔐 Keamanan data pribadi</div>
+<div v-click="9">🎮 Optimasi gaming/streaming</div>
+<div v-click="10">📱 Setup jaringan rumah pintar</div>
 </div>
-
-<div v-click="8">
-
-- 🔐 Keamanan data pribadi
-
-</div>
-
-<div v-click="9">
-
-- 🎮 Optimasi gaming/streaming
-
-</div>
-
-<div v-click="10">
-
-- 📱 Setup jaringan rumah pintar
-
 </div>
 
 </div>
 
-<div v-click="11">
-
-*Knowledge is power - terutama di era digital!*
-
+<div v-click="11" class="text-center mt-6 italic text-gray-600">
+Knowledge is power - terutama di era digital!
 </div>
 
 ---
@@ -521,74 +495,36 @@ layout: default
 
 # Dampak Jaringan di Era Digital
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2 gap-8">
 
+<div>
 <div v-click="1">
-
-## **🏭 Transformasi Industri**
-
+<h2 class="text-xl font-bold mb-4">🏭 Transformasi Industri</h2>
+</div>
+<div class="text-sm space-y-2">
+<div v-click="2">🛒 <strong>E-commerce</strong>: Shopee, Tokopedia</div>
+<div v-click="3">📺 <strong>Streaming</strong>: Netflix, YouTube</div>
+<div v-click="4">💼 <strong>Remote Work</strong>: Zoom, Teams</div>
+<div v-click="5">💳 <strong>Fintech</strong>: GoPay, OVO, Banking</div>
+</div>
 </div>
 
-<div v-click="2">
-
-- 🛒 **E-commerce**: Shopee, Tokopedia
-
-</div>
-
-<div v-click="3">
-
-- 📺 **Streaming**: Netflix, YouTube
-
-</div>
-
-<div v-click="4">
-
-- 💼 **Remote Work**: Zoom, Teams
-
-</div>
-
-<div v-click="5">
-
-- 💳 **Fintech**: GoPay, OVO, Banking
-
-</div>
-
+<div>
 <div v-click="6">
-
-## **👥 Perubahan Sosial**
-
+<h2 class="text-xl font-bold mb-4">👥 Perubahan Sosial</h2>
 </div>
-
-<div v-click="7">
-
-- 💬 Komunikasi global real-time
-
+<div class="text-sm space-y-2">
+<div v-click="7">💬 Komunikasi global real-time</div>
+<div v-click="8">📚 Akses pendidikan online</div>
+<div v-click="9">🏥 Telemedicine & konsultasi virtual</div>
+<div v-click="10">🤝 Social networking & communities</div>
 </div>
-
-<div v-click="8">
-
-- 📚 Akses pendidikan online
-
-</div>
-
-<div v-click="9">
-
-- 🏥 Telemedicine & konsultasi virtual
-
-</div>
-
-<div v-click="10">
-
-- 🤝 Social networking & communities
-
 </div>
 
 </div>
 
-<div v-click="11">
-
-*Jaringan = fondasi revolusi digital*
-
+<div v-click="11" class="text-center mt-6 italic text-gray-600">
+Jaringan = fondasi revolusi digital
 </div>
 
 ---
@@ -599,64 +535,28 @@ layout: default
 
 <div class="grid grid-cols-2 gap-8">
 
+<div>
 <div v-click="1">
-
-## **⚠️ Tantangan**
-
+<h2 class="text-xl font-bold mb-4">⚠️ Tantangan</h2>
+</div>
+<div class="text-sm space-y-2">
+<div v-click="2">🛡️ <strong>Keamanan Siber</strong>: Malware, phishing</div>
+<div v-click="3">🔒 <strong>Privacy</strong>: Perlindungan data pribadi</div>
+<div v-click="4">📊 <strong>Digital Divide</strong>: Kesenjangan akses</div>
+<div v-click="5">⚡ <strong>Bandwidth</strong>: Demand vs capacity</div>
+</div>
 </div>
 
-<div v-click="2">
-
-- 🛡️ **Keamanan Siber**: Malware, phishing
-
-</div>
-
-<div v-click="3">
-
-- 🔒 **Privacy**: Perlindungan data pribadi
-
-</div>
-
-<div v-click="4">
-
-- 📊 **Digital Divide**: Kesenjangan akses
-
-</div>
-
-<div v-click="5">
-
-- ⚡ **Bandwidth**: Demand vs capacity
-
-</div>
-
+<div>
 <div v-click="6">
-
-## **🌟 Peluang**
-
+<h2 class="text-xl font-bold mb-4">🌟 Peluang</h2>
 </div>
-
-<div v-click="7">
-
-- 📡 **5G Networks**: Ultra-high speed
-
+<div class="text-sm space-y-2">
+<div v-click="7">📡 <strong>5G Networks</strong>: Ultra-high speed</div>
+<div v-click="8">💻 <strong>Edge Computing</strong>: Local processing</div>
+<div v-click="9">🤖 <strong>AI Networking</strong>: Smart automation</div>
+<div v-click="10">🌐 <strong>SDN</strong>: Software-defined networks</div>
 </div>
-
-<div v-click="8">
-
-- 💻 **Edge Computing**: Local processing
-
-</div>
-
-<div v-click="9">
-
-- 🤖 **AI Networking**: Smart automation
-
-</div>
-
-<div v-click="10">
-
-- 🌐 **SDN**: Software-defined networks
-
 </div>
 
 </div>
@@ -669,72 +569,34 @@ layout: default
 
 <div class="grid grid-cols-2 gap-8">
 
+<div>
 <div v-click="1">
-
-## **🇮🇩 Indonesia 2024**
-
+<h2 class="text-xl font-bold mb-4">🇮🇩 Indonesia 2024</h2>
+</div>
+<div class="text-sm space-y-2">
+<div v-click="2">📱 <strong>212 juta</strong> pengguna internet</div>
+<div v-click="3">📊 <strong>96%</strong> akses via mobile</div>
+<div v-click="4">⏰ <strong>8+ jam</strong> online per hari</div>
+<div v-click="5">💰 <strong>Rp 2.3T</strong> ekonomi digital</div>
+</div>
 </div>
 
-<div v-click="2">
-
-- 📱 **212 juta** pengguna internet
-
-</div>
-
-<div v-click="3">
-
-- 📊 **96%** akses via mobile
-
-</div>
-
-<div v-click="4">
-
-- ⏰ **8+ jam** online per hari
-
-</div>
-
-<div v-click="5">
-
-- 💰 **Rp 2.3T** ekonomi digital
-
-</div>
-
+<div>
 <div v-click="6">
-
-## **🌍 Global**
-
+<h2 class="text-xl font-bold mb-4">🌍 Global</h2>
 </div>
-
-<div v-click="7">
-
-- 👥 **5.16 miliar** pengguna internet
-
+<div class="text-sm space-y-2">
+<div v-click="7">👥 <strong>5.16 miliar</strong> pengguna internet</div>
+<div v-click="8">📈 <strong>59 zettabyte</strong> data per bulan</div>
+<div v-click="9">🏠 <strong>50+ miliar</strong> perangkat IoT (2030)</div>
+<div v-click="10">🚀 <strong>400%</strong> growth in 10 tahun</div>
 </div>
-
-<div v-click="8">
-
-- 📈 **59 zettabyte** data per bulan
-
-</div>
-
-<div v-click="9">
-
-- 🏠 **50+ miliar** perangkat IoT (2030)
-
-</div>
-
-<div v-click="10">
-
-- 🚀 **400%** growth in 10 tahun
-
 </div>
 
 </div>
 
-<div v-click="11">
-
-*Peluang besar di balik angka-angka ini!*
-
+<div v-click="11" class="text-center mt-6 italic text-gray-600">
+Peluang besar di balik angka-angka ini!
 </div>
 
 ---
@@ -745,94 +607,40 @@ layout: default
 
 <div class="grid grid-cols-3 gap-6">
 
+<div>
 <div v-click="1">
-
-## **📅 Minggu Ini**
-
+<h2 class="text-lg font-bold mb-3">📅 Minggu Ini</h2>
+</div>
+<div class="text-xs space-y-1">
+<div v-click="2">1. 💾 Install Packet Tracer</div>
+<div v-click="3">2. 📝 Daftar Cisco NetAcad</div>
+<div v-click="4">3. 🔬 Coba simulasi dasar</div>
+<div v-click="5">4. 👥 Join komunitas networking</div>
+</div>
 </div>
 
-<div v-click="2">
-
-1. 💾 Install Packet Tracer
-
-</div>
-
-<div v-click="3">
-
-2. 📝 Daftar Cisco NetAcad
-
-</div>
-
-<div v-click="4">
-
-3. 🔬 Coba simulasi dasar
-
-</div>
-
-<div v-click="5">
-
-4. 👥 Join komunitas networking
-
-</div>
-
+<div>
 <div v-click="6">
-
-## **🗓️ Bulan Ini**
-
+<h2 class="text-lg font-bold mb-3">🗓️ Bulan Ini</h2>
+</div>
+<div class="text-xs space-y-1">
+<div v-click="7">• 💻 Pelajari Cisco CLI</div>
+<div v-click="8">• 📖 Course "Intro to Networks"</div>
+<div v-click="9">• 🎯 Practice lab scenarios</div>
+<div v-click="10">• 📚 Baca networking blogs</div>
+</div>
 </div>
 
-<div v-click="7">
-
-- 💻 Pelajari Cisco CLI
-
-</div>
-
-<div v-click="8">
-
-- 📖 Course "Intro to Networks"
-
-</div>
-
-<div v-click="9">
-
-- 🎯 Practice lab scenarios
-
-</div>
-
-<div v-click="10">
-
-- 📚 Baca networking blogs
-
-</div>
-
+<div>
 <div v-click="11">
-
-## **🎓 Semester Ini**
-
+<h2 class="text-lg font-bold mb-3">🎓 Semester Ini</h2>
 </div>
-
-<div v-click="12">
-
-- 🏆 Target sertifikasi CCNA
-
+<div class="text-xs space-y-1">
+<div v-click="12">• 🏆 Target sertifikasi CCNA</div>
+<div v-click="13">• 🔧 Lab dengan hardware</div>
+<div v-click="14">• 💼 Cari magang IT/ISP</div>
+<div v-click="15">• 🌟 Build networking portfolio</div>
 </div>
-
-<div v-click="13">
-
-- 🔧 Lab dengan hardware
-
-</div>
-
-<div v-click="14">
-
-- 💼 Cari magang IT/ISP
-
-</div>
-
-<div v-click="15">
-
-- 🌟 Build networking portfolio
-
 </div>
 
 </div>
@@ -845,90 +653,41 @@ layout: default
 
 <div class="grid grid-cols-2 gap-8">
 
+<div>
 <div v-click="1">
-
-## **🆓 Gratis**
-
+<h2 class="text-xl font-bold mb-4">🆓 Gratis</h2>
+</div>
+<div class="text-sm space-y-2">
+<div v-click="2">🎓 <strong>Cisco Networking Academy</strong></div>
+<div v-click="3">📺 <strong>YouTube</strong>: NetworkChuck, David Bombal</div>
+<div v-click="4">📝 <strong>Coursera</strong>: Computer Networks</div>
+<div v-click="5">📖 <strong>Free books</strong>: Cisco Press samples</div>
+</div>
 </div>
 
-<div v-click="2">
-
-- 🎓 **Cisco Networking Academy**
-
-</div>
-
-<div v-click="3">
-
-- 📺 **YouTube**: NetworkChuck, David Bombal
-
-</div>
-
-<div v-click="4">
-
-- 📝 **Coursera**: Computer Networks
-
-</div>
-
-<div v-click="5">
-
-- 📖 **Free books**: Cisco Press samples
-
-</div>
-
+<div>
 <div v-click="6">
-
-## **💳 Berbayar (Worth it!)**
-
+<h2 class="text-xl font-bold mb-4">💳 Berbayar (Worth it!)</h2>
 </div>
-
-<div v-click="7">
-
-- 🎯 **Udemy**: CCNA Complete Course
-
+<div class="text-sm space-y-2">
+<div v-click="7">🎯 <strong>Udemy</strong>: CCNA Complete Course</div>
+<div v-click="8">📚 <strong>Pluralsight</strong>: Networking Path</div>
+<div v-click="9">🏅 <strong>CBT Nuggets</strong>: Cisco Training</div>
+<div v-click="10">🎪 <strong>Linux Academy</strong>: Cloud Networking</div>
 </div>
-
-<div v-click="8">
-
-- 📚 **Pluralsight**: Networking Path
-
-</div>
-
-<div v-click="9">
-
-- 🏅 **CBT Nuggets**: Cisco Training
-
-</div>
-
-<div v-click="10">
-
-- 🎪 **Linux Academy**: Cloud Networking
-
 </div>
 
 </div>
 
+<div class="mt-8">
 <div v-click="11">
-
-## 💡 **Pro Tips**
-
+<h2 class="text-lg font-bold mb-3">💡 Pro Tips</h2>
 </div>
-
-<div v-click="12">
-
-- Start with free resources, upgrade gradually
-
+<div class="text-sm space-y-2">
+<div v-click="12">• Start with free resources, upgrade gradually</div>
+<div v-click="13">• Practice > Theory (80/20 rule)</div>
+<div v-click="14">• Join study groups dan forums</div>
 </div>
-
-<div v-click="13">
-
-- Practice > Theory (80/20 rule)
-
-</div>
-
-<div v-click="14">
-
-- Join study groups dan forums
-
 </div>
 
 ---
