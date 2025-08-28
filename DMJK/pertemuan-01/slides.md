@@ -1,100 +1,186 @@
 ---
 theme: default
-title: 'Coming Soon - Week XX'
-class: text-center
-highlighter: shiki
-lineNumbers: false
-background: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'
-info: |
-  ## Mata Kuliah - Week XX
-  Presentasi ini sedang dalam pengembangan
-  
-  Dosen: Aidil Saputra Kirsan, M.Tr.Kom
-drawings:
-  persist: false
-transition: slide-left
-mdc: true
+layout: center
+background: /bg-dark.jpg
 ---
 
-# [NAMA MATA KULIAH]
-## Week XX: [TOPIK AKAN DITENTUKAN]
+# Dasar Jaringan Komputer & Pengenalan Packet Tracer
+### Minggu 1 - Mata Kuliah Desain dan Jaringan Komputer
 
-<div class="pt-12">
-  <div class="text-6xl">🚧</div>
-  <div class="text-xl mt-4 text-gray-300">Presentasi dalam pengembangan</div>
-</div>
+![logo](/cisco-logo.png) <!-- CARI GAMBAR: "Cisco Logo PNG transparan" -->
 
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/aidilsaputrakirsan/mata-kuliah-slides" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
+---
+layout: default
+---
+
+# Agenda Hari Ini
+
+- **Dasar Jaringan Komputer**
+  - Definisi, tujuan, jenis jaringan
+  - Komponen & topologi
+  - Model OSI vs TCP/IP
+- **Pengenalan Packet Tracer**
+  - Fitur dan antarmuka
+  - Simulasi jaringan dasar
+- Rekomendasi gambar untuk presentasi
+
+---
+layout: default
+---
+
+# Apa Itu Jaringan Komputer?
+
+> Kumpulan perangkat yang saling terhubung untuk berbagi sumber daya, data, dan layanan
+
+- **Contoh nyata**:
+  - Jaringan kampus (LAN)
+  - Internet (WAN global)
+  - Printer bersama di kantor
+
+![jaringan-dasar](/network-basics.jpg) <!-- CARI GAMBAR: "Ilustrasi jaringan komputer sederhana di kantor" -->
+
+---
+layout: default
+---
+
+# Jenis-Jenis Jaringan
+
+| Tipe | Skala | Contoh |
+|------|-------|--------|
+| **LAN** | Lokal (1 gedung) | Jaringan lab komputer |
+| **WAN** | Global | Internet |
+| **MAN** | Kota | Jaringan ISP kota |
+| **PAN** | Pribadi | Bluetooth headset |
+
+![jenis-jaringan](/lan-wan-man-pan.jpg) <!-- CARI GAMBAR: "Perbandingan skala LAN WAN MAN PAN ilustrasi" -->
+
+---
+layout: default
+---
+
+# Topologi Jaringan
+
+- **Star**: Semua perangkat terhubung ke switch/router pusat
+- **Bus**: Kabel utama menghubungkan semua perangkat
+- **Ring**: Struktur melingkar
+- **Mesh**: Koneksi langsung antar-perangkat
+
+![topologi](/network-topologies.jpg) <!-- CARI GAMBAR: "Diagram 4 topologi jaringan (star, bus, ring, mesh) berdampingan" -->
+
+---
+layout: default
+---
+
+# Model OSI vs TCP/IP
+
+| OSI (7 Lapisan) | TCP/IP (4 Lapisan) |
+|-----------------|--------------------|
+| Application     | Application        |
+| Presentation    |                    |
+| Session         |                    |
+| Transport       | Transport          |
+| Network         | Internet           |
+| Data Link       | Network Interface  |
+| Physical        |                    |
+
+![osi-tcpip](/osi-tcpip-comparison.jpg) <!-- CARI GAMBAR: "Tabel perbandingan model OSI dan TCP/IP" -->
+
+---
+layout: default
+---
+
+# Apa Itu Packet Tracer?
+
+> Software simulasi jaringan dari Cisco untuk:
+> - Merancang topologi virtual
+> - Mengkonfigurasi perangkat
+> - Menguji alur data
+
+**Fitur utama**:
+- Simulasi tanpa hardware fisik
+- Persiapan sertifikasi CCNA
+- Analisis lalu lintas jaringan
+
+![packet-tracer-logo](/packet-tracer-logo.png) <!-- CARI GAMBAR: "Packet Tracer logo resmi Cisco" -->
+
+---
+layout: default
+---
+
+# Antarmuka Packet Tracer
+
+![interface](/packet-tracer-ui.jpg) <!-- CARI GAMBAR: "Tampilan antarmuka Packet Tracer dengan label toolbar dan workspace" -->
+
+- **Workspace**: Area desain topologi
+- **Toolbar**: Pilihan perangkat & kabel
+- **Mode**:
+  - *Realtime*: Konfigurasi perangkat
+  - *Simulation*: Analisis alur paket
+
+---
+layout: default
+---
+
+# Simulasi Jaringan Sederhana
+
+Langkah membuat jaringan LAN:
+1. Tambahkan 2 PC dan 1 switch
+2. Sambungkan dengan kabel **Straight-through**
+3. Konfigurasi IP address:
+```bash
+PC0> ipconfig 192.168.1.10 255.255.255.0
+PC1> ipconfig 192.168.1.11 255.255.255.0
+```
+4. Uji koneksi:
+```bash
+PC0> ping 192.168.1.11
+```
+
+![simulasi](/pt-lan-simulation.jpg) <!-- CARI GAMBAR: "Contoh konfigurasi IP dan ping di Packet Tracer" -->
+
+---
+layout: default
+---
+
+# Tips Praktis Packet Tracer
+
+- Gunakan **Auto Connect** untuk koneksi cepat
+- Perhatikan warna kabel:
+  - Hijau = koneksi aktif
+  - Merah = kesalahan konfigurasi
+- Ekspor konfigurasi sebagai `.pkt` untuk presentasi
+
+![tips](/pt-tips.jpg) <!-- CARI GAMBAR: "Ilustrasi warna kabel di Packet Tracer (hijau/merah)" -->
 
 ---
 layout: center
----
-
-# 📋 Status Pengembangan
-
-<div class="text-left max-w-2xl mx-auto">
-
-## 🎯 **Rencana Materi**
-- Topik dan subtopik sedang disusun
-- Referensi dan sumber belajar sedang dikumpulkan  
-- Contoh kasus dan latihan sedang disiapkan
-
-## 📅 **Timeline**
-- **Persiapan materi**: Dalam proses
-- **Review konten**: Menunggu persetujuan
-- **Finalisasi slides**: Segera tersedia
-
-## 🔔 **Informasi Terbaru**
-Pantau terus repository ini untuk update materi terbaru!
-
-</div>
-
----
-layout: center
----
-
-# 📞 Kontak & Info
-
-<div class="grid grid-cols-1 gap-8 max-w-lg mx-auto">
-
-<div class="text-center p-6 bg-white bg-opacity-10 rounded-lg backdrop-blur">
-<h3 class="text-xl font-bold mb-2">👨‍🏫 Dosen</h3>
-<p class="text-lg">Aidil Saputra Kirsan, M.Tr.Kom</p>
-<p class="text-sm opacity-80">aidil@lecturer.university.ac.id</p>
-</div>
-
-<div class="text-center p-6 bg-white bg-opacity-10 rounded-lg backdrop-blur">
-<h3 class="text-xl font-bold mb-2">📚 Repository</h3>
-<p class="text-sm">github.com/aidilsaputrakirsan/mata-kuliah-slides</p>
-</div>
-
-<div class="text-center p-6 bg-white bg-opacity-10 rounded-lg backdrop-blur">
-<h3 class="text-xl font-bold mb-2">🕐 Update</h3>
-<p class="text-sm">Slides akan diperbarui berkala</p>
-</div>
-
-</div>
-
----
-layout: end
 class: text-center
 ---
 
-# Terima Kasih! 🙏
+# Rekomendasi Gambar Tambahan
 
-<div class="text-xl mb-6">
-Materi akan segera tersedia
-</div>
+1. **Cari di Google**:
+   - `"Packet Tracer simulation mode alur paket"`
+   - `"Perbedaan kabel straight-through crossover"`
+   - `"Contoh jaringan mesh di lingkungan kota"`
 
-<div class="text-sm text-gray-400">
-Slides akan diperbarui secara berkala<br/>
-Stay tuned untuk konten terbaru!
-</div>
+2. **Format file**:
+   - PNG transparan untuk logo
+   - JPG resolusi tinggi untuk diagram
+
+![summary](/search-tips.jpg) <!-- CARI GAMBAR: "Screenshot pencarian Google Images dengan kata kunci spesifik" -->
+
+---
+layout: center
+class: text-center
+---
+
+# Terima Kasih
+
+## Praktikkan Konsep Ini di Packet Tracer!
+### Pertanyaan? 💬
+
+![qna](/qna-time.jpg) <!-- CARI GAMBAR: "Ilustrasi sesi tanya jawab kreatif" -->
+```
+
+---
