@@ -1,159 +1,226 @@
 ---
 theme: seriph
-title: 'Week 1: Environment Setup & GitHub Integration'
+title: 'Fundamental IP Address'
+titleTemplate: '%s - Networking Essentials'
 info: |
-  ## Cloud Computing - Week 1
-  Environment Setup & GitHub Integration
+  ## IP Address Fundamentals
   
-  Sistem Informasi - Universitas [Nama Universitas]
-  Semester Ganjil 2025/2026
-  
-  Dosen: Aidil Saputra Kirsan
-author: Aidil Saputra Kirsan
-keywords: cloud,computing,github,environment,setup
-fonts:
-  sans: 'Inter'
-  mono: 'Fira Code'
+  Materi komprehensif tentang pengalamatan IP untuk network engineer dan IT professional.
+class: 'text-center'
 drawings:
   persist: false
 transition: slide-left
 mdc: true
 ---
 
-# Cloud Computing
-## Week 1: Environment Setup & GitHub Integration
+# Fundamental IP Address
+## Pengalamatan Jaringan Komputer
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Sistem Informasi | Universitas <carbon:arrow-right class="inline"/>
+    Mari mulai pelajaran! <carbon:arrow-right class="inline"/>
   </span>
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/aidilsaputrakirsan/mata-kuliah-slides" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
-
 ---
 layout: default
 ---
 
-# 👨‍🏫 Course Information
+# Apa itu IP Address?
+
+<v-clicks>
+
+- **Internet Protocol Address** = Alamat unik setiap perangkat di jaringan
+- Fungsi seperti **alamat rumah** di dunia digital
+- Memungkinkan komunikasi antar perangkat
+- Dikelola dalam sistem hierarki global
+
+</v-clicks>
+
+<div v-click="5" class="mt-8 p-4 bg-blue-50 rounded-lg">
+💡 <strong>Analogi:</strong> IP Address seperti kode pos yang membantu postman mengirim surat ke alamat yang tepat
+</div>
+
+---
+layout: defaults
+---
+
+# IPv4 vs IPv6
+
+## IPv4
+<v-clicks>
+
+- **32-bit** (4 byte)
+- Format: `192.168.1.1`
+- **4.3 miliar** alamat
+- Hampir habis 📉
+- Masih dominan digunakan
+
+</v-clicks>
+
+## IPv6
+<v-clicks>
+
+- **128-bit** (16 byte)  
+- Format: `2001:db8::1`
+- **3.4×10³⁸** alamat
+- Masa depan internet 🚀
+- Adopsi bertahap
+
+</v-clicks>
+
+---
+layout: center
+class: 'text-center'
+---
+
+# Kelas IP Address
+## Pembagian Berdasarkan Ukuran Jaringan
+
+---
+
+# Kelas A - Jaringan Besar
 
 <div class="grid grid-cols-2 gap-8">
 
 <div>
 
-## 📋 Course Details
-- **Course**: Cloud Computing 
-- **Credits**: 3 SKS
-- **Semester**: Ganjil 2025/2026
-- **Class**: SI-A
-- **Time**: Selasa, 08:00-10:30
+## Spesifikasi
+- **Range:** `1.0.0.0` - `126.255.255.255`
+- **Subnet Mask:** `255.0.0.0` atau `/8`
+- **Network:** 126 buah
+- **Host per Network:** 16.777.214
 
 </div>
 
-<div>
+<div v-click>
 
-## 👨‍💼 Lecturer Info
-- **Name**: Aidil Saputra Kirsan
-- **Email**: aidil@university.ac.id
-- **Office**: Ruang Dosen
-- **Office Hours**: Senin-Jumat 10:00-12:00
+## Penggunaan
+- ISP besar
+- Organisasi multinasional
+- Infrastruktur internet
 
-</div>
-
-</div>
-
----
-layout: default
----
-
-# 🎯 Learning Objectives
-
-Setelah mengikuti pertemuan ini, mahasiswa mampu:
-
-<v-clicks>
-
-1. **Memahami** konsep dasar Cloud Computing dan pentingnya version control
-2. **Mengonfigurasi** development environment untuk praktikum Cloud Computing
-3. **Menggunakan** GitHub untuk manajemen kode dan kolaborasi
-4. **Mengimplementasikan** basic Git workflow untuk project management
-5. **Menyiapkan** tools dan platform yang akan digunakan sepanjang semester
-
-</v-clicks>
-
-<div class="mt-8 p-4 bg-blue-50 rounded-lg" v-click="6">
-  <h3 class="text-blue-800">🎓 Expected Outcomes</h3>
-  <p class="text-blue-700">Mahasiswa siap mengikuti praktikum Cloud Computing dengan environment yang proper dan memahami workflow development yang profesional.</p>
-</div>
-
----
-layout: two-cols
----
-
-# 📚 Course Overview
-
-<div>
-
-## What is Cloud Computing?
-
-<v-clicks>
-
-- **Definition**: Delivery of computing services over the internet
-- **Key Characteristics**:
-  - On-demand self-service
-  - Broad network access
-  - Resource pooling
-  - Rapid elasticity
-  - Measured service
-
-</v-clicks>
+```
+Contoh: 10.0.0.1/8
+Network: 10.0.0.0
+Host: 10.0.0.1 - 10.255.255.254
+```
 
 </div>
-
-::right::
-
-<div v-click="6">
-
-## Why GitHub Integration?
-
-- **Version Control**: Track changes, collaborate safely
-- **Portfolio**: Showcase your cloud projects
-- **Industry Standard**: Used in professional development
-- **CI/CD**: Automate deployment pipelines
-- **Documentation**: Maintain project documentation
 
 </div>
 
 ---
 
-# 🛠️ Development Environment Setup
+# Kelas B - Jaringan Menengah
 
 <div class="grid grid-cols-2 gap-8">
 
 <div>
 
-## Essential Tools
+## Spesifikasi
+- **Range:** `128.0.0.0` - `191.255.255.255`
+- **Subnet Mask:** `255.255.0.0` atau `/16`
+- **Network:** 16.384 buah
+- **Host per Network:** 65.534
+
+</div>
+
+<div v-click>
+
+## Penggunaan
+- Universitas
+- Perusahaan besar
+- Kampus
+
+```
+Contoh: 172.16.1.1/16
+Network: 172.16.0.0
+Host: 172.16.0.1 - 172.16.255.254
+```
+
+</div>
+
+</div>
+
+---
+
+# Kelas C - Jaringan Kecil
+
+<div class="grid grid-cols-2 gap-8">
+
+<div>
+
+## Spesifikasi
+- **Range:** `192.0.0.0` - `223.255.255.255`
+- **Subnet Mask:** `255.255.255.0` atau `/24`
+- **Network:** 2.097.152 buah
+- **Host per Network:** 254
+
+</div>
+
+<div v-click>
+
+## Penggunaan
+- Kantor kecil
+- Rumah/SOHO
+- LAN sederhana
+
+```
+Contoh: 192.168.1.1/24
+Network: 192.168.1.0
+Host: 192.168.1.1 - 192.168.1.254
+```
+
+</div>
+
+</div>
+
+---
+layout: center
+---
+
+# IP Publik vs Privat
+## Perbedaan Fundamental
+
+---
+
+# IP Address Publik
 
 <v-clicks>
 
-1. **Git & GitHub**
-   - Version control system
-   - Account creation & setup
+- **Dapat diakses dari internet** 🌐
+- **Unik secara global** - tidak ada duplikasi
+- **Dikelola oleh ISP** dan registry regional
+- **Dapat dirutekan** di internet
+- **Contoh:** `8.8.8.8` (Google DNS)
 
-2. **Code Editor**
-   - VS Code (Recommended)
-   - Extensions for cloud development
+</v-clicks>
 
-3. **Terminal/Command Line**
-   - Git Bash (Windows)
-   - Terminal (macOS/Linux)
+<div v-click="6" class="mt-8">
+
+```mermaid {scale: 0.8}
+graph LR
+    A[Device] --> B[Router] --> C[ISP] --> D[Internet]
+    B -.-> E[IP Publik: 203.0.113.1]
+```
+
+</div>
+
+---
+
+# IP Address Privat
+
+<div class="grid grid-cols-2 gap-6">
+
+<div>
+
+## Range Privat RFC 1918
+<v-clicks>
+
+- **Kelas A:** `10.0.0.0/8`
+- **Kelas B:** `172.16.0.0/12`  
+- **Kelas C:** `192.168.0.0/16`
 
 </v-clicks>
 
@@ -161,563 +228,513 @@ layout: two-cols
 
 <div v-click="4">
 
-## Cloud Platforms
-
-1. **Google Cloud Platform (GCP)**
-   - $300 free credits for students
-   - Wide range of services
-
-2. **Amazon Web Services (AWS)**
-   - Free tier available
-   - Industry leader
-
-3. **Microsoft Azure**
-   - Student benefits
-   - Integration with Microsoft tools
+## Karakteristik
+- ❌ Tidak bisa dirutekan di internet
+- ✅ Dapat digunakan berulang
+- 🔄 Butuh NAT untuk akses internet
+- 🏠 Ideal untuk jaringan internal
 
 </div>
 
 </div>
 
----
-layout: default
----
+<div v-click="5" class="mt-6">
 
-# 📱 GitHub Account Setup
-
-<div class="grid grid-cols-2 gap-8">
-
-<div>
-
-## Step 1: Create Account
-
-```bash
-# Visit https://github.com
-1. Click "Sign up"
-2. Choose username wisely 
-   (professional, permanent)
-3. Use university email
-4. Verify account
+```mermaid {scale: 0.7}
+graph LR
+    A[PC: 192.168.1.10] --> B[Router NAT] --> C[Internet]
+    D[Server: 192.168.1.5] --> B
+    B -.-> E[IP Publik: 203.0.113.1]
 ```
 
-<div class="mt-4 p-4 bg-blue-50 rounded-lg">
-  <h4 class="text-blue-800">💡 Pro Tips</h4>
-  <ul class="text-sm text-blue-700">
-    <li>Username akan jadi bagian dari portfolio</li>
-    <li>Gunakan nama yang mudah diingat</li>
-    <li>Hindari angka random</li>
-  </ul>
 </div>
 
-</div>
+---
+layout: center
+---
 
-<div>
+# Subnet Mask & CIDR
+## Membagi Network dan Host
 
-## Step 2: Profile Setup
+---
+
+# Subnet Mask
 
 <v-clicks>
 
-1. **Profile Picture**: Upload foto profesional
-2. **Bio**: Tambahkan deskripsi singkat
-3. **Location**: Kota/negara
-4. **University**: Tambahkan ke education
-5. **GitHub Student Pack**: Apply untuk benefits
+- **Fungsi:** Memisahkan bagian network dan host
+- **Format:** Sama dengan IP address (4 oktet)
+- **Binary:** 1 untuk network, 0 untuk host
 
 </v-clicks>
 
-<div v-click="6" class="mt-4 p-4 bg-green-50 rounded-lg">
-  <h4 class="text-green-800">🎓 Student Benefits</h4>
-  <p class="text-sm text-green-700">
-    GitHub Pro, unlimited private repos, cloud credits
-  </p>
-</div>
+<div v-click="4" class="mt-6">
 
-</div>
+## Contoh: 192.168.1.100/24
+
+| Komponen | Decimal | Binary |
+|----------|---------|--------|
+| IP Address | 192.168.1.100 | 11000000.10101000.00000001.01100100 |
+| Subnet Mask | 255.255.255.0 | 11111111.11111111.11111111.00000000 |
+| Network | 192.168.1.0 | 11000000.10101000.00000001.00000000 |
 
 </div>
 
 ---
 
-# 💻 Git Installation & Configuration
+# CIDR (Classless Inter-Domain Routing)
 
-## Windows - Download Git Bash
-Visit: https://git-scm.com/download/win and follow installation wizard
-
-## macOS - Using Homebrew
-```bash
-brew install git
-# Or download from: https://git-scm.com/download/mac
-```
-
-## Linux (Ubuntu/Debian)
-```bash
-sudo apt update
-sudo apt install git
-
-# CentOS/RHEL
-sudo yum install git
-```
-
-## Verify Installation
-```bash
-git --version
-# Should show: git version 2.x.x
-```
-
-## Global Configuration
-```bash
-git config --global user.name "Nama Lengkap"
-git config --global user.email "email@university.ac.id"
-git config --global init.defaultBranch main
-```
-
----
-layout: two-cols
----
-
-# 🔐 SSH Key Setup
+<div class="grid grid-cols-2 gap-6">
 
 <div>
 
-## Generate SSH Key
-
-```bash
-# Generate new SSH key
-ssh-keygen -t ed25519 -C "email@university.ac.id"
-
-# Or use RSA if ed25519 not supported
-ssh-keygen -t rsa -b 4096 -C "email@university.ac.id"
-
-# Press Enter for default location
-# Set passphrase (optional but recommended)
-```
-
-## Start SSH Agent
-
-```bash
-# Start ssh-agent
-eval "$(ssh-agent -s)"
-
-# Add SSH key to agent
-ssh-add ~/.ssh/id_ed25519
-```
-
-</div>
-
-::right::
-
-<div>
-
-## Add to GitHub
-
-```bash
-# Copy public key to clipboard
-
-# macOS
-pbcopy < ~/.ssh/id_ed25519.pub
-
-# Linux
-cat ~/.ssh/id_ed25519.pub
-
-# Windows (Git Bash)
-clip < ~/.ssh/id_ed25519.pub
-```
-
-**In GitHub:**
-1. Settings → SSH and GPG keys
-2. New SSH key
-3. Paste & save
-
-**Test Connection:**
-```bash
-ssh -T git@github.com
-```
-
-</div>
-
----
-
-# 🚀 First Repository Creation
-
-<div class="grid grid-cols-2 gap-8">
-
-<div>
-
-## Via GitHub Web
-
+## Format CIDR
 <v-clicks>
 
-1. **Click "New repository"**
-2. **Repository name**: `cc-week1-setup`
-3. **Description**: "Week 1 - Environment Setup"
-4. **Visibility**: Public
-5. **Initialize**: ✅ README, ✅ .gitignore (Node)
-6. **License**: MIT (optional)
+- **Notasi:** `IP/prefix`
+- **Prefix:** Jumlah bit network
+- **Contoh:** `192.168.1.0/24`
 
 </v-clicks>
 
 </div>
 
-<div v-click="7">
+<div v-click="4">
 
-## Clone to Local
+## Konversi CIDR
 
-```bash
-# Clone repository
-git clone git@github.com:username/cc-week1-setup.git
+| CIDR | Subnet Mask | Host Available |
+|------|-------------|----------------|
+| /24 | 255.255.255.0 | 254 |
+| /25 | 255.255.255.128 | 126 |
+| /26 | 255.255.255.192 | 62 |
+| /27 | 255.255.255.224 | 30 |
+| /28 | 255.255.255.240 | 14 |
 
-# Navigate to folder
-cd cc-week1-setup
+</div>
 
-# Check remote
-git remote -v
+</div>
 
-# Check status
-git status
+---
+layout: center
+---
+
+# Konsep Subnetting
+## Membagi Jaringan Menjadi Segmen Kecil
+
+---
+
+# Tujuan Subnetting
+
+<v-clicks>
+
+- 🎯 **Efisiensi** - Optimalisasi penggunaan IP
+- 🔒 **Keamanan** - Isolasi traffic antar subnet  
+- ⚡ **Performance** - Mengurangi collision domain
+- 👨‍💻 **Manajemen** - Memudahkan administrasi
+
+</v-clicks>
+
+<div v-click="5" class="mt-8">
+
+```mermaid {scale: 0.8}
+graph TD
+    A[192.168.1.0/24<br/>254 Host] --> B[Subnet 1<br/>192.168.1.0/26<br/>62 Host]
+    A --> C[Subnet 2<br/>192.168.1.64/26<br/>62 Host]  
+    A --> D[Subnet 3<br/>192.168.1.128/26<br/>62 Host]
+    A --> E[Subnet 4<br/>192.168.1.192/26<br/>62 Host]
 ```
 
-</div>
-
-</div>
-
-<div v-click="8" class="mt-8 p-4 bg-yellow-50 rounded-lg">
-  <h4 class="text-yellow-800">⚠️ Important</h4>
-  <p class="text-yellow-700">Ganti 'username' dengan GitHub username kalian!</p>
 </div>
 
 ---
 
-# 📝 Basic Git Workflow
+# Contoh Subnetting: Membagi /24 menjadi 4 Subnet
 
-## Check current status
-```bash
-git status
-```
+<v-clicks>
 
-## Create new file
-```bash
-echo "# Cloud Computing Environment Setup" > SETUP.md
-echo "This is my development environment for CC course" >> SETUP.md
-```
+**Jaringan Awal:** `192.168.1.0/24` (254 host)
 
-## Add file to staging
-```bash
-git add SETUP.md
-git status
-```
+**Target:** 4 subnet dengan ~60 host masing-masing
 
-## Commit changes
-```bash
-git commit -m "Add initial setup documentation"
-```
+**Solusi:** Gunakan `/26` (62 host per subnet)
 
-## Push to GitHub
-```bash
-git push origin main
-```
+</v-clicks>
 
-## Complete workflow example
-```bash
-git add .
-git commit -m "Update project documentation"
-git push origin main
-```
+<div v-click="4" class="mt-6">
 
-<div class="mt-4 p-4 bg-blue-50 rounded-lg">
-  <h4 class="text-blue-800">🔄 Git Workflow</h4>
-  <p class="text-blue-700"><strong>add</strong> → <strong>commit</strong> → <strong>push</strong></p>
+| Subnet | Network Address | Range Host | Broadcast |
+|--------|----------------|------------|-----------|
+| 1 | 192.168.1.0/26 | .1 - .62 | .63 |
+| 2 | 192.168.1.64/26 | .65 - .126 | .127 |
+| 3 | 192.168.1.128/26 | .129 - .190 | .191 |
+| 4 | 192.168.1.192/26 | .193 - .254 | .255 |
+
 </div>
 
 ---
-layout: two-cols
+layout: center
 ---
 
-# 🔧 VS Code Setup
+# Alamat Khusus
+## Network, Broadcast, dan Lainnya
+
+---
+
+# Network Address
+
+<v-clicks>
+
+- **Definisi:** Alamat pertama dalam subnet
+- **Fungsi:** Mengidentifikasi jaringan
+- **Tidak dapat digunakan** untuk host
+
+</v-clicks>
+
+<div v-click="4" class="mt-6 text-center">
+
+**Contoh:** `192.168.1.0/24`
+
+Network Address = `192.168.1.0`
+
+</div>
+
+---
+
+# Broadcast Address  
+
+<v-clicks>
+
+- **Definisi:** Alamat terakhir dalam subnet
+- **Fungsi:** Mengirim data ke semua host
+- **Tidak dapat digunakan** untuk host
+
+</v-clicks>
+
+<div v-click="4" class="mt-6 text-center">
+
+**Contoh:** `192.168.1.0/24`
+
+Broadcast Address = `192.168.1.255`
+
+</div>
+
+---
+
+# Alamat Khusus Lainnya
+
+<div class="grid grid-cols-2 gap-6">
 
 <div>
 
-## Essential Extensions
-
+## Loopback
 <v-clicks>
 
-1. **Git History** - Visualize git log
-2. **GitLens** - Enhanced git capabilities  
-3. **GitHub Pull Requests** - GitHub integration
-4. **Cloud Code** - Google Cloud development
-5. **AWS Toolkit** - AWS integration
-6. **Azure Tools** - Azure development
-7. **Docker** - Container development
-8. **YAML** - Cloud configuration files
+- **Range:** `127.0.0.0/8`
+- **Umum:** `127.0.0.1`
+- **Fungsi:** Testing internal
 
 </v-clicks>
 
 </div>
 
-::right::
+<div v-click="4">
 
-<div v-click="9">
-
-## Configuration
-
-```json
-{
-  "git.enableSmartCommit": true,
-  "git.confirmSync": false,
-  "git.autofetch": true,
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "workbench.colorTheme": "GitHub Dark",
-  "editor.fontSize": 14,
-  "editor.tabSize": 2
-}
-```
-
-## Integrated Terminal
-
-- **Ctrl + `** (Windows/Linux)
-- **Cmd + `** (macOS)
-- Use Git Bash on Windows
+## APIPA
+- **Range:** `169.254.0.0/16`
+- **Fungsi:** Auto-IP tanpa DHCP
+- **Windows:** Automatic Private IP
 
 </div>
 
----
+</div>
 
-# 🏗️ Project Structure Best Practices
-
-```
-cc-course-projects/
-├── README.md
-├── week-01-setup/
-│   ├── environment-config/
-│   ├── github-setup/
-│   └── documentation/
-├── week-02-basics/
-├── week-03-deployment/
-├── assignments/
-│   ├── assignment-01/
-│   └── assignment-02/
-├── labs/
-│   ├── lab-01-gcp/
-│   ├── lab-02-aws/
-│   └── lab-03-azure/
-└── final-project/
-    ├── frontend/
-    ├── backend/
-    └── deployment/
-```
-
-<div class="mt-4 p-4 bg-green-50 rounded-lg">
-  <h4 class="text-green-800">✅ Good Practices</h4>
-  <ul class="text-sm text-green-700">
-    <li>Consistent naming conventions</li>
-    <li>Clear folder structure</li>
-    <li>Descriptive commit messages</li>
-    <li>Regular commits</li>
-  </ul>
+<div v-click="5" class="mt-8 p-4 bg-yellow-50 rounded-lg">
+💡 <strong>Tips:</strong> Gunakan <code>ping 127.0.0.1</code> untuk test TCP/IP stack lokal
 </div>
 
 ---
+layout: center
+---
 
-# 📋 Hands-On Exercise
+# Perhitungan IP Address
+## Rumus dan Contoh Praktis
 
-<div class="grid grid-cols-2 gap-8">
+---
 
-<div>
-
-## Task 1: Environment Check
+# Menghitung Jumlah Host
 
 <v-clicks>
 
-1. ✅ Create GitHub account
-2. ✅ Install Git
-3. ✅ Configure Git globally
-4. ✅ Generate SSH key
-5. ✅ Add SSH key to GitHub
-6. ✅ Test SSH connection
+**Rumus:** $2^{(32-prefix)} - 2$
+
+**Mengapa -2?** 
+- Network address
+- Broadcast address
 
 </v-clicks>
 
-</div>
+<div v-click="4" class="mt-8">
 
-<div v-click="7">
+## Contoh Perhitungan
 
-## Task 2: First Repository
+| CIDR | Bit Host | Perhitungan | Jumlah Host |
+|------|----------|-------------|-------------|
+| /24 | 8 | $2^8 - 2$ | 254 |
+| /25 | 7 | $2^7 - 2$ | 126 |
+| /26 | 6 | $2^6 - 2$ | 62 |
+| /27 | 5 | $2^5 - 2$ | 30 |
 
-1. Create repository: `cc-aidil-2025`
-2. Clone to local machine
-3. Create folder structure
-4. Add README.md with:
-   - Your name & student ID
-   - Course information
-   - Environment details
-5. Commit and push changes
-
-</div>
-
-</div>
-
-<div v-click="8" class="mt-8 p-4 bg-purple-50 rounded-lg">
-  <h4 class="text-purple-800">🎯 Deliverable</h4>
-  <p class="text-purple-700">
-    Share your GitHub repository URL in the course LMS before next week!
-  </p>
 </div>
 
 ---
-layout: two-cols
----
 
-# 🛡️ Security Best Practices
-
-<div>
-
-## SSH Key Security
+# Menghitung Jumlah Subnet
 
 <v-clicks>
 
-- **Use passphrase** for SSH keys
-- **Store keys securely** (don't share)
-- **Rotate keys** annually
-- **Use different keys** for different services
+**Rumus:** $2^{bits\_dipinjam}$
+
+**Contoh:** Dari `/24` ke `/26`
+- Bits dipinjam = 26 - 24 = 2
+- Jumlah subnet = $2^2 = 4$
 
 </v-clicks>
 
-## Git Security
+<div v-click="4" class="mt-8">
 
-<v-clicks>
-
-- **Never commit** sensitive data
-- **Use .gitignore** for secrets
-- **Environment variables** for config
-- **Review before pushing**
-
-</v-clicks>
-
-</div>
-
-::right::
-
-<div v-click="9">
-
-## .gitignore Example
-
-```bash
-# Environment variables
-.env
-.env.local
-.env.production
-
-# Cloud credentials
-gcp-key.json
-aws-credentials
-azure-config
-
-# System files
-.DS_Store
-Thumbs.db
-
-# IDE files
-.vscode/settings.json
-.idea/
-
-# Dependencies
-node_modules/
-__pycache__/
-```
-
-</div>
-
----
-
-# 🗓️ Next Week Preview
-
-<div class="grid grid-cols-2 gap-8">
-
-<div>
-
-## Week 2: Cloud Fundamentals
-
-<v-clicks>
-
-- Cloud service models (IaaS, PaaS, SaaS)
-- Deployment models
-- Major cloud providers comparison
-- Hands-on: First GCP project setup
-
-</v-clicks>
-
-</div>
-
-<div v-click="5">
-
-## Preparation
-
-1. **Complete this week's tasks**
-2. **Explore GitHub features**
-3. **Read**: Chapter 1-2 from course textbook
-4. **Sign up**: Google Cloud Free Tier
-5. **Install**: Google Cloud SDK
-
-</div>
-
-</div>
-
-<div v-click="6" class="mt-8 p-4 bg-orange-50 rounded-lg">
-  <h4 class="text-orange-800">📚 Assignment</h4>
-  <p class="text-orange-700">
-    Create a markdown document comparing 3 major cloud providers (AWS, GCP, Azure) and commit to your repository.
-  </p>
-</div>
-
----
-
-# ❓ Q&A Session
-
-<div class="text-center pt-20">
-  <h2 class="text-4xl">🙋‍♀️ Questions & Discussion</h2>
-  <p class="text-xl mt-4 text-gray-600">
-    Ada pertanyaan tentang setup environment atau GitHub?
-  </p>
-  
-  <div class="grid grid-cols-2 gap-8 mt-12">
-    <div class="p-6 bg-blue-50 rounded-lg">
-      <h3 class="text-blue-800 text-lg font-semibold">💬 During Class</h3>
-      <p class="text-blue-700">Raise your hand or use chat</p>
-    </div>
+```mermaid {scale: 0.8}
+graph TD
+    A[/24 = 1 Network<br/>254 Host] 
+    A --> B[/26 = 4 Network<br/>62 Host each]
     
-    <div class="p-6 bg-green-50 rounded-lg">
-      <h3 class="text-green-800 text-lg font-semibold">📧 After Class</h3>
-      <p class="text-green-700">Email: aidil@university.ac.id</p>
-    </div>
-  </div>
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+```
+
 </div>
 
 ---
-layout: end
+layout: center
 ---
 
-# Thank You! 🙏
+# VLSM
+## Variable Length Subnet Mask
 
-<div class="text-center">
-  <h2 class="text-2xl mb-4">See you next week!</h2>
-  
-  <div class="flex justify-center space-x-8 text-sm">
-    <div>
-      <h3 class="font-semibold">📱 Contact</h3>
-      <p>aidil@university.ac.id</p>
-    </div>
-    
-    <div>
-      <h3 class="font-semibold">🔗 Resources</h3>
-      <p>github.com/aidilsaputrakirsan/mata-kuliah-slides</p>
-    </div>
-    
-    <div>
-      <h3 class="font-semibold">💬 Office Hours</h3>
-      <p>Senin-Jumat 10:00-12:00</p>
-    </div>
-  </div>
+---
+
+# Konsep VLSM
+
+<v-clicks>
+
+- **Definisi:** Subnet mask berbeda dalam satu jaringan
+- **Keuntungan:** Efisiensi penggunaan IP
+- **Fleksibilitas:** Sesuai kebutuhan host
+- **Mengurangi pemborosan** alamat
+
+</v-clicks>
+
+<div v-click="5" class="mt-8 p-4 bg-green-50 rounded-lg">
+💡 <strong>Prinsip:</strong> Alokasikan subnet sesuai kebutuhan, mulai dari yang terbesar
 </div>
 
-<div class="abs-br m-6 text-sm text-gray-500">
-  Cloud Computing - Week 1 | Generated with ❤️ using Slidev
+---
+
+# Contoh VLSM
+
+**Kebutuhan:**
+<v-clicks>
+
+- Subnet A: 50 host → `/26` (62 host)
+- Subnet B: 25 host → `/27` (30 host)  
+- Subnet C: 10 host → `/28` (14 host)
+- Point-to-Point: 2 host → `/30` (2 host)
+
+</v-clicks>
+
+<div v-click="5" class="mt-6">
+
+| Subnet | Kebutuhan | CIDR | Network | Range |
+|--------|-----------|------|---------|-------|
+| A | 50 | /26 | 192.168.1.0/26 | .1-.62 |
+| B | 25 | /27 | 192.168.1.64/27 | .65-.94 |
+| C | 10 | /28 | 192.168.1.96/28 | .97-.110 |
+| P2P | 2 | /30 | 192.168.1.112/30 | .113-.114 |
+
+</div>
+
+---
+layout: center
+---
+
+# Tips Praktis
+## Troubleshooting & Best Practices
+
+---
+
+# Troubleshooting Step-by-Step
+
+<v-clicks>
+
+1. **Ping localhost** → Test TCP/IP stack
+   ```bash
+   ping 127.0.0.1
+   ```
+
+2. **Ping gateway** → Test koneksi router
+   ```bash
+   ping 192.168.1.1
+   ```
+
+3. **Ping DNS** → Test name resolution
+   ```bash
+   ping 8.8.8.8
+   ```
+
+</v-clicks>
+
+---
+
+# Best Practices
+
+<div class="grid grid-cols-2 gap-6">
+
+<div>
+
+## Perencanaan
+<v-clicks>
+
+- 📝 **Dokumentasi** lengkap
+- 🔄 **Reservasi** IP untuk ekspansi
+- 📊 **Skema** yang konsisten
+
+</v-clicks>
+
+</div>
+
+<div v-click="4">
+
+## Keamanan
+- 🏠 Private IP untuk internal
+- 🔒 Segmentasi yang proper  
+- 🛡️ Firewall rules yang tepat
+
+</div>
+
+</div>
+
+<div v-click="5" class="mt-8 p-4 bg-blue-50 rounded-lg">
+💡 <strong>Golden Rule:</strong> Selalu dokumentasikan skema IP addressing Anda!
+</div>
+
+---
+layout: center
+---
+
+# Latihan Soal
+## Test Pemahaman Anda
+
+---
+
+# Soal 1: Analisis Subnet
+
+**Given:** IP `172.16.5.100/22`
+
+**Tentukan:**
+<v-clicks>
+
+- Network Address?
+- Broadcast Address?  
+- Range Host yang valid?
+- Jumlah total host?
+
+</v-clicks>
+
+<div v-click="5" class="mt-6 p-4 bg-gray-50 rounded-lg">
+💡 Hints: /22 = 255.255.252.0, perhatikan oktet ke-3
+</div>
+
+---
+
+# Soal 2: Subnetting
+
+**Challenge:** Bagi `192.168.100.0/24` menjadi:
+<v-clicks>
+
+- **6 subnet** 
+- **Minimal 25 host** per subnet
+- Gunakan subnet mask yang tepat
+
+</v-clicks>
+
+<div v-click="4" class="mt-6 p-4 bg-gray-50 rounded-lg">
+💡 Hints: Berapa bit yang dibutuhkan untuk 6 subnet? Berapa bit untuk 25 host?
+</div>
+
+---
+
+# Soal 3: VLSM Design
+
+**Requirement:** Desain VLSM untuk kebutuhan:
+<v-clicks>
+
+- **Sales Department:** 120 host
+- **IT Department:** 50 host  
+- **Management:** 15 host
+- **Server Farm:** 8 host
+- **2 Point-to-Point** links
+
+</v-clicks>
+
+<div v-click="6" class="mt-6 p-4 bg-gray-50 rounded-lg">
+💡 Network: 192.168.0.0/24 - Alokasi efisien?
+</div>
+
+---
+layout: center
+class: 'text-center'
+---
+
+# Kesimpulan
+
+<v-clicks>
+
+- **IP Address = Identitas unik** setiap perangkat
+- **Subnetting = Efisiensi** dan organisasi jaringan  
+- **VLSM = Optimalisasi** penggunaan alamat
+- **Practice makes perfect** 💪
+
+</v-clicks>
+
+<div v-click="5" class="mt-12">
+  <h2>Terima Kasih!</h2>
+  <p class="text-lg opacity-75">Questions & Discussion</p>
+</div>
+
+---
+layout: center
+---
+
+# Referensi & Resources
+
+<div class="grid grid-cols-2 gap-8 mt-8">
+
+<div>
+
+## RFC Documents
+- RFC 791 - Internet Protocol
+- RFC 1918 - Private Address Space
+- RFC 4632 - CIDR
+
+</div>
+
+<div>
+
+## Tools
+- [IP Calculator](https://www.subnet-calculator.com/)
+- [VLSM Calculator](https://vlsm-calc.net/)
+- Packet Tracer / GNS3
+
+</div>
+
 </div>
